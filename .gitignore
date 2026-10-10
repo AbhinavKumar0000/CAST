@@ -19,6 +19,13 @@ env/
 data/raw/gadm41_IND_shp/
 madhya_pradesh_administrative/
 
+# Evaluation artefacts (secrets, caches, run outputs)
+eval/cache/
+eval/runs/
+eval/.tmp/
+eval/data/ground_truth/**/*.xlsx
+eval/data/ground_truth/raw/
+
 # OS artefacts
 .DS_Store
 Thumbs.db

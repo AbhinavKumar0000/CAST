@@ -1,0 +1,19 @@
+[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	symlinks = false
+	ignorecase = true
+	autocrlf = false
+	safecrlf = false
+	longpaths = true
+	fsmonitor = false
+	hooksPath = C:\\Codes\\MCP for Farmemrs\\.deepwork\\git\\no-hooks
+[gc]
+	auto = 0
+	autoDetach = false
+[commit]
+	gpgsign = false
+[user]
+	name = ScalePBG
+	email = bot@scalepbg.local

@@ -1,0 +1,165 @@
+# eval/config.yaml — FROZEN evaluation protocol configuration.
+# Any change to this file changes the config SHA256 that is stamped into every
+# results file. Do not edit after a run has started; start a new run ID instead.
+
+meta:
+  run_id: "adhoc"            # overridden by CLI --run-id; used in results/<run_id>/
+  protocol_version: "1.0.0"
+  notes: >
+    Hindcast evaluation: scenario weather windows are sliced from the Open-Meteo
+    archive (reanalysis), so "next 7 days" are observed values, not true forecasts.
+    LLM provider: NVIDIA NIM free endpoints. All other providers (Gemini, Kilo, Opencode)
+    are retained in code but NOT used in this evaluation.
+
+paths:
+  repo_root: "."                                  # resolved relative to config file
+  data_dir: "eval/data"
+  cache_dir: "eval/cache"
+  runs_dir: "eval/runs"
+  results_dir: "eval/results"
+  figures_dir: "eval/figures"
+  report_dir: "eval/report"
+  ground_truth_dir: "eval/data/ground_truth"
+  scenarios_path: "eval/data/scenarios.jsonl"
+  stress_path: "eval/data/stress.jsonl"
+  llm_subset_path: "eval/data/llm_subset.jsonl"
+
+model:
+  # SAME model in EVERY LLM condition. Provider is the auth/transport backend.
+  #   provider: "nvidia"    -> NVIDIA NIM OpenAI-compatible API (needs NVIDIA_API_KEY)
+  #   provider: "gemini"    -> Google Generative Language API (legacy, disabled)
+  #   provider: "opencode"  -> shell out to opencode CLI (legacy, disabled)
+  #   provider: "kilo"      -> Kilo Gateway (legacy, disabled)
+  provider: "nvidia"
+  name: "nvidia/nemotron-3-ultra-550b-a55b"
+  temperature: 0.2
+  top_p: 1.0
+  max_output_tokens: 512
+  nvidia:
+    base_url: "https://integrate.api.nvidia.com/v1"
+    # Model selection (verified via /v1/models endpoint):
+    # PRIMARY: nvidia/nemotron-3-ultra-550b-a55b (largest reliable free model)
+    # COMPARISON models: selected from smoke test results
+    # require_list_models_check: true  # validate model exists before runs
+  gemini:
+    # Legacy Gemini provider - NOT USED in this evaluation
+    name: null
+    preference:
+      - "gemini-2.0-flash"
+      - "gemini-2.0-flash-001"
+      - "gemini-2.0-flash-lite"
+      - "gemini-2.5-flash"
+      - "gemini-1.5-flash"
+    require_list_models_check: true
+  opencode:
+    # Legacy opencode provider - NOT USED in this evaluation
+    binary: "opencode"
+    config_plain: "eval/opencode/plain/opencode.json"
+    config_mcp: "eval/opencode/mcp/opencode.json"
+    extra_args: ["--pure"]
+    timeout_seconds: 300
+    retries: 2
+  kilo:
+    # Legacy Kilo provider - NOT USED in this evaluation
+    base_url: "https://api.kilo.ai/api/gateway"
+
+mcp_eval_server:
+  host: "127.0.0.1"
+  port: 8011
+  url: "http://127.0.0.1:8011/mcp"
+
+seeds:
+  master: 20240601
+  scenario_sampling: 20240602
+  llm_subset_sampling: 20240603
+  bootstrap: 20240604
+
+scenarios:
+  n_total: 10000
+  date_start: "2024-01-01"
+  date_end: "2025-12-31"
+  stratify_by: ["district", "season", "agro_climatic_zone"]
+  point_in_polygon: true
+  weather_cache:
+    bulk_per_district: true
+    prefetch: true
+  past_days: 30
+  forecast_days: 7
+
+  stress_set:
+    min_n: 1000
+    rules:
+      drought_z_le: -1.5
+      heatwave_consecutive_35c_ge: 3
+      flood_probability_ge: 0.40
+
+  llm_subset:
+    n: 500
+    min_stress: 150
+
+conditions:
+  llm:
+    - id: "C0"
+      label: "LLM-only"
+      tools: false
+      strong_prompt: false
+    - id: "C0b"
+      label: "LLM-only strong prompt"
+      tools: false
+      strong_prompt: true
+    - id: "C1"
+      label: "LLM + context stuffing"
+      tools: "stuffed"
+      strong_prompt: false
+    - id: "C2"
+      label: "LLM + MCP (proposed)"
+      tools: "mcp"
+      strong_prompt: false
+  deterministic:
+    - id: "C3"
+      label: "No-LLM tools + weighted scorer"
+  repeats_for_consistency: 3
+  consistency_scenarios: 100
+
+ablations:
+  deterministic_on: "all"
+  remove_each_tool: true
+  weights:
+    repo:  {rainfall: 0.20, temperature: 0.15, soil: 0.20, season: 0.30, risk: 0.15}
+    equal: {rainfall: 0.20, temperature: 0.20, soil: 0.20, season: 0.20, risk: 0.20}
+    sensitivity_pct: 0.20
+  llm_leave_one_tool_out:
+    n: 100
+
+cost_control:
+  cache: "sqlite"
+  checkpoint_every_call: true
+  max_concurrency: 2
+  requests_per_minute: 12
+  daily_request_budget: 4000
+  max_retries: 5
+  backoff_base_seconds: 2.0
+  backoff_max_seconds: 60.0
+  jitter: true
+  dry_run_default: true
+
+metrics:
+  cutoff: 5
+  circular_internal_scores: ["agro_climate_score", "explainability_score"]
+  numeric_faithfulness:
+    tolerance_abs: 1.0
+    tolerance_rel: 0.05
+
+statistics:
+  bootstrap_resamples: 10000
+  ci: 0.95
+  paired_tests: ["wilcoxon", "mcnemar"]
+  multiple_comparison: "holm"
+  effect_sizes: ["cliffs_delta", "cohens_d"]
+  stratify_by: ["season", "agro_climatic_zone", "risk_level"]
+
+figures:
+  dpi: 300
+  formats: ["png", "pdf"]
+  palette: "colorblind"
+  style: "eval.mplstyle"

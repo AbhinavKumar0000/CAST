@@ -1,0 +1,8 @@
+{
+  "run_id": "adhoc",
+  "protocol_version": "1.0.0",
+  "config_sha256": "87dad7a988685a9dd81bb717719b77a0b737d3ef14137d62af9382b87d3cf9eb",
+  "git_commit": "5e5509000df0a15b5221f47499941972f54ace65",
+  "model_name_used": "deterministic_crop_score",
+  "created_utc": "2026-10-10T04:31:28.128451+00:00"
+}

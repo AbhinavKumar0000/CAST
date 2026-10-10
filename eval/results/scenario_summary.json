@@ -1,0 +1,11 @@
+{
+  "n": 10000,
+  "districts": 51,
+  "seasons": {
+    "Kharif": 3366,
+    "Rabi": 3319,
+    "Zaid": 3315
+  },
+  "zones_mapped": 0,
+  "config_sha256": "2fe37c276ce663f3d1db6cbc5f3b6c2553e35c1ddeec6952bc16c344c5f82b6f"
+}

@@ -27,10 +27,10 @@ class OpenMeteoClient:
         self._timeout = timeout
 
     def fetch(self, params: dict[str, Any]) -> dict[str, Any]:
-        delay_seconds = 1.0
+        delay_seconds = 5.0
         last_error: Exception | None = None
 
-        for attempt in range(1, 4):
+        for attempt in range(1, 6):
             try:
                 response = self._session.get(self._base_url, params=params, timeout=self._timeout)
                 response.raise_for_status()
@@ -40,11 +40,11 @@ class OpenMeteoClient:
                 logger.warning(
                     "Open-Meteo request failed on attempt %s/%s for %s: %s",
                     attempt,
-                    3,
+                    5,
                     self._base_url,
                     exc,
                 )
-                if attempt == 3:
+                if attempt == 5:
                     break
                 time.sleep(delay_seconds)
                 delay_seconds *= 2

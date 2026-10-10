@@ -1,0 +1,23 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "share": "disabled",
+  "mcp": {
+    "agrollama": {
+      "type": "remote",
+      "url": "http://127.0.0.1:8011/mcp",
+      "enabled": true,
+      "timeout": 30000
+    }
+  },
+  "agent": {
+    "eval-mcp": {
+      "mode": "primary",
+      "description": "Agronomy agent that MUST call the AgroLLaMA MCP tools before answering (evaluation C2).",
+      "temperature": 0.2,
+      "top_p": 1.0,
+      "steps": 12,
+      "prompt": "You are an agronomy advisor for Madhya Pradesh, India. You MUST call the AgroLLaMA MCP tools (weather_tool, climate_tool, season_tool, risk_tool, get_soil_by_coordinates, crop_score) with the given latitude and longitude before recommending crops. Base the recommendation strictly on the tool outputs. When finished, respond with ONLY the requested JSON object and nothing else."
+    }
+  }
+}

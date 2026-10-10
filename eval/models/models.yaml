@@ -1,0 +1,138 @@
+# eval/models/models.yaml
+# Machine-readable model registry for the evaluation
+
+fetched_at: "2026-10-10T03:45:00Z"
+base_url: "https://integrate.api.nvidia.com/v1"
+provider: "nvidia"
+api_key_env: "NVIDIA_API_KEY"
+
+global_config:
+  temperature: 0.2
+  top_p: 1.0
+  max_output_tokens: 512
+  thinking_mode: false
+  concurrency: 2
+  requests_per_minute: 12
+  daily_budget: 4000
+  backoff_base_seconds: 2.0
+  backoff_max_seconds: 60.0
+  jitter: true
+
+selected_models:
+  - model_id: "nvidia/nemotron-3-ultra-550b-a55b"
+    model_short_name: "nemotron-3-ultra"
+    role: "PRIMARY"
+    family: "NVIDIA Nemotron 3 Ultra"
+    parameters_total: 550000000000
+    parameters_active: 55000000000
+    context_length: 131072
+    max_output_tokens: 4096
+    reasoning_mode: false
+    tool_calling_supported: true
+    tool_calling_measured: true
+    tool_call_style: "parallel"
+    plain_latency_s: 15.6
+    tool_latency_s: 4.8
+    tool_calls_made: 1
+    tool_names_called: ["weather_tool"]
+    valid_json_rate: 1.0
+    access_status: "free_endpoint"
+    smoke_test_passed: true
+    selection_reason: "Largest accessible model, passes all reliability thresholds"
+    caveats: "Free trial endpoint, may change or disappear, non-version-locked"
+
+  - model_id: "z-ai/glm-5.3"
+    model_short_name: "glm-5.3"
+    role: "SECOND_FAMILY"
+    family: "Z.ai GLM"
+    parameters_total: null
+    parameters_active: null
+    context_length: 131072
+    max_output_tokens: 8192
+    reasoning_mode: false
+    tool_calling_supported: true
+    tool_calling_measured: true
+    tool_call_style: "sequential"
+    plain_latency_s: 57.2
+    tool_latency_s: 21.1
+    tool_calls_made: 6
+    tool_names_called: ["weather_tool", "climate_tool", "season_tool", "risk_tool", "get_soil_by_coordinates", "crop_score"]
+    valid_json_rate: 1.0
+    access_status: "free_endpoint"
+    smoke_test_passed: true
+    selection_reason: "Different family, calls all 6 tools correctly"
+    caveats: "Free trial endpoint, may change or disappear, non-version-locked, slower than Nemotron"
+
+  - model_id: "meta/llama-3.2-11b-vision-instruct"
+    model_short_name: "llama-3.2-11b"
+    role: "SMALL"
+    family: "Meta Llama 3.2"
+    parameters_total: 11000000000
+    parameters_active: 11000000000
+    context_length: 131072
+    max_output_tokens: 4096
+    reasoning_mode: false
+    tool_calling_supported: true
+    tool_calling_measured: true
+    tool_call_style: "sequential"
+    plain_latency_s: 11.2
+    tool_latency_s: 15.8
+    tool_calls_made: 6
+    tool_names_called: ["weather_tool", "climate_tool", "season_tool", "risk_tool", "get_soil_by_coordinates", "crop_score"]
+    valid_json_rate: 1.0
+    access_status: "free_endpoint"
+    smoke_test_passed: true
+    selection_reason: "Different family, fastest passing model, calls all tools"
+    caveats: "Free trial endpoint, may change or disappear, non-version-locked, vision model used for text"
+
+rejected_models:
+  - model_id: "nvidia/llama-3.1-nemotron-70b-instruct"
+    rejection_reason: "HTTP 403 Forbidden (partner-only endpoint)"
+  - model_id: "nvidia/llama-3.1-nemotron-ultra-253b-v1"
+    rejection_reason: "HTTP 403 Forbidden (partner-only endpoint)"
+  - model_id: "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning"
+    rejection_reason: "Reasoning model, not suitable for structured output tasks"
+  - model_id: "moonshotai/kimi-k2.6"
+    rejection_reason: "HTTP 403 Forbidden (partner-only endpoint)"
+  - model_id: "moonshotai/kimi-k3"
+    rejection_reason: "Timeout (>60s) on plain request"
+  - model_id: "deepseek-ai/deepseek-v4.1-flash"
+    rejection_reason: "Timeout (>60s) on plain request"
+  - model_id: "mistralai/mistral-large-2-instruct"
+    rejection_reason: "HTTP 403 Forbidden (partner-only endpoint)"
+  - model_id: "meta/llama-3.2-90b-vision-instruct"
+    rejection_reason: "Timeout (>60s) on plain request"
+  - model_id: "meta/llama-guard-4-12b"
+    rejection_reason: "Timeout (>60s) on plain request"
+
+benchmark_plan:
+  primary_model:
+    model_id: "nvidia/nemotron-3-ultra-550b-a55b"
+    llm_n: 500
+    conditions: ["C0", "C0b", "C1", "C2"]
+    repeats_for_consistency: 3
+    consistency_scenarios: 100
+    estimated_requests: 2000
+    estimated_hours: 2.5
+  
+  second_family_model:
+    model_id: "z-ai/glm-5.3"
+    llm_n: 150
+    conditions: ["C0", "C0b", "C1", "C2"]
+    repeats_for_consistency: 3
+    consistency_scenarios: 50
+    estimated_requests: 600
+    estimated_hours: 3.5
+  
+  small_model:
+    model_id: "meta/llama-3.2-11b-vision-instruct"
+    llm_n: 150
+    conditions: ["C0", "C0b", "C1", "C2"]
+    repeats_for_consistency: 3
+    consistency_scenarios: 50
+    estimated_requests: 600
+    estimated_hours: 1.5
+
+total_estimated_hours: 7.5
+sequential_execution: true
+rate_limit_per_model: 12

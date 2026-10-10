@@ -1,0 +1,33 @@
+{
+  "c3_distinct_crops": 21,
+  "c3_shannon_entropy": 4.029755746027043,
+  "c3_per_district_differentiation": 0.1812233842969606,
+  "c3_season_validity_overall": 0.74838,
+  "c3_season_validity_stress": 0.548338081671415,
+  "c3_season_validity_normal": 0.8939530062197651,
+  "n_scenarios": 10000,
+  "n_stress": 4212,
+  "n_normal": 5788,
+  "per_season": {
+    "Kharif": {
+      "n": 3366,
+      "validity": 0.9896019013666072
+    },
+    "Rabi": {
+      "n": 3319,
+      "validity": 0.9870442904489304
+    },
+    "Zaid": {
+      "n": 3315,
+      "validity": 0.26449472096530924
+    }
+  },
+  "meta": {
+    "run_id": "adhoc",
+    "protocol_version": "1.0.0",
+    "config_sha256": "87dad7a988685a9dd81bb717719b77a0b737d3ef14137d62af9382b87d3cf9eb",
+    "git_commit": "5e5509000df0a15b5221f47499941972f54ace65",
+    "model_name_used": "deterministic_analysis",
+    "created_utc": "2026-10-10T04:34:54.276739+00:00"
+  }
+}

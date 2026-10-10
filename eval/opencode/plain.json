@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "autoupdate": false,
+  "share": "disabled",
+  "agent": {
+    "eval-plain": {
+      "mode": "primary",
+      "description": "Single-shot agronomy JSON responder with no tools (evaluation C0/C0b/C1).",
+      "temperature": 0.2,
+      "top_p": 1.0,
+      "steps": 1,
+      "prompt": "You are a precise agronomy assistant for Madhya Pradesh, India. Respond with ONLY the requested JSON object and nothing else. Never use any tools. Do not add markdown fences or commentary."
+    }
+  }
+}

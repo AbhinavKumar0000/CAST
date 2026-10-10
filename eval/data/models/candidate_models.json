@@ -1,0 +1,46 @@
+{
+  "fetched_at": "2026-10-10T03:35:12.852932+00:00",
+  "candidates": [
+    {
+      "pattern": "nvidia/nemotron-3-ultra-550b-a55b",
+      "matches": [
+        "nvidia/nemotron-3-ultra-550b-a55b"
+      ]
+    },
+    {
+      "pattern": "nvidia/nemotron-3-super-120b-a12b",
+      "matches": [
+        "nvidia/nemotron-3-super-120b-a12b"
+      ]
+    },
+    {
+      "pattern": "nvidia/nemotron-3-nano-30b-a3b",
+      "matches": []
+    },
+    {
+      "pattern": "deepseek-ai/deepseek-v3.2",
+      "matches": []
+    },
+    {
+      "pattern": "deepseek-ai/deepseek-v3.1-terminus",
+      "matches": []
+    },
+    {
+      "pattern": "moonshotai/kimi-k2-instruct-0905",
+      "matches": []
+    },
+    {
+      "pattern": "qwen",
+      "matches": []
+    },
+    {
+      "pattern": "meta/llama",
+      "matches": [
+        "meta/llama-3.2-11b-vision-instruct",
+        "meta/llama-3.2-90b-vision-instruct",
+        "meta/llama-guard-4-12b",
+        "meta/llama2-70b"
+      ]
+    }
+  ]
+}
