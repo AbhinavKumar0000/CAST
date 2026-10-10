@@ -31,7 +31,7 @@ Last updated: 2026-10-10 03:13 UTC
 ### Phase 3: LLM Provider Switch (NEW - replaces Gemini)
 - [x] Part 1: Provider-agnostic LLM client for NVIDIA NIM
 - [x] Part 2: Model discovery & registry (models.yaml, MODELS.md)
-- [~] Part 3: Quota probe per model + plan
+- [x] Part 3: Quota probe per model + plan (QUOTA.md written)
 - [ ] Part 4: Cross-model comparison design (Fig_M01-M10)
 - [ ] Part 5: Report template updates
 
