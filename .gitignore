@@ -26,6 +26,11 @@ eval/.tmp/
 eval/data/ground_truth/**/*.xlsx
 eval/data/ground_truth/raw/
 
+# Internal tooling directories (not for distribution)
+.deepwork/
+.kilo/
+.opencode/
+
 # OS artefacts
 .DS_Store
 Thumbs.db
