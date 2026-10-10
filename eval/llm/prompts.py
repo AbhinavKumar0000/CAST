@@ -56,11 +56,13 @@ def normalize_crop(name: str) -> str | None:
 
 
 OUTPUT_CONTRACT = (
-    'Return ONLY a single JSON object, no markdown, no prose outside it:\n'
-    '{"top5": ["<crop1>", "<crop2>", "<crop3>", "<crop4>", "<crop5>"], '
-    '"explanation": "<60 words max>"}\n'
-    "Use the exact crop names from the list above. Do not invent crop names. "
-    "Rank them best-first."
+    'CRITICAL: Your entire response must be a SINGLE JSON object and NOTHING ELSE.\n'
+    'Do NOT include any explanatory text, markdown, code fences, or prose.\n'
+    'Do NOT write "Here is the JSON:" or any introduction.\n'
+    'Do NOT write "The user wants..." or "I need to consider..." or any reasoning.\n'
+    'Output EXACTLY this format:\n'
+    '{"top5": ["Soybean", "Wheat", "Rice", "Maize", "Cotton"], "explanation": "Brief reason <=60 words"}\n'
+    "Use EXACT crop names from the candidate list. No invented names. Rank best-first."
 )
 
 CROP_LIST_TEXT = "Candidate crops (use these exact names): " + ", ".join(CANONICAL_CROPS) + "."
@@ -80,11 +82,8 @@ def prompt_c0b(scenario: dict[str, Any]) -> str:
     return (
         "You are an expert agronomist for Madhya Pradesh, India.\n"
         f"District: {scenario['district']}. Coordinates: {scenario['lat']:.4f}, {scenario['lon']:.4f}. "
-        f"Date: {scenario['as_of_date']} (season is determined by the month).\n"
-        "Carefully consider all of the following before choosing crops: soil type and suitability "
-        "for the district, the current cropping season (Kharif/Rabi/Zaid) and sowing window, seasonal "
-        "rainfall and temperature suitability, and the risk of drought, heatwave, and flood/waterlogging.\n"
-        "Weigh these factors together and produce the most agronomically sound ranking.\n"
+        f"Date: {scenario['as_of_date']}.\n"
+        "Consider: soil type, cropping season (Kharif/Rabi/Zaid), rainfall, temperature, drought/heatwave/flood risk.\n"
         f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}"
     )
 

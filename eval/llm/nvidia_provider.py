@@ -198,7 +198,14 @@ class NvidiaProvider:
     def run(self, prompt: str, agent: str = "", use_mcp: bool = False) -> LLMResult:
         """Run a single prompt through NVIDIA NIM with optional tool calling."""
         
-        messages = [{"role": "user", "content": prompt}]
+        # System message to enforce JSON-only output
+        system_msg = {
+            "role": "system",
+            "content": "You are an agricultural advisor that outputs ONLY a valid JSON object. "
+                       "Never include any text, explanation, reasoning, or formatting outside the JSON. "
+                       "Your response must start with { and end with }. Nothing else."
+        }
+        messages = [system_msg, {"role": "user", "content": prompt}]
         tools = self._build_tools(use_mcp)
         tool_calls_count = 0
         total_tokens_in = 0
