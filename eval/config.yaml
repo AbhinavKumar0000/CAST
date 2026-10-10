@@ -34,12 +34,13 @@ model:
   name: "nvidia/nemotron-3-ultra-550b-a55b"
   temperature: 0.2
   top_p: 1.0
-  max_output_tokens: 512
+  max_output_tokens: 1024
+  max_output_tokens_tools: 2048  # for C1 (stuffed) and C2 (tool calling)
   nvidia:
     base_url: "https://integrate.api.nvidia.com/v1"
     # Model selection (verified via /v1/models endpoint):
-    # PRIMARY: nvidia/nemotron-3-ultra-550b-a55b (largest reliable free model)
-    # COMPARISON models: selected from smoke test results
+    # PRIMARY: nvidia/nemotron-3-ultra-550b-a55b (largest accessible model)
+    # COMPARISON: z-ai/glm-5.3, meta/llama-3.2-11b-vision-instruct
     # require_list_models_check: true  # validate model exists before runs
   gemini:
     # Legacy Gemini provider - NOT USED in this evaluation

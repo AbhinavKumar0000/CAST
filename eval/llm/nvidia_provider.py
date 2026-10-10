@@ -56,6 +56,7 @@ class NvidiaProvider:
         self.temperature = float(self.cfg["model"]["temperature"])
         self.top_p = float(self.cfg["model"]["top_p"])
         self.max_output_tokens = int(self.cfg["model"]["max_output_tokens"])
+        self.max_output_tokens_tools = int(self.cfg["model"].get("max_output_tokens_tools", 2048))
         
         # Rate limiting
         self.max_concurrency = int(self.cfg["cost_control"].get("max_concurrency", 2))
@@ -205,14 +206,17 @@ class NvidiaProvider:
         total_reasoning = 0
         start_time = time.perf_counter()
         
-        # Tool calling loop (max 6 rounds)
-        for round_num in range(6):
+        # Tool calling loop (max 10 rounds for 6 tools + synthesis)
+        max_rounds = 10
+        for round_num in range(max_rounds):
+            # Use higher token limit for tool-calling rounds
+            max_tokens = self.max_output_tokens_tools if tools else self.max_output_tokens
             payload = {
                 "model": self.model,
                 "messages": messages,
                 "temperature": self.temperature,
                 "top_p": self.top_p,
-                "max_tokens": self.max_output_tokens,
+                "max_tokens": max_tokens,
             }
             if tools:
                 payload["tools"] = tools

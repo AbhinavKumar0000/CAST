@@ -36,8 +36,8 @@ Last updated: 2026-10-10 03:13 UTC
 - [ ] Part 5: Report template updates
 
 ### Phase 4: LLM Experiments (per selected model)
-- [ ] PRIMARY model: nvidia/nemotron-3-ultra-550b-a55b
-  - [ ] Pilot: 30 scenarios × 4 conditions (C0, C0b, C1, C2)
+- [~] PRIMARY model: nvidia/nemotron-3-ultra-550b-a55b
+  - [x] Pilot: 30 scenarios × 4 conditions (C0, C0b, C1, C2) - PARTIAL (cache has 52/120 calls)
   - [ ] Full: 500 scenarios × 4 conditions (paired subset)
   - [ ] Consistency: 100 scenarios × 3 repeats × 4 conditions
 - [ ] SECOND_FAMILY model: z-ai/glm-5.3
