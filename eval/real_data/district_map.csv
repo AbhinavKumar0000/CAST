@@ -1,0 +1,750 @@
+source_label,target_district,kind
+Adilabad,Adilabad,identity
+Agar-Malwa,Agar Malwa,alias
+Agra,Agra,identity
+Ahilyanagar,Ahilyanagar,identity
+Ahmedabad,Ahmedabad,identity
+Aizawl,Aizawl,identity
+Ajmer,Ajmer,identity
+Akola,Akola,identity
+Alappuzha,Alappuzha,identity
+Aligarh,Aligarh,identity
+Alipurduar,Alipurduar,identity
+Alirajpur,Alirajpur,identity
+Alluri Sitharama Raju,Alluri Sitharama Raju,identity
+Almora,Almora,identity
+Alwar,Alwar,identity
+Ambala,Ambala,identity
+Ambedkar Nagar,Ambedkar Nagar,identity
+Amethi,Amethi,identity
+Amravati,Amravati,identity
+Amreli,Amreli,identity
+Amritsar,Amritsar,identity
+Amroha,Amroha,identity
+Anakapalli,Anakapalli,identity
+Anand,Anand,identity
+Ananthapuramu,Ananthapuramu,identity
+Anantnag,Anantnag,identity
+Anjaw,Anjaw,identity
+Annamayya,Annamayya,identity
+Anugola,Anugola,identity
+Anuppur,Anuppur,identity
+Araria,Araria,identity
+Ariyalur,Ariyalur,identity
+Arvalli,Arvalli,identity
+Arwal,Arwal,identity
+Ashoknagar,Ashoknagar,identity
+Auraiya,Auraiya,identity
+Aurangabad,Aurangabad,identity
+Ayodhya,Ayodhya,identity
+Azamgarh,Azamgarh,identity
+Bagalkote,Bagalkote,identity
+Bageshwar,Bageshwar,identity
+Baghpat,Baghpat,identity
+Bahraich,Bahraich,identity
+Baksa,Baksa,identity
+Balaghat,Balaghat,identity
+Balangir,Balangir,identity
+Baleshwar,Baleshwar,identity
+Ballari,Ballari,identity
+Ballia,Ballia,identity
+Balod,Balod,identity
+Balodabazar-Bhatapara,Balodabazar-Bhatapara,identity
+Balotra,Balotra,identity
+Balrampur,Balrampur,identity
+Balrampur-Ramanujganj,Balrampur-Ramanujganj,identity
+Banas Kantha,Banas Kantha,identity
+Banda,Banda,identity
+Bandipora,Bandipora,identity
+Banka,Banka,identity
+Bankura,Bankura,identity
+Banswara,Banswara,identity
+Bapatla,Bapatla,identity
+Bara Banki,Bara Banki,identity
+Baragada,Baragada,identity
+Baramulla,Baramulla,identity
+Baran,Baran,identity
+Bareilly,Bareilly,identity
+Barmer,Barmer,identity
+Barnala,Barnala,identity
+Barpeta,Barpeta,identity
+Barwani,Barwani,identity
+Bastar,Bastar,identity
+Basti,Basti,identity
+Bathinda,Bathinda,identity
+Beawar,Beawar,identity
+Beed,Beed,identity
+Begusarai,Begusarai,identity
+Belagavi,Belagavi,identity
+Bemetara,Bemetara,identity
+Bengaluru Rural,Bengaluru Rural,identity
+Bengaluru South,Bengaluru South,identity
+Bengaluru Urban,Bengaluru Urban,identity
+Betul,Betul,identity
+Bhadohi,Bhadohi,identity
+Bhadradri Kothagudem,Bhadradri Kothagudem,identity
+Bhadrak,Bhadrak,identity
+Bhagalpur,Bhagalpur,identity
+Bhandara,Bhandara,identity
+Bharatpur,Bharatpur,identity
+Bharuch,Bharuch,identity
+Bhavnagar,Bhavnagar,identity
+Bhilwara,Bhilwara,identity
+Bhind,Bhind,identity
+Bhiwani,Bhiwani,identity
+Bhojpur,Bhojpur,identity
+Bhopal,Bhopal,identity
+Bidar,Bidar,identity
+Bijapur,Bijapur,identity
+Bijnor,Bijnor,identity
+Bikaner,Bikaner,identity
+Bilaspur,Bilaspur,identity
+Birbhum,Birbhum,identity
+Bishnupur,Bishnupur,identity
+Biswanath,Biswanath,identity
+Bokaro,Bokaro,identity
+Bongaigaon,Bongaigaon,identity
+Botad,Botad,identity
+Boudh,Boudh,identity
+Budaun,Budaun,identity
+Budgam,Budgam,identity
+Bulandshahr,Bulandshahr,identity
+Buldhana,Buldhana,identity
+Bundi,Bundi,identity
+Burhanpur,Burhanpur,identity
+Buxar,Buxar,identity
+Cachar,Cachar,identity
+Chamarajanagar,Chamarajanagar,identity
+Chamba,Chamba,identity
+Chamoli,Chamoli,identity
+Champawat,Champawat,identity
+Champhai,Champhai,identity
+Chandauli,Chandauli,identity
+Chandel,Chandel,identity
+Chandigarh,Chandigarh,identity
+Chandrapur,Chandrapur,identity
+Changlang,Changlang,identity
+Charaideo,Charaideo,identity
+Charkhi Dadri,Charkhi Dadri,identity
+Chatra,Chatra,identity
+Chengalpattu,Chengalpattu,identity
+Chennai,Chennai,identity
+Chhatarpur,Chhatarpur,identity
+Chhatrapati Sambhajinagar,Chhatrapati Sambhajinagar,identity
+Chhindwara,Chhindwara,identity
+Chhotaudepur,Chhotaudepur,identity
+Chikkaballapura,Chikkaballapura,identity
+Chikkamagaluru,Chikkamagaluru,identity
+Chirang,Chirang,identity
+Chitradurga,Chitradurga,identity
+Chitrakoot,Chitrakoot,identity
+Chittoor,Chittoor,identity
+Chittorgarh,Chittorgarh,identity
+Chumoukedima,Chumoukedima,identity
+Churachandpur,Churachandpur,identity
+Churu,Churu,identity
+Coimbatore,Coimbatore,identity
+Cooch Behar,Cooch Behar,identity
+Cuddalore,Cuddalore,identity
+Dadra And Nagar Haveli,Dadra And Nagar Haveli,identity
+Dahod,Dahod,identity
+Dakshin Bastar Dantewada,Dakshin Bastar Dantewada,identity
+Dakshin Dinajpur,Dakshin Dinajpur,identity
+Dakshina Kannada,Dakshina Kannada,identity
+Daman,Daman,identity
+Damoh,Damoh,identity
+Dangs,Dangs,identity
+Darbhanga,Darbhanga,identity
+Darjeeling,Darjeeling,identity
+Darrang,Darrang,identity
+Datia,Datia,identity
+Dausa,Dausa,identity
+Davanagere,Davanagere,identity
+Debagada,Debagada,identity
+Deeg,Deeg,identity
+Dehradun,Dehradun,identity
+Deoghar,Deoghar,identity
+Deoria,Deoria,identity
+Devbhumi Dwarka,Devbhumi Dwarka,identity
+Dewas,Dewas,identity
+Dhalai,Dhalai,identity
+Dhamtari,Dhamtari,identity
+Dhanbad,Dhanbad,identity
+Dhar,Dhar,identity
+Dharashiv,Dharashiv,identity
+Dharmapuri,Dharmapuri,identity
+Dharwad,Dharwad,identity
+Dhemaji,Dhemaji,identity
+Dhenkanal,Dhenkanal,identity
+Dholpur,Dholpur,identity
+Dhubri,Dhubri,identity
+Dhule,Dhule,identity
+Dibang Valley,Dibang Valley,identity
+Dibrugarh,Dibrugarh,identity
+Didwana-Kuchaman,Didwana-Kuchaman,identity
+Dima Hasao,Dima Hasao,identity
+Dimapur,Dimapur,identity
+Dindigul,Dindigul,identity
+Dindori,Dindori,identity
+Diu,Diu,identity
+Doda,Doda,identity
+Dr. B.R. Ambedkar Konaseema,Dr. B.R. Ambedkar Konaseema,identity
+Dumka,Dumka,identity
+Dungarpur,Dungarpur,identity
+Durg,Durg,identity
+East Garo Hills,East Garo Hills,identity
+East Godavari,East Godavari,identity
+East Jaintia Hills,East Jaintia Hills,identity
+East Kameng,East Kameng,identity
+East Khasi Hills,East Khasi Hills,identity
+East Siang,East Siang,identity
+East Singhbum,East Singhbum,identity
+Eastern West Khasi Hills,Eastern West Khasi Hills,identity
+Eluru,Eluru,identity
+Ernakulam,Ernakulam,identity
+Erode,Erode,identity
+Etah,Etah,identity
+Etawah,Etawah,identity
+Faridabad,Faridabad,identity
+Faridkot,Faridkot,identity
+Farrukhabad,Farrukhabad,identity
+Fatehabad,Fatehabad,identity
+Fatehgarh Sahib,Fatehgarh Sahib,identity
+Fatehpur,Fatehpur,identity
+Fazilka,Fazilka,identity
+Ferozepur,Ferozepur,identity
+Firozabad,Firozabad,identity
+Gadag,Gadag,identity
+Gadchiroli,Gadchiroli,identity
+Gajapati,Gajapati,identity
+Ganderbal,Ganderbal,identity
+Gandhinagar,Gandhinagar,identity
+Ganganagar,Ganganagar,identity
+Gangtok,Gangtok,identity
+Ganjam,Ganjam,identity
+Garhwa,Garhwa,identity
+Gariyaband,Gariyaband,identity
+Gaurela-Pendra-Marwahi,Gaurela-Pendra-Marwahi,identity
+Gautam Buddha Nagar,Gautam Buddha Nagar,identity
+Gaya,Gaya,identity
+Ghaziabad,Ghaziabad,identity
+Ghazipur,Ghazipur,identity
+Gir Somnath,Gir Somnath,identity
+Giridih,Giridih,identity
+Goalpara,Goalpara,identity
+Godda,Godda,identity
+Golaghat,Golaghat,identity
+Gomati,Gomati,identity
+Gonda,Gonda,identity
+Gondia,Gondia,identity
+Gopalganj,Gopalganj,identity
+Gorakhpur,Gorakhpur,identity
+Gumla,Gumla,identity
+Guna,Guna,identity
+Guntur,Guntur,identity
+Gurdaspur,Gurdaspur,identity
+Gurugram,Gurugram,identity
+Gwalior,Gwalior,identity
+Gyalshing,Gyalshing,identity
+Hailakandi,Hailakandi,identity
+Hamirpur,Hamirpur,identity
+Hanumakonda,Hanumakonda,identity
+Hanumangarh,Hanumangarh,identity
+Hapur,Hapur,identity
+Harda,Harda,identity
+Hardoi,Hardoi,identity
+Haridwar,Haridwar,identity
+Hassan,Hassan,identity
+Hathras,Hathras,identity
+Haveri,Haveri,identity
+Hazaribagh,Hazaribagh,identity
+Hingoli,Hingoli,identity
+Hisar,Hisar,identity
+Hnahthial,Hnahthial,identity
+Hojai,Hojai,identity
+Hooghly,Hooghly,identity
+Hoshiarpur,Hoshiarpur,identity
+Howrah,Howrah,identity
+Idukki,Idukki,identity
+Imphal East,Imphal East,identity
+Imphal West,Imphal West,identity
+Indore,Indore,identity
+Jabalpur,Jabalpur,identity
+Jagatsinghapur,Jagatsinghapur,identity
+Jagitial,Jagitial,identity
+Jaipur,Jaipur,identity
+Jaisalmer,Jaisalmer,identity
+Jajpur,Jajpur,identity
+Jalandhar,Jalandhar,identity
+Jalaun,Jalaun,identity
+Jalgaon,Jalgaon,identity
+Jalna,Jalna,identity
+Jalore,Jalore,identity
+Jalpaiguri,Jalpaiguri,identity
+Jammu,Jammu,identity
+Jamnagar,Jamnagar,identity
+Jamtara,Jamtara,identity
+Jamui,Jamui,identity
+Jangoan,Jangoan,identity
+Janjgir-Champa,Janjgir-Champa,identity
+Jashpur,Jashpur,identity
+Jaunpur,Jaunpur,identity
+Jayashankar Bhupalapally,Jayashankar Bhupalapally,identity
+Jehanabad,Jehanabad,identity
+Jhabua,Jhabua,identity
+Jhajjar,Jhajjar,identity
+Jhalawar,Jhalawar,identity
+Jhansi,Jhansi,identity
+Jhargram,Jhargram,identity
+Jharsuguda,Jharsuguda,identity
+Jhunjhunu,Jhunjhunu,identity
+Jind,Jind,identity
+Jodhpur,Jodhpur,identity
+Jogulamba Gadwal,Jogulamba Gadwal,identity
+Jorhat,Jorhat,identity
+Junagadh,Junagadh,identity
+Kabeerdham,Kabeerdham,identity
+Kachchh,Kachchh,identity
+Kaimur (Bhabua),Kaimur (Bhabua),identity
+Kaithal,Kaithal,identity
+Kakinada,Kakinada,identity
+Kalaburagi,Kalaburagi,identity
+Kalahandi,Kalahandi,identity
+Kalimpong,Kalimpong,identity
+Kallakurichi,Kallakurichi,identity
+Kamareddy,Kamareddy,identity
+Kamle,Kamle,identity
+Kamrup,Kamrup,identity
+Kamrup Metro,Kamrup Metro,identity
+Kancheepuram,Kancheepuram,identity
+Kandhamala,Kandhamala,identity
+Kangra,Kangra,identity
+Kannauj,Kannauj,identity
+Kanniyakumari,Kanniyakumari,identity
+Kannur,Kannur,identity
+Kanpur Dehat,Kanpur Dehat,identity
+Kanpur Nagar,Kanpur Nagar,identity
+Kapurthala,Kapurthala,identity
+Karaikal,Karaikal,identity
+Karauli,Karauli,identity
+Karbi Anglong,Karbi Anglong,identity
+Kargil,Kargil,identity
+Karimnagar,Karimnagar,identity
+Karnal,Karnal,identity
+Karur,Karur,identity
+Kasaragod,Kasaragod,identity
+Kasganj,Kasganj,identity
+Kataka,Kataka,identity
+Kathua,Kathua,identity
+Katihar,Katihar,identity
+Katni,Katni,identity
+Kaushambi,Kaushambi,identity
+Kendrapada,Kendrapada,identity
+Kendujhar,Kendujhar,identity
+Khagaria,Khagaria,identity
+Khairagarh-Chhuikhadan-Gandai,Khairagarh-Chhuikhadan-Gandai,identity
+Khairthal-Tijara,Khairthal-Tijara,identity
+Khammam,Khammam,identity
+Khandwa (East Nimar),East Nimar,alias
+Khargone (West Nimar),West Nimar,alias
+Khawzawl,Khawzawl,identity
+Kheda,Kheda,identity
+Kheri,Kheri,identity
+Khordha,Khordha,identity
+Khowai,Khowai,identity
+Khunti,Khunti,identity
+Kinnaur,Kinnaur,identity
+Kiphire,Kiphire,identity
+Kishanganj,Kishanganj,identity
+Kishtwar,Kishtwar,identity
+Kodagu,Kodagu,identity
+Koderma,Koderma,identity
+Kohima,Kohima,identity
+Kokrajhar,Kokrajhar,identity
+Kolar,Kolar,identity
+Kolasib,Kolasib,identity
+Kolhapur,Kolhapur,identity
+Kollam,Kollam,identity
+Kondagaon,Kondagaon,identity
+Koppal,Koppal,identity
+Koraput,Koraput,identity
+Korba,Korba,identity
+Korea,Korea,identity
+Kota,Kota,identity
+Kotputli-Behror,Kotputli-Behror,identity
+Kottayam,Kottayam,identity
+Kozhikode,Kozhikode,identity
+Kra Daadi,Kra Daadi,identity
+Krishna,Krishna,identity
+Krishnagiri,Krishnagiri,identity
+Kulgam,Kulgam,identity
+Kullu,Kullu,identity
+Kumuram Bheem Asifabad,Kumuram Bheem Asifabad,identity
+Kupwara,Kupwara,identity
+Kurnool,Kurnool,identity
+Kurukshetra,Kurukshetra,identity
+Kurung Kumey,Kurung Kumey,identity
+Kushinagar,Kushinagar,identity
+Lahaul And Spiti,Lahaul And Spiti,identity
+Lakhimpur,Lakhimpur,identity
+Lakhisarai,Lakhisarai,identity
+Lalitpur,Lalitpur,identity
+Latehar,Latehar,identity
+Latur,Latur,identity
+Lawngtlai,Lawngtlai,identity
+Leh Ladakh,Leh Ladakh,identity
+Leparada,Leparada,identity
+Lohardaga,Lohardaga,identity
+Lohit,Lohit,identity
+Longding,Longding,identity
+Longleng,Longleng,identity
+Lower Dibang Valley,Lower Dibang Valley,identity
+Lower Siang,Lower Siang,identity
+Lower Subansiri,Lower Subansiri,identity
+Lucknow,Lucknow,identity
+Ludhiana,Ludhiana,identity
+Lunglei,Lunglei,identity
+Madhepura,Madhepura,identity
+Madhubani,Madhubani,identity
+Madurai,Madurai,identity
+Mahabubabad,Mahabubabad,identity
+Mahabubnagar,Mahabubnagar,identity
+Mahasamund,Mahasamund,identity
+Mahe,Mahe,identity
+Mahendragarh,Mahendragarh,identity
+Mahesana,Mahesana,identity
+Mahisagar,Mahisagar,identity
+Mahoba,Mahoba,identity
+Mahrajganj,Mahrajganj,identity
+Maihar,Satna,alias
+Mainpuri,Mainpuri,identity
+Majuli,Majuli,identity
+Malappuram,Malappuram,identity
+Malda,Malda,identity
+Malerkotla,Malerkotla,identity
+Malkangiri,Malkangiri,identity
+Mamit,Mamit,identity
+Mancherial,Mancherial,identity
+Mandi,Mandi,identity
+Mandla,Mandla,identity
+Mandsaur,Mandsaur,identity
+Mandya,Mandya,identity
+Manendragarh-Chirmiri-Bharatpur(M C B),Manendragarh-Chirmiri-Bharatpur(M C B),identity
+Mangan,Mangan,identity
+Mansa,Mansa,identity
+Marigaon,Marigaon,identity
+Mathura,Mathura,identity
+Mau,Mau,identity
+Mauganj,Rewa,alias
+Mayiladuthurai,Mayiladuthurai,identity
+Mayurbhanj,Mayurbhanj,identity
+Medak,Medak,identity
+Medchal Malkajgiri,Medchal Malkajgiri,identity
+Meerut,Meerut,identity
+Mirzapur,Mirzapur,identity
+Moga,Moga,identity
+Mohla-Manpur-Ambagarh Chouki,Mohla-Manpur-Ambagarh Chouki,identity
+Mokokchung,Mokokchung,identity
+Mon,Mon,identity
+Moradabad,Moradabad,identity
+Morbi,Morbi,identity
+Morena,Morena,identity
+Mulugu,Mulugu,identity
+Mumbai Suburban,Mumbai Suburban,identity
+Mungeli,Mungeli,identity
+Munger,Munger,identity
+Murshidabad,Murshidabad,identity
+Muzaffarnagar,Muzaffarnagar,identity
+Muzaffarpur,Muzaffarpur,identity
+Mysuru,Mysuru,identity
+Nabarangpur,Nabarangpur,identity
+Nadia,Nadia,identity
+Nagaon,Nagaon,identity
+Nagapattinam,Nagapattinam,identity
+Nagarkurnool,Nagarkurnool,identity
+Nagaur,Nagaur,identity
+Nagpur,Nagpur,identity
+Nainital,Nainital,identity
+Nalanda,Nalanda,identity
+Nalbari,Nalbari,identity
+Nalgonda,Nalgonda,identity
+Namakkal,Namakkal,identity
+Namchi,Namchi,identity
+Namsai,Namsai,identity
+Nanded,Nanded,identity
+Nandurbar,Nandurbar,identity
+Nandyal,Nandyal,identity
+Narayanpet,Narayanpet,identity
+Narayanpur,Narayanpur,identity
+Narmada,Narmada,identity
+Narmadapuram,Hoshangabad,alias
+Narsimhapur,Narsimhapur,identity
+Nashik,Nashik,identity
+Navsari,Navsari,identity
+Nawada,Nawada,identity
+Nayagada,Nayagada,identity
+Neemuch,Neemuch,identity
+Nicobars,Nicobars,identity
+Nirmal,Nirmal,identity
+Niuland,Niuland,identity
+Niwari,Tikamgarh,alias
+Nizamabad,Nizamabad,identity
+Noklak,Noklak,identity
+North 24 Parganas,North 24 Parganas,identity
+North And Middle Andaman,North And Middle Andaman,identity
+North Garo Hills,North Garo Hills,identity
+North Goa,North Goa,identity
+North Tripura,North Tripura,identity
+Ntr,Ntr,identity
+Nuapada,Nuapada,identity
+Nuh,Nuh,identity
+Pakke Kessang,Pakke Kessang,identity
+Pakur,Pakur,identity
+Pakyong,Pakyong,identity
+Palakkad,Palakkad,identity
+Palamu,Palamu,identity
+Palghar,Palghar,identity
+Pali,Pali,identity
+Palnadu,Palnadu,identity
+Palwal,Palwal,identity
+Panch Mahals,Panch Mahals,identity
+Panchkula,Panchkula,identity
+Pandhurna,Chhindwara,alias
+Panipat,Panipat,identity
+Panna,Panna,identity
+Papum Pare,Papum Pare,identity
+Parbhani,Parbhani,identity
+Parvathipuram Manyam,Parvathipuram Manyam,identity
+Paschim Bardhaman,Paschim Bardhaman,identity
+Paschim Medinipur,Paschim Medinipur,identity
+Pashchim Champaran,Pashchim Champaran,identity
+Patan,Patan,identity
+Pathanamthitta,Pathanamthitta,identity
+Pathankot,Pathankot,identity
+Patiala,Patiala,identity
+Patna,Patna,identity
+Pauri Garhwal,Pauri Garhwal,identity
+Peddapalli,Peddapalli,identity
+Perambalur,Perambalur,identity
+Peren,Peren,identity
+Phalodi,Phalodi,identity
+Phek,Phek,identity
+Pilibhit,Pilibhit,identity
+Pithoragarh,Pithoragarh,identity
+Poonch,Poonch,identity
+Porbandar,Porbandar,identity
+Prakasam,Prakasam,identity
+Pratapgarh,Pratapgarh,identity
+Prayagraj,Prayagraj,identity
+Puducherry,Puducherry,identity
+Pudukkottai,Pudukkottai,identity
+Pulwama,Pulwama,identity
+Pune,Pune,identity
+Purba Bardhaman,Purba Bardhaman,identity
+Purba Medinipur,Purba Medinipur,identity
+Purbi Champaran,Purbi Champaran,identity
+Puri,Puri,identity
+Purnia,Purnia,identity
+Purulia,Purulia,identity
+Rae Bareli,Rae Bareli,identity
+Raichur,Raichur,identity
+Raigad,Raigad,identity
+Raigarh,Raigarh,identity
+Raipur,Raipur,identity
+Raisen,Raisen,identity
+Rajanna Sircilla,Rajanna Sircilla,identity
+Rajgarh,Rajgarh,identity
+Rajkot,Rajkot,identity
+Rajnandgaon,Rajnandgaon,identity
+Rajouri,Rajouri,identity
+Rajsamand,Rajsamand,identity
+Ramanathapuram,Ramanathapuram,identity
+Ramban,Ramban,identity
+Ramgarh,Ramgarh,identity
+Rampur,Rampur,identity
+Ranchi,Ranchi,identity
+Ranga Reddy,Ranga Reddy,identity
+Ranipet,Ranipet,identity
+Ratlam,Ratlam,identity
+Ratnagiri,Ratnagiri,identity
+Rayagada,Rayagada,identity
+Reasi,Reasi,identity
+Rewa,Rewa,identity
+Rewari,Rewari,identity
+Ri Bhoi,Ri Bhoi,identity
+Rohtak,Rohtak,identity
+Rohtas,Rohtas,identity
+Rudraprayag,Rudraprayag,identity
+Rupnagar,Rupnagar,identity
+S.A.S Nagar,S.A.S Nagar,identity
+Sabar Kantha,Sabar Kantha,identity
+Sagar,Sagar,identity
+Saharanpur,Saharanpur,identity
+Saharsa,Saharsa,identity
+Sahebganj,Sahebganj,identity
+Saitual,Saitual,identity
+Sakti,Sakti,identity
+Salem,Salem,identity
+Salumbar,Salumbar,identity
+Samastipur,Samastipur,identity
+Samba,Samba,identity
+Sambalpur,Sambalpur,identity
+Sambhal,Sambhal,identity
+Sangareddy,Sangareddy,identity
+Sangli,Sangli,identity
+Sangrur,Sangrur,identity
+Sant Kabir Nagar,Sant Kabir Nagar,identity
+Saraikela Kharsawan,Saraikela Kharsawan,identity
+Saran,Saran,identity
+Sarangarh-Bilaigarh,Sarangarh-Bilaigarh,identity
+Satara,Satara,identity
+Satna,Satna,identity
+Sawai Madhopur,Sawai Madhopur,identity
+Sehore,Sehore,identity
+Senapati,Senapati,identity
+Seoni,Seoni,identity
+Sepahijala,Sepahijala,identity
+Serchhip,Serchhip,identity
+Shahdol,Shahdol,identity
+Shahid Bhagat Singh Nagar,Shahid Bhagat Singh Nagar,identity
+Shahjahanpur,Shahjahanpur,identity
+Shajapur,Shajapur,identity
+Shamator,Shamator,identity
+Shamli,Shamli,identity
+Sheikhpura,Sheikhpura,identity
+Sheohar,Sheohar,identity
+Sheopur,Sheopur,identity
+Shi Yomi,Shi Yomi,identity
+Shimla,Shimla,identity
+Shivamogga,Shivamogga,identity
+Shivpuri,Shivpuri,identity
+Shopian,Shopian,identity
+Shrawasti,Shrawasti,identity
+Siaha,Siaha,identity
+Siang,Siang,identity
+Siddharthnagar,Siddharthnagar,identity
+Siddipet,Siddipet,identity
+Sidhi,Sidhi,identity
+Sikar,Sikar,identity
+Simdega,Simdega,identity
+Sindhudurg,Sindhudurg,identity
+Singrauli,Singrauli,identity
+Sirmaur,Sirmaur,identity
+Sirohi,Sirohi,identity
+Sirsa,Sirsa,identity
+Sitamarhi,Sitamarhi,identity
+Sitapur,Sitapur,identity
+Sivaganga,Sivaganga,identity
+Sivasagar,Sivasagar,identity
+Siwan,Siwan,identity
+Solan,Solan,identity
+Solapur,Solapur,identity
+Sonbhadra,Sonbhadra,identity
+Sonipat,Sonipat,identity
+Sonitpur,Sonitpur,identity
+Soreng,Soreng,identity
+South 24 Parganas,South 24 Parganas,identity
+South Andamans,South Andamans,identity
+South Garo Hills,South Garo Hills,identity
+South Goa,South Goa,identity
+South Salmara Mancachar,South Salmara Mancachar,identity
+South Tripura,South Tripura,identity
+South West Garo Hills,South West Garo Hills,identity
+South West Khasi Hills,South West Khasi Hills,identity
+Sri Muktsar Sahib,Sri Muktsar Sahib,identity
+Sri Potti Sriramulu Nellore,Sri Potti Sriramulu Nellore,identity
+Sri Sathya Sai,Sri Sathya Sai,identity
+Sribhumi,Sribhumi,identity
+Srikakulam,Srikakulam,identity
+Srinagar,Srinagar,identity
+Subarnapur,Subarnapur,identity
+Sukma,Sukma,identity
+Sultanpur,Sultanpur,identity
+Sundaragada,Sundaragada,identity
+Supaul,Supaul,identity
+Surajpur,Surajpur,identity
+Surat,Surat,identity
+Surendranagar,Surendranagar,identity
+Surguja,Surguja,identity
+Suryapet,Suryapet,identity
+Tamenglong,Tamenglong,identity
+Tapi,Tapi,identity
+Tarn Taran,Tarn Taran,identity
+Tawang,Tawang,identity
+Tehri Garhwal,Tehri Garhwal,identity
+Tenkasi,Tenkasi,identity
+Thane,Thane,identity
+Thanjavur,Thanjavur,identity
+The Nilgiris,The Nilgiris,identity
+Theni,Theni,identity
+Thiruvallur,Thiruvallur,identity
+Thiruvananthapuram,Thiruvananthapuram,identity
+Thiruvarur,Thiruvarur,identity
+Thoothukkudi,Thoothukkudi,identity
+Thoubal,Thoubal,identity
+Thrissur,Thrissur,identity
+Tikamgarh,Tikamgarh,identity
+Tinsukia,Tinsukia,identity
+Tirap,Tirap,identity
+Tiruchirappalli,Tiruchirappalli,identity
+Tirunelveli,Tirunelveli,identity
+Tirupathur,Tirupathur,identity
+Tirupati,Tirupati,identity
+Tiruppur,Tiruppur,identity
+Tiruvannamalai,Tiruvannamalai,identity
+Tonk,Tonk,identity
+Tseminyu,Tseminyu,identity
+Tuensang,Tuensang,identity
+Tumakuru,Tumakuru,identity
+Udaipur,Udaipur,identity
+Udalguri,Udalguri,identity
+Udham Singh Nagar,Udham Singh Nagar,identity
+Udhampur,Udhampur,identity
+Udupi,Udupi,identity
+Ujjain,Ujjain,identity
+Ukhrul,Ukhrul,identity
+Umaria,Umaria,identity
+Una,Una,identity
+Unakoti,Unakoti,identity
+Unnao,Unnao,identity
+Upper Siang,Upper Siang,identity
+Upper Subansiri,Upper Subansiri,identity
+Uttar Bastar Kanker,Uttar Bastar Kanker,identity
+Uttar Dinajpur,Uttar Dinajpur,identity
+Uttara Kannada,Uttara Kannada,identity
+Uttarkashi,Uttarkashi,identity
+Vadodara,Vadodara,identity
+Vaishali,Vaishali,identity
+Valsad,Valsad,identity
+Varanasi,Varanasi,identity
+Vellore,Vellore,identity
+Vidisha,Vidisha,identity
+Vijayanagara,Vijayanagara,identity
+Vijayapura,Vijayapura,identity
+Vikarabad,Vikarabad,identity
+Viluppuram,Viluppuram,identity
+Virudhunagar,Virudhunagar,identity
+Visakhapatnam,Visakhapatnam,identity
+Vizianagaram,Vizianagaram,identity
+Wanaparthy,Wanaparthy,identity
+Warangal,Warangal,identity
+Wardha,Wardha,identity
+Washim,Washim,identity
+Wayanad,Wayanad,identity
+West Garo Hills,West Garo Hills,identity
+West Godavari,West Godavari,identity
+West Jaintia Hills,West Jaintia Hills,identity
+West Kameng,West Kameng,identity
+West Karbi Anglong,West Karbi Anglong,identity
+West Khasi Hills,West Khasi Hills,identity
+West Siang,West Siang,identity
+West Singhbhum,West Singhbhum,identity
+West Tripura,West Tripura,identity
+Wokha,Wokha,identity
+Y.S.R. Kadapa,Y.S.R. Kadapa,identity
+Yadadri Bhuvanagiri,Yadadri Bhuvanagiri,identity
+Yadgir,Yadgir,identity
+Yamunanagar,Yamunanagar,identity
+Yanam,Yanam,identity
+Yavatmal,Yavatmal,identity
+Zunheboto,Zunheboto,identity

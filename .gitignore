@@ -25,6 +25,7 @@ eval/runs/
 eval/.tmp/
 eval/data/ground_truth/**/*.xlsx
 eval/data/ground_truth/raw/
+eval/real_data/raw/
 
 # Internal tooling directories (not for distribution)
 .deepwork/
