@@ -1295,3 +1295,229 @@ file is edited.
   data is fabricated.
 - Outputs: `eval/scripts/real_eval.py` -> `eval/results/REAL_EVAL_REPORT.md` and
   figures under `eval/figures/real/`.
+
+## 8.31 Database-version study (db_v2) - PRE-REGISTERED 2026-10-16 06:24 UTC
+
+Scope: test whether updating ONLY the crop database (`crop_log.csv` -> db_v2) improves
+agreement with real MP district cropping. No algorithm, tool, prompt or weight change.
+No model/API calls. Offline on the frozen evidence bundles and saved outputs. The
+reference is the same public DES/MoA&FW series used in ss8.30.
+
+### 8.31.1 Time split (fixed)
+
+- Build period: 2015-16 .. 2019-20 (5 years).
+- Test period (held out): 2020-21 .. 2022-23 (3 years).
+- Sensitivity period: 2023-24 and 2024-25 (single years, reported separately).
+
+Only the build period may be inspected when deciding which crops to add. The test
+period reference is not computed or examined until db_v2 is frozen.
+
+### 8.31.2 Crop-addition rule (fixed, X stated before any computation)
+
+A crop is added to db_v2 iff ALL of:
+1. it has a real district series in the cleaned reference
+   (`eval/real_data/clean/area_by_district_season_year.csv`, mapped name `crop_vocab`);
+2. it is NOT already one of the 21 registry crops of db_v1; and
+3. it appears in the BUILD-period unrestricted real top-5 in at least **X = 3** distinct
+   district-season cells, where the build-period top-5 for a cell is the 5 crops with the
+   highest mean `area_ha` over the build years present (all real crops, no registry
+   restriction).
+
+X = 3 was chosen before computing: the build window offers up to 15 cells; requiring a
+crop to be a top-5 choice in at least 3 of them (>=20%) selects recurring cropping
+choices rather than one-off cells, while remaining feasible for minor crops.
+
+Every added crop's database row must be sourced (URL + retrieval date + licence recorded
+in the db_v2 diff). If any ranking field cannot be sourced, the crop is NOT added and the
+omission is declared. No value is invented or estimated. Paywalled/gated sources are
+rejected.
+
+### 8.31.3 Fields allowed to change (fixed)
+
+- New rows in db_v2: the seven ranking fields (`Crop`, `Rainfall`, `Tempreture`,
+  `Soil Type`, `season_supported`, `risk_sensitivity`, `peak_water_week`) plus the output
+  fields (`sowing_start_week`, `sowing_end_week`, `duration_days`, `days_to_harvest`).
+  Season tokens are restricted to `Kharif`/`Rabi`/`Zaid`/`Annual` and `/`-combinations of
+  these (DB_SCOPE.ss4). No new soil keyword, hazard alias, season name or weight is added.
+- Existing db_v1 rows: only Barley's `season_supported` may change, and only if the
+  source cited in the ground-truth ground-truth files supports Kharif barley (the
+  Barley/Kharif conflict). If the source does not support it, Barley is unchanged and the
+  discrepancy with the real series (Kharif barley area present 2015-16..2018-19, absent
+  2019-20 onward) is reported as a data anomaly. All other db_v1 rows are byte-identical
+  in db_v2.
+- No change to `mcp_server/`, `eval/config.yaml`, weights, prompts, tool schemas, plant
+  logic, or any ground-truth file.
+
+### 8.31.4 Scoring and outputs (fixed)
+
+- C3 (deterministic, full_repo weights) is recomputed for all 10,000 scenarios from the
+  frozen evidence bundles with the same time anchor and the same scorer logic
+  (`run_deterministic_v2.score_crops`) and the same procedure for db_v1 and db_v2; the
+  only difference is the crop list. The db_v1 recomputation must reproduce
+  `eval/runs/archive_v2/deterministic/*.json` `ablations.full_repo.top5` exactly on
+  10,000/10,000 scenarios; otherwise the study is halted as a logic-drift failure.
+- This time the full scorer payload is logged per scenario (all ranked crops with
+  component scores), so rankings are exact and auditable.
+
+### 8.31.5 Metrics and inference (fixed)
+
+- Analysis set: the frozen 500-scenario LLM subset (`eval/data/llm_subset.jsonl`), the
+  same set used in ss8.30, so results are directly comparable.
+- PRIMARY reference: test-period (2020-21..2022-23) real top-5 by mean `area_ha`,
+  UNRESTRICTED (all real crops). PRIMARY metrics: Precision@5 and nDCG@5 (definitions as
+  in ss8.30.4), C3 db_v1 vs C3 db_v2.
+- PRIMARY contrast: C3(db_v2) - C3(db_v1), paired per scenario, 95% CI by district-
+  clustered bootstrap (resample the 51 districts, 10,000 resamples, seed 42); p-value by
+  centered cluster bootstrap; Holm-Bonferroni over the 2-metric family {Precision@5,
+  nDCG@5}.
+- SECONDARY (registry-restricted): same test window restricted to the db_v1 21-crop
+  vocabulary, to measure change within the original vocabulary.
+- IN-SAMPLE (build period 2015-16..2019-20) results are reported labelled in-sample and
+  are NEVER a headline.
+- SENSITIVITY: references from 2023-24 only and 2024-25 only.
+- PER-SEASON and PER-DISTRICT breakdowns are descriptive.
+- CEILING: out-of-vocab share of the primary reference top-5 under db_v1 vs db_v2.
+- SEASON VALIDITY and hard-violation rates under db_v2 vs db_v1 on the 10,000 C3
+  scenarios, same definitions as `eval/results/c3_season_validity_v1.2_vs_v1.1.*`.
+
+### 8.31.6 LLM conditions and reporting
+
+- No LLM condition is re-run on db_v2. Existing LLM results (all on db_v1) are placed
+  beside C3 db_v2 in one table, clearly labelled as not re-run on db_v2.
+- A cost estimate for re-running the LLM conditions on db_v2 (fixed subset, stated number
+  of scenarios and calls per condition) is computed but NOT executed.
+- If db_v2 does not improve agreement, that is reported honestly with CIs (no
+  post-hoc retuning).
+- Outputs: `eval/results/DB_SCOPE.md`, db_v2 crop file + diff, db_v2 C3 outputs,
+  `eval/results/DB_V2_REPORT.md`; `eval/PROGRESS.md` updated; stop for approval.
+
+## 8.32 Simulated-scenario study ("S" series) â€” PRE-REGISTERED 2026-10-16 07:25 UTC
+
+Writing time of this section: **2026-10-16 12:55:52 IST / 07:25:52 UTC**. All S-series metrics,
+contrasts, sets, and the oracle are fixed below *before* any model call. Scope note and design
+notes: `eval/results/S_SCOPE.md`, `eval/results/S_PERTURBATIONS.md`, `eval/results/S_ORACLE.md`.
+
+### 8.32.1 Claim under test
+LLM-only advice rests on training-era knowledge; the MCP tool path lets the model use the
+(current) data it can read. Test: under a changed-conditions "simulated scenario", tool-using
+conditions (C1a/C2a/C2b/C3) change their advice while no-tool conditions (C0/C0b) do not.
+
+### 8.32.2 What may change (fixed)
+Only (a) a working **copy** of the per-district weather cache used by the eval harness, and (b)
+the scenario `as_of_date`. NOTHING in `mcp_server/` changes; no tool/method/prompt/weight/threshold/
+URL/schema changes; originals untouched; new files only. Perturbations per
+`eval/results/S_PERTURBATIONS.md` table (SÂ·W1/W2/W3, SÂ·R1/R2/R3, SÂ·O1/O2, SÂ·H1, SÂ·C1, controls
+SÂ·N0/SÂ·N1, natural experiment SÂ·NE15). Sets called "simulated scenarios", never "real-time data".
+
+### 8.32.3 Oracle (fixed)
+Offline, from `hard_constraints_v1.1.csv` + `crop_season_table_v1.2.csv` only, per
+`eval/results/S_ORACLE.md` Â§2. STRICT variant primary (`cited` rows only; contradicted excluded);
+LENIENT variant secondary (adds `unverified` rows). Oracle does not read `crop_log.csv`; not
+circular (CIRCULARITY.md F1/F4 reasoning).
+
+### 8.32.4 Metrics (fixed)
+Per scenario `s`, set `p`, condition `c`: **Stale@5** = `|top5 âˆ© D(s,p)| / |D(s,p)|` where
+`D = F0 \ F1` (newly infeasible); **Violation@5** = `|top5 âˆ© Â¬F1| / min(5,|top5|)`;
+**Shift@5** = `1 âˆ’ Jaccard(top5_base, top5_p)`; **Drop-faithful** = `1 âˆ’ Stale@5`. Primary
+outcome: **Stale@5**. Secondary: Violation@5, Shift@5.
+
+### 8.32.5 Contrasts and inference (fixed)
+Primary contrasts on Stale@5: C2aâˆ’C0b, C2bâˆ’C0b, C2aâˆ’C1a, C3âˆ’C2b. District-clustered bootstrap
+(N_RES/SEED = 10000/42, `eval/statistics.py`), Holm correction across the four contrasts. Report
+per-protocol and ITT (40 `pilot_dev` rows excluded / included) as in the real series. Controls:
+SÂ·N0 requires Shift@5 = 0 (harness validity); SÂ·N1 must reverse warm/dry-arm direction. Report all
+results honestly; no post-hoc retuning.
+
+### 8.32.6 Execution gate and outputs (fixed)
+No model call until S_PLAN.md (base set, sample sizes, calls/tokens/hours estimate, abort rules)
+is presented and the user approves. Outputs: `eval/results/S_PLAN.md` (STEP 5), then run outputs
+`eval/results/S_REPORT.md` and per-set tables; `eval/PROGRESS.md` updated; stop for approval after
+each model-call batch.
+
+## 8.33 S-series AMENDMENT (perturbations + oracle) - PRE-REGISTERED 2026-10-16 08:53 UTC
+
+This amendment SUPERSEDES the perturbation table (8.32.2) and the oracle (8.32.3) of 8.32. The
+8.32 text is retained as the historical record; nothing in 8.32 is deleted.
+
+### 8.33.1 Trigger (found pre-run, no model call)
+A pre-run offline audit (`eval/results/S_SIGNAL_CHECK.md`, `eval/results/s_oracle_signal.json`)
+found that under the 8.32 design the primary oracle could not move for most arms:
+(a) the oracle had no temperature term, so the warming arm (S-W1/W2/W3/H1) produced `D = {}`;
+(b) the risk tool computes SPI-1 by refitting its gamma reference from the SAME series, so the
+uniform precipitation multipliers (S-R1/R2/R3, S-C1) are exactly scale-invariant
+(measured `max |Delta drought_z| = 0.00` at x1.30) and never changed the oracle.
+
+### 8.33.2 Amended perturbations (fixed)
+Per `eval/results/S_PERTURBATIONS_V2.md`. Temperature arms unchanged (W1/W2/W3/H1). The uniform
+rain multipliers are REPLACED by shape/intensity arms that move the standardized indices:
+S-D1 (30-day dry spell, x0.10), S-D2 (45-day severe dry spell, x0.05), S-WET1 (heavy-rain week
+180 mm/7 d), S-WET2 (extreme-rain week 270 mm/7 d). Onset arms S-O1/O2 unchanged. Compound S-C1
+= +2 C & dry spell. Controls S-N0 (identity), S-N1 (cooling -1.5 C), natural experiment S-NE15
+(year 2015). Only a working copy of the weather cache and `as_of_date` change; `mcp_server/`
+untouched.
+
+### 8.33.3 Amended oracle (fixed)
+Per `eval/results/S_ORACLE_V2.md`. A NEW sourced heatwave term (`heatwave_probability >= 0.35`
+blocks Wheat/Barley/Gram/Mustard cited; Pea/Lentil unverified) is added via the NEW file
+`eval/data/series/s_heatwave_constraints_v1.0.csv`. Flood/drought terms and STRICT/LENIENT
+semantics unchanged. STRICT remains primary; for the two dry arms S-D1/D2 (whose only relevant
+constraint is unverified) the pre-specified companion analysis is LENIENT.
+
+### 8.33.4 Metrics, contrasts, inference (unchanged)
+Exactly as 8.32.4-8.32.5 (Stale@5 primary; Violation@5/Shift@5 secondary; contrasts C2a-C0b,
+C2b-C0b, C2a-C1a, C3-C2b; district-clustered bootstrap 10000/42 + Holm; per-protocol and ITT).
+Base set B unchanged (40 scenarios, `eval/results/s_base_set.json`). C0/C0b reused; C3
+deterministic (free).
+
+### 8.33.4a Measured pre-run signal (offline, n=40)
+STRICT sig/|D|tot: W1-W3/H1 2/8, D1 0/0, D2 0/0, WET1/WET2 21/21, O1 1/1, O2 2/2, C1 2/8, N1 0/0,
+NE15 2/2. LENIENT: D1 10/20, D2 11/22, WET1/WET2 21/84, NE15 14/31, C1 12/32. N0 = 0/0 (validity).
+
+### 8.33.5 Execution gate and outputs (fixed)
+No model call until the revised S_PLAN cost estimate for the v2 arm list is presented and the user
+approves. Outputs: `eval/results/S_REPORT.md` + per-set tables; `eval/PROGRESS.md` updated; stop
+for approval after each model-call batch.
+---
+
+## 8.34 S-series FOLLOW-UP analyses — EXPLORATORY (NOT pre-registered) — registered 2026-10-19 02:44:25 UTC (08:14:25 +05:30)
+
+Trigger: user task "Follow-up analyses on S-series" received 2026-10-19, executed offline (NO model
+calls). Registered BEFORE computation, per instruction. Frozen definitions, oracle, scenarios,
+tools, prompts and algorithm are NOT changed; registered outputs (`s_scores.json`, the numbers in
+`S_REPORT.md`) are NOT changed. Every analysis in this section is labelled EXPLORATORY and its
+outputs live in `eval/results/S_FOLLOWUP.md` + `eval/results/s_followup*.json`. Results are
+reported whatever they are.
+
+Planned analyses (fixed now, before computing):
+
+1. **B6 root cause** — side-by-side top-5s, scores, inputs for the 17/40 base scenarios where
+   bundle `crop_score` output differs from the registered C3 pipeline; counts per cause
+   (data version / tie-breaking / rounding / season handling / state / other); check whether the
+   earlier real-data analysis (where C3 was a proxy for the scorer) is affected and quantify.
+2. **Exposure-conditioned retention** (EXPLORATORY metric) — per condition x model, mode
+   {strict, lenient}: exposure = baseline top-5 of that condition intersects D; retention =
+   |base_top5 n D n shifted_top5| / |base_top5 n D|, mean over EXPOSED cells, district-clustered
+   bootstrap CI (seed 42, n=10000, paired cluster resample), pp (usable cells) and ITT (unusable
+   response but exposed -> worst case = all retained = 1.0; unusable baseline -> excluded,
+   exposure unknown). n reported per entry. C0/C0b are excluded from shifted comparisons (reused
+   by design, §8.33.4); baseline exposure reported for context only.
+3. **Delta-violation** — Violation@5(shift, F1) minus Violation@5(condition baseline, F1) per
+   cell, pooled WITH_pilot, pp+ITT, strict+lenient, over (a) signal cells |D|>0 and (b) all cells.
+   C0/C0b delta = 0 by construction (reused responses), noted not tested.
+4. **Headline swap** — Stale@5 tables presented with the |D|>0 conditional version (§8.34-analysis
+   2 of S_REPORT §5) as PRIMARY and the as-registered 0-filled version as sensitivity; every Stale
+   and Violation table/figure title gains the qualifier "higher = worse".
+5. **Power** — minimum detectable difference (MDD) for the Stale contrasts given observed variance
+   and the 57 strict signal cells: SE from the observed conditional contrast CI half-width
+   (SE = (hi - lo) / (2 x 1.96)); MDD_80 = (z_{1-a/2} + z_{0.80}) x SE at a = 0.05 and a = 0.0125
+   (worst Holm rank, 4 contrasts).
+6. **Case studies** — 5 WET1/WET2 scenarios where C3 or C2a kept a newly infeasible crop: crop,
+   constraint crossed, scorer score/rank, component scores explaining the rank. Facts only.
+7. **Terminology rename** — "false-change" -> "movement not explained by hard-constraint changes"
+   in all text and figure labels, plus a one-line note that soft-score movement is expected.
+   Machine-readable keys in frozen JSON outputs are NOT renamed (provenance).
+8. **Methods disclosure paragraph** — Nemotron baseline repair + registered-vs-scored Stale
+   convention, ready for the paper methods section.
+
+Outputs: `eval/results/S_FOLLOWUP.md`, `eval/results/s_followup*.json`, figures re-rendered only
+for label/title text changes (data unchanged), `eval/PROGRESS.md` updated, then STOP.
