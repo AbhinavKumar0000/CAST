@@ -1,0 +1,25 @@
+metric,model,condition,rate,lo,hi,n
+Invalid-JSON failure rate,nemotron-3-ultra,C0,0.014,0.006797703071787358,0.02861342614025071,500
+Invalid-JSON failure rate,nemotron-3-ultra,C0b,0.032,0.01979134135128301,0.05134530159364255,500
+Invalid-JSON failure rate,nemotron-3-ultra,C1,0.02,0.010899065235569357,0.03642056855409787,500
+Invalid-JSON failure rate,nemotron-3-ultra,C2,0.044,0.029233737680341678,0.06571991441984218,500
+Invalid-JSON failure rate,llama-3.2-11b,C0,0.0,0.0,0.02497113914571871,150
+Invalid-JSON failure rate,llama-3.2-11b,C0b,0.0,0.0,0.02497113914571871,150
+Invalid-JSON failure rate,llama-3.2-11b,C1,0.0,0.0,0.02497113914571871,150
+Invalid-JSON failure rate,llama-3.2-11b,C2,0.03333333333333333,0.014320220695575196,0.07565284250709559,150
+Invalid-JSON failure rate,glm-5.3,C0,0.0,0.0,0.1071827150573635,32
+Invalid-JSON failure rate,glm-5.3,C0b,0.0,0.0,0.1071827150573635,32
+Invalid-JSON failure rate,glm-5.3,C1,0.0,0.0,0.1071827150573635,32
+Invalid-JSON failure rate,glm-5.3,C2,0.0,0.0,0.1071827150573635,32
+API / tool failure rate,nemotron-3-ultra,C0,0.0,0.0,0.007624618530903363,500
+API / tool failure rate,nemotron-3-ultra,C0b,0.0,0.0,0.007624618530903363,500
+API / tool failure rate,nemotron-3-ultra,C1,0.0,0.0,0.007624618530903363,500
+API / tool failure rate,nemotron-3-ultra,C2,0.0,0.0,0.007624618530903363,500
+API / tool failure rate,llama-3.2-11b,C0,0.0,0.0,0.02497113914571871,150
+API / tool failure rate,llama-3.2-11b,C0b,0.0,0.0,0.02497113914571871,150
+API / tool failure rate,llama-3.2-11b,C1,0.0,0.0,0.02497113914571871,150
+API / tool failure rate,llama-3.2-11b,C2,0.12,0.0772684043967938,0.18170966135395242,150
+API / tool failure rate,glm-5.3,C0,0.15625,0.06864319106627216,0.31754492553566527,32
+API / tool failure rate,glm-5.3,C0b,0.15625,0.06864319106627216,0.31754492553566527,32
+API / tool failure rate,glm-5.3,C1,0.09375,0.032400962626319516,0.24218499335778831,32
+API / tool failure rate,glm-5.3,C2,0.0625,0.017310203195157234,0.2014746724800358,32

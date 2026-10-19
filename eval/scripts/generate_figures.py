@@ -102,7 +102,7 @@ with open(dirs['stress_path']) as f:
         stress_ids.add(json.loads(line)['scenario_id'])
 
 # Load deterministic results for ablation figures
-det_dir = dirs['runs_dir'] / 'adhoc' / 'deterministic'
+det_dir = dirs['runs_dir'] / 'archive_v2' / 'deterministic'
 files = list(det_dir.glob('*.json'))
 
 # --- Figure E01: Ablation chart (deterministic, 10k) ---
@@ -173,7 +173,7 @@ save_fig(fig, 'Fig_E04_season_validity_by_season')
 
 # --- Figure E05: Crop frequency heatmap (C3 only for now) ---
 # Load crop frequencies
-det_dir = dirs['runs_dir'] / 'adhoc' / 'deterministic'
+det_dir = dirs['runs_dir'] / 'archive_v2' / 'deterministic'
 crop_counts = defaultdict(int)
 for path in files:
     with path.open() as f:

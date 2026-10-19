@@ -1,0 +1,10 @@
+metric,value
+validity_Normal,0.8936420179682102
+validity_Stress,0.547673314339981
+validity_Overall,0.74792
+validity_Kharif,0.9893642305407012
+validity_Rabi,0.9865019584212112
+validity_Zaid,0.26389140271493217
+distinct_crops,21.0
+shannon_entropy,4.029016659598211
+district_differentiation,0.179667432229171

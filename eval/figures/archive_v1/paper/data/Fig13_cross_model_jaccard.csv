@@ -1,0 +1,13 @@
+condition,model_a,model_b,mean_jaccard,n
+C0,nemotron-3-ultra,llama-3.2-11b,0.24772093522093522,148
+C0,nemotron-3-ultra,glm-5.3,0.5104350382128159,27
+C0,llama-3.2-11b,glm-5.3,0.257201646090535,27
+C0b,nemotron-3-ultra,llama-3.2-11b,0.29303599374021905,142
+C0b,nemotron-3-ultra,glm-5.3,0.5061050061050062,26
+C0b,llama-3.2-11b,glm-5.3,0.3193709582598472,27
+C1,nemotron-3-ultra,llama-3.2-11b,0.45532958553791875,144
+C1,nemotron-3-ultra,glm-5.3,0.7296113847837986,29
+C1,llama-3.2-11b,glm-5.3,0.41803503010399556,29
+C2,nemotron-3-ultra,llama-3.2-11b,0.6267467100800435,117
+C2,nemotron-3-ultra,glm-5.3,0.8178571428571428,30
+C2,llama-3.2-11b,glm-5.3,0.7474489795918368,28

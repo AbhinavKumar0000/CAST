@@ -1,0 +1,16 @@
+model,category,count,n
+nemotron-3-ultra,"valid, season-correct",116,500
+nemotron-3-ultra,"valid, wrong season",362,500
+nemotron-3-ultra,invalid JSON,22,500
+nemotron-3-ultra,tool error,0,500
+nemotron-3-ultra,other error,0,500
+llama-3.2-11b,"valid, season-correct",25,150
+llama-3.2-11b,"valid, wrong season",102,150
+llama-3.2-11b,invalid JSON,5,150
+llama-3.2-11b,tool error,18,150
+llama-3.2-11b,other error,0,150
+glm-5.3,"valid, season-correct",10,32
+glm-5.3,"valid, wrong season",20,32
+glm-5.3,invalid JSON,0,32
+glm-5.3,tool error,0,32
+glm-5.3,other error,2,32
