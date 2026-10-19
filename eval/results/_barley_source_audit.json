@@ -1,0 +1,9 @@
+{
+  "v1-bundles(adhoc/evidence)": {
+    "n_rabi": 3319,
+    "rabi_barley_top1": 303,
+    "rabi_barley_top1_pct": 9.1,
+    "rabi_barley_top5": 2914,
+    "rabi_barley_top5_pct": 87.8
+  }
+}

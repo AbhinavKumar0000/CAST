@@ -1,0 +1,31 @@
+crop,season,sowing_window,harvest_window,status,source_ref,notes
+Soybean,Kharif,Jun-Jul,Oct-Nov,cited,SLBC-MP-2020; evikas-MP; USDA-FAS-2015,"exclusively kharif in MP (rainfed)"
+Wheat,Rabi,Oct-Dec,Feb-Apr,cited,SLBC-MP-2020; evikas-MP,exclusively rabi
+Rice,Kharif,Jun-Jul,Oct-Nov,cited,SLBC-MP-2020; evikas-MP,kharif paddy dominant
+Rice,Rabi,Nov-Feb,Mar-Jun,unverified,agritech-TNAU-uncited; DES-UPAG-MP-Rabi,"rabi/irrigated rice exists outside MP; in MP DES (UPAG) rabi rice area appears only in 2024-25 (53,000 ha), zero in 2015-16..2023-24; remains UNVERIFIED for MP"
+Maize,Kharif,Jun-Jul,Aug-Dec,cited,SLBC-MP-2020,
+Maize,Rabi,Oct-Nov,Mar-Apr,unverified,agribot-2026; DES-UPAG-MP-Rabi,"rabi maize in Bihar/south India; in MP DES rabi maize area appears only in 2024-25 (222,000 ha), zero in 2015-16..2023-24; remains UNVERIFIED for MP"
+Cotton,Kharif,May-Jun,Oct-Dec,cited,SLBC-MP-2020; evikas-MP,
+Jowar,Kharif,Jun-Jul,Oct-Nov,cited,evikas-MP,"sorghum among MP kharif cereals"
+Jowar,Rabi,Oct-Nov,Mar-Apr,contradicted,DES-UPAG-MP-Rabi-2026,"real MP DES rabi jowar area = 0 ha in every year 2015-16..2024-25 (no district-season row); the unverified rabi-sorghum claim is contradicted and retracted"
+Gram,Rabi,Oct-Dec,Feb-Apr,cited,SLBC-MP-2020; evikas-MP,exclusively rabi (MP #1 state)
+Sugarcane,Annual,Oct-Apr,Oct-Mar,cited,SLBC-MP-2020; TNAU-trust,"long-duration; planting spring/autumn/adsali"
+Mustard,Rabi,Oct,Feb-Mar,cited,SLBC-MP-2020; evikas-MP,
+Groundnut,Kharif,Jun-Jul,Sep-Oct,cited,SLBC-MP-2020,
+Groundnut,Zaid,Jan-Feb,Apr-May,cited,technicalkisan-2026,"summer groundnut where irrigated; MP listed producer; UNVERIFIED extent"
+Moong,Kharif,Jun-Jul,Sep-Oct,cited,SLBC-MP-2020; DPD-summer-2019,
+Moong,Zaid,Mar-Apr,Apr-May,cited,DPD-summer-2019; RGate-mung-2016,"MP sow Mar(B)-Apr(B)"
+Urad,Kharif,Jun-Jul,Sep-Oct,cited,SLBC-MP-2020,
+Urad,Zaid,Feb-Apr,Apr-May,cited,DPD-summer-2019; indianfarmer-2020; agritech-TNAU-2013,"summer urd in M.P. area 0.95 Lha"
+Lentil,Rabi,Sep-Nov,Feb-Apr,cited,SLBC-MP-2020,
+Barley,Rabi,Oct-Nov,Mar-Apr,cited,IIWBR-EB53-2023; KhetiVyapar-MP-Rabi-2024; Indiastat-MP-Barley-Rabi,"barley strictly rabi in India (IIWBR pocket guide EB-53); MP rabi 2024-25 sowing target includes barley 36k ha; Indiastat 'Barley (Rabi) in Madhya Pradesh' series"
+Bajra,Kharif,Jun-Jul,Sep-Dec,cited,SLBC-MP-2020,
+Sesame (Til),Kharif,Jun-Jul,Oct-Nov,cited,SLBC-MP-2020; evikas-MP,
+Sunflower,Kharif,Jun-Aug,Sep-Nov,cited,SLBC-MP-2020,
+Sunflower,Rabi,Oct,Jan,cited,SLBC-MP-2020,
+Sunflower,Zaid,Feb,Feb-Apr,cited,SLBC-MP-2020,"SLBC lists spring/summer sunflower"
+Arhar (Tur),Kharif,Jun-Jul,Nov-Jan,cited,SLBC-MP-2020; evikas-MP,
+Arhar (Tur),Rabi,Oct-Nov,Mar-Apr,contradicted,DES-UPAG-MP-Rabi-2026,"real MP DES rabi arhar area = 0 ha in every year 2015-16..2024-25 (no district-season row); the unverified rabi-pigeonpea (rice-fallow) claim is contradicted and retracted"
+Pea,Rabi,Oct-Nov,Mar-Apr,cited,SLBC-MP-2020,
+Kodo-Kutki,Kharif,Jun-Jul,Oct-Nov,cited,evikas-MP,"minor millets among MP kharif"
+Watermelon,Zaid,Mar-Apr,May-Jun,cited,iaspoint-2018,"zaid cucurbit; riverbed/diara planting (MP rivers); UNVERIFIED extent"

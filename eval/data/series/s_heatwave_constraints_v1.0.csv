@@ -1,0 +1,7 @@
+constraint_type,crop,condition,severity,status,source_ref,note
+heatwave,Wheat,heatwave_probability>=0.35,hard,cited,ICAR-IIWBR-heat-advisory,"terminal heat stress during grain filling is the dominant documented climate risk to wheat in central India (MP); risk_tool 'moderate' band (+>=3 consecutive days >=35C or a >=38C day)"
+heatwave,Barley,heatwave_probability>=0.35,hard,cited,IIWBR-EB53-2023,"rabi cereal; same terminal-heat exposure window as wheat"
+heatwave,Gram,heatwave_probability>=0.35,hard,cited,ICAR-IIPR-heat-advisory,"chickpea heat stress at pod filling reduces seed set; rabi pulse sensitive to late-season heat in MP"
+heatwave,Mustard,heatwave_probability>=0.35,hard,cited,ICAR-DRMR-heat-advisory,"rapeseed-mustard heat stress at flowering/seed fill; rabi oilseed"
+heatwave,Pea,heatwave_probability>=0.35,hard,unverified,general-rabi-pulse-heat,"rabi pulse; heat sensitivity plausibly general, not MP-specific sourced"
+heatwave,Lentil,heatwave_probability>=0.35,hard,unverified,general-rabi-pulse-heat,"rabi pulse; heat sensitivity plausibly general, not MP-specific sourced"

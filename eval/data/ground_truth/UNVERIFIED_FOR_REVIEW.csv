@@ -1,0 +1,14 @@
+crop,table,season_or_condition,type,current_status,source_ref,note,review_action
+Rice,crop_season_table,rabi,season-row,unverified,agritech-TNAU-uncited,"rabi/irrigated rice exists outside MP; UNVERIFIED for MP",agronomist check for MP-specific rabi rice extent
+Maize,crop_season_table,rabi,season-row,unverified,agribot-2026,"rabi maize in Bihar/south India; UNVERIFIED for MP",agronomist check for MP-specific rabi maize extent
+Jowar,crop_season_table,rabi,season-row,unverified,agribot-2026,"rabi sorghum outside MP; UNVERIFIED for MP",agronomist check for MP-specific rabi jowar extent
+Barley,crop_season_table,rabi,season-row,cited-v1.1,IIWBR-EB53-2023; KhetiVyapar-MP-Rabi-2024; Indiastat-MP-Barley-Rabi,"UPGRADED to cited in v1.1 (barley strictly rabi in India; MP rabi 2024-25 target 36k ha barley; Indiastat rabi barley series)",CITATION FOUND 2026-10-13
+Arhar (Tur),crop_season_table,rabi,season-row,unverified,DPD-summer-2019,"rabi pigeonpea rice-fallow programme; UNVERIFIED for MP extent",agronomist check for MP rice-fallow pigeonpea extent
+Barley,hard_constraints,kharif,season-constraint,cited-v1.1,IIWBR-EB53-2023; KhetiVyapar-MP-Rabi-2024,"UPGRADED to cited in v1.1 (barley rabi-only cereal in India)",COROLLARY of Rabi citation
+Barley,hard_constraints,zaid,season-constraint,cited-v1.1,IIWBR-EB53-2023; KhetiVyapar-MP-Rabi-2024,"UPGRADED to cited in v1.1 (barley rabi-only cereal in India)",COROLLARY of Rabi citation
+Rice,hard_constraints,drought_z<=-1.5,environment-constraint,unverified,general-waterintensive,"rice water-intensive under drought; UNVERIFIED MP-specific",agronomist check
+Sugarcane,hard_constraints,drought_z<=-1.5,environment-constraint,unverified,general-waterintensive,"sugarcane water-intensive under drought; UNVERIFIED MP-specific",agronomist check
+Moong,hard_constraints,flood_prob>=0.40,environment-constraint,unverified,general-waterlogging,summer pulse waterlogging-sensitive,agronomist check
+Sesame (Til),hard_constraints,flood_prob>=0.40,environment-constraint,unverified,general-waterlogging,sesame sensitive to waterlogging,agronomist check
+Groundnut,hard_constraints,flood_prob>=0.40,environment-constraint,unverified,general-waterlogging,peg/root zone waterlogging damage,agronomist check
+Watermelon,hard_constraints,flood_prob>=0.40,environment-constraint,unverified,general-waterlogging,cucurbit waterlogging damage,agronomist check

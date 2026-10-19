@@ -1,0 +1,73 @@
+====================================================================================================
+GT PROVENANCE AUDIT (items 8-11)  -  deterministic scorer vs cited GT tables
+====================================================================================================
+
+[8] REGISTRY / PROVENANCE
+  scorer registry   : crop_log.csv columns = ['sr. no.', 'Crop', 'Agro-Climatic Zone', 'Soil Type', 'Rainfall', 'Tempreture', 'humidity_range_percent', 'season_supported', 'risk_sensitivity', 'duration_days', 'sowing_start_week', 'sowing_end_week', 'days_to_harvest', 'peak_water_week']
+                      has source/citation column? False
+  GT season table   : columns = ['crop', 'season', 'sowing_window', 'harvest_window', 'status', 'source_ref', 'notes']
+  GT hard table     : columns = ['constraint_type', 'crop', 'condition', 'severity', 'status', 'source_ref', 'note']
+  -> scorer (C3) reads crop_log.csv (UNCITED); LLM metrics (stage_a) read the
+     cited GT tables v1.1. These are SEPARATE source files (no shared key/registry).
+
+[9] SCORER SEASONS (crop_log) vs GT CITED SEASONS
+  crop           scorer(crop_log)       GT cited                 metrics.py CROP_SEASON_VALIDITY agree?
+  Soybean                  Kharif                         Kharif                         Kharif                         yes
+  Wheat                    Rabi                           Rabi                           Rabi                           yes
+  Rice                     Kharif                         Kharif                         Kharif                         yes
+  Maize                    Kharif                         Kharif                         Kharif                         yes
+  Cotton                   Kharif                         Kharif                         Kharif                         yes
+  Jowar                    Kharif                         Kharif                         Kharif                         yes
+  Gram                     Rabi                           Rabi                           Rabi                           yes
+  Sugarcane                Kharif,Rabi,Zaid               Kharif,Rabi,Zaid               Kharif,Rabi,Zaid               yes
+  Mustard                  Rabi                           Rabi                           Rabi                           yes
+  Groundnut                Kharif                         Kharif,Zaid                    Kharif                         NO
+  Moong                    Kharif,Zaid                    Kharif,Zaid                    Kharif,Zaid                    yes
+  Urad                     Kharif                         Kharif,Zaid                    Kharif                         NO
+  Lentil                   Rabi                           Rabi                           Rabi                           yes
+  Barley                   Rabi                           Rabi                           Rabi                           yes
+  Bajra                    Kharif                         Kharif                         Kharif                         yes
+  Sesame (Til)             Kharif                         Kharif                         Kharif                         yes
+  Sunflower                Kharif,Rabi                    Kharif,Rabi,Zaid               Kharif,Rabi                    NO
+  Arhar (Tur)              Kharif                         Kharif                         Kharif                         yes
+  Pea                      Rabi                           Rabi                           Rabi                           yes
+  Kodo-Kutki               Kharif                         Kharif                         Kharif                         yes
+  Watermelon               Zaid                           Zaid                           Zaid                           yes
+
+  disagreements (scorer/metrics.py vs cited GT): 3
+    - Groundnut: crop_log=['Kharif']  metrics.py=['Kharif']  GT cited=['Kharif', 'Zaid']  (GT rows present: ['Kharif', 'Zaid'])
+    - Urad: crop_log=['Kharif']  metrics.py=['Kharif']  GT cited=['Kharif', 'Zaid']  (GT rows present: ['Kharif', 'Zaid'])
+    - Sunflower: crop_log=['Kharif', 'Rabi']  metrics.py=['Kharif', 'Rabi']  GT cited=['Kharif', 'Rabi', 'Zaid']  (GT rows present: ['Kharif', 'Rabi', 'Zaid'])
+  NOTE: metrics.CROP_SEASON_VALIDITY == crop_log-derived (its comment says 'from crop_log.csv'); the cited GT table is a DIFFERENT file and adds cited seasons (e.g. Groundnut/Urad/Sunflower Zaid or extra) the scorer would call invalid.
+
+[8b] SCORER SEASON WEIGHT + RISK-SENSITIVITY WEIGHTS
+  config ablations.weights.repo = {'rainfall': 0.2, 'temperature': 0.15, 'soil': 0.2, 'season': 0.3, 'risk': 0.15}  -> scorer 'season' weight = 0.3
+  run_deterministic_v2 RISK_SENSITIVITY_WEIGHTS = {high:1.0, medium:0.65, low:0.35}
+  -> NOTE: 0.35 is the RISK-sensitivity 'low' weight, NOT the season-alignment weight (which is 0.30 in config.yaml:137).
+
+[10] HARD-CONSTRAINT REGISTRY
+  type=season   rows=29 cited=29 unverified=0
+  type=drought  rows=2 cited=0 unverified=2
+  type=flood    rows=5 cited=1 unverified=4
+  season-hard crops   : ['Arhar (Tur)', 'Bajra', 'Barley', 'Cotton', 'Gram', 'Groundnut', 'Kodo-Kutki', 'Lentil', 'Moong', 'Mustard', 'Pea', 'Rice', 'Sesame (Til)', 'Soybean', 'Urad', 'Watermelon', 'Wheat']
+  drought-hard crops  : ['Rice', 'Sugarcane']  (statuses: ['unverified'])
+  flood-hard  crops   : ['Groundnut', 'Moong', 'Sesame (Til)', 'Urad', 'Watermelon']  (statuses: ['cited', 'unverified'])
+  metrics.WATER_INTENSIVE_CROPS = ['Arhar (Tur)', 'Cotton', 'Maize', 'Rice', 'Sugarcane', 'Sunflower']
+  -> drought proxy from metrics.py adds crops NOT in the cited GT drought set: ['Arhar (Tur)', 'Cotton', 'Maize', 'Sunflower']  (metrics.py is a heuristic; the PRIMARY metric (stage_a) uses GT).
+
+[11] UNVERIFIED / PENDING ROWS
+  UNVERIFIED_FOR_REVIEW.csv rows =  13
+  by table        : {'crop_season_table': 5, 'hard_constraints': 8}
+  by status       : {'unverified': 10, 'cited-v1.1': 3}
+    crop_season_table    season-row           n=5
+    hard_constraints     environment-constraint n=6
+    hard_constraints     season-constraint    n=2
+  (rows still 'unverified' today = 10; 'cited-v1.1' rows were upgraded in v1.1.)
+
+====================================================================================================
+CONCLUSION
+====================================================================================================
+  * The deterministic scorer (C3) is built on crop_log.csv, which carries NO source citations; the LLM metrics (season-validity, hard-violation) are evaluated against the SEPARATELY cited GT tables (v1.1).
+  * The two registries AGREE on most crops but DIVERGE on 3: Groundnut, Urad, Sunflower -> the scorer would label some GT-cited seasons invalid.
+  * Therefore the scorer's GT dependence is INDEPENDENT of (not shared with) the evaluated GT tables; report this as a provenance/methods note, and report the divergent crops explicitly.
+  * Scorer season weight = 0.30 (config.yaml:137); the 0.35 constant is the risk-sensitivity 'low' weight.

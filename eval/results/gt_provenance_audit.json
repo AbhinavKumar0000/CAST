@@ -1,0 +1,121 @@
+{
+  "season_registry_diffs": {
+    "Groundnut": {
+      "crop_log": [
+        "Kharif"
+      ],
+      "gt_cited": [
+        "Kharif",
+        "Zaid"
+      ],
+      "gt_all_status": [
+        "Kharif",
+        "Zaid"
+      ],
+      "metrics_py": [
+        "Kharif"
+      ]
+    },
+    "Urad": {
+      "crop_log": [
+        "Kharif"
+      ],
+      "gt_cited": [
+        "Kharif",
+        "Zaid"
+      ],
+      "gt_all_status": [
+        "Kharif",
+        "Zaid"
+      ],
+      "metrics_py": [
+        "Kharif"
+      ]
+    },
+    "Sunflower": {
+      "crop_log": [
+        "Kharif",
+        "Rabi"
+      ],
+      "gt_cited": [
+        "Kharif",
+        "Rabi",
+        "Zaid"
+      ],
+      "gt_all_status": [
+        "Kharif",
+        "Rabi",
+        "Zaid"
+      ],
+      "metrics_py": [
+        "Kharif",
+        "Rabi"
+      ]
+    }
+  },
+  "weights": {
+    "repo": {
+      "rainfall": 0.2,
+      "temperature": 0.15,
+      "soil": 0.2,
+      "season": 0.3,
+      "risk": 0.15
+    },
+    "risk_sensitivity": {
+      "high": 1.0,
+      "medium": 0.65,
+      "low": 0.35
+    }
+  },
+  "hard_constraints": {
+    "season_hard": [
+      "Arhar (Tur)",
+      "Bajra",
+      "Barley",
+      "Cotton",
+      "Gram",
+      "Groundnut",
+      "Kodo-Kutki",
+      "Lentil",
+      "Moong",
+      "Mustard",
+      "Pea",
+      "Rice",
+      "Sesame (Til)",
+      "Soybean",
+      "Urad",
+      "Watermelon",
+      "Wheat"
+    ],
+    "drought_hard": [
+      "Rice",
+      "Sugarcane"
+    ],
+    "flood_hard": [
+      "Groundnut",
+      "Moong",
+      "Sesame (Til)",
+      "Urad",
+      "Watermelon"
+    ],
+    "metrics_water_intensive": [
+      "Arhar (Tur)",
+      "Cotton",
+      "Maize",
+      "Rice",
+      "Sugarcane",
+      "Sunflower"
+    ]
+  },
+  "unverified": {
+    "n": 13,
+    "by_table": {
+      "crop_season_table": 5,
+      "hard_constraints": 8
+    },
+    "by_status": {
+      "unverified": 10,
+      "cited-v1.1": 3
+    }
+  }
+}

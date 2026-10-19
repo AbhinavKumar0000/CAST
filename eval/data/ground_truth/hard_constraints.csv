@@ -1,0 +1,37 @@
+constraint_type,crop,condition,severity,status,source_ref,note
+season,Soybean,Rabi,hard,cited,SLBC-MP-2020,soybean exclusively kharif in MP
+season,Soybean,Zaid,hard,cited,SLBC-MP-2020,soybean exclusively kharif in MP
+season,Wheat,Kharif,hard,cited,SLBC-MP-2020,wheat exclusively rabi
+season,Wheat,Zaid,hard,cited,SLBC-MP-2020,wheat exclusively rabi
+season,Rice,Zaid,hard,cited,SLBC-MP-2020,kharif paddy in MP
+season,Cotton,Rabi,hard,cited,SLBC-MP-2020,cotton kharif (May-Jun sowing)
+season,Cotton,Zaid,hard,cited,SLBC-MP-2020,cotton kharif (May-Jun sowing)
+season,Gram,Kharif,hard,cited,SLBC-MP-2020,gram rabi
+season,Gram,Zaid,hard,cited,SLBC-MP-2020,gram rabi
+season,Mustard,Kharif,hard,cited,SLBC-MP-2020,mustard rabi
+season,Mustard,Zaid,hard,cited,SLBC-MP-2020,mustard rabi
+season,Groundnut,Rabi,hard,cited,SLBC-MP-2020,groundnut kharif+summer (Jan-Feb) only
+season,Moong,Rabi,hard,cited,SLBC-MP-2020,moong kharif+zaid only
+season,Urad,Rabi,hard,cited,SLBC-MP-2020,urad kharif+summer only
+season,Lentil,Kharif,hard,cited,SLBC-MP-2020,lentil rabi
+season,Lentil,Zaid,hard,cited,SLBC-MP-2020,lentil rabi
+season,Barley,Kharif,hard,unverified,generic-rabi,barley rabi (std India); UNVERIFIED MP-specific
+season,Barley,Zaid,hard,unverified,generic-rabi,barley rabi (std India); UNVERIFIED MP-specific
+season,Bajra,Rabi,hard,cited,SLBC-MP-2020,bajra kharif
+season,Bajra,Zaid,hard,cited,SLBC-MP-2020,bajra kharif
+season,Sesame (Til),Rabi,hard,cited,SLBC-MP-2020,sesame kharif
+season,Sesame (Til),Zaid,hard,cited,SLBC-MP-2020,sesame kharif
+season,Arhar (Tur),Zaid,hard,cited,SLBC-MP-2020,pigeonpea kharif
+season,Pea,Kharif,hard,cited,SLBC-MP-2020,pea rabi
+season,Pea,Zaid,hard,cited,SLBC-MP-2020,pea rabi
+season,Kodo-Kutki,Rabi,hard,cited,evikas-MP,kodo-kutki kharif minor millet
+season,Kodo-Kutki,Zaid,hard,cited,evikas-MP,kodo-kutki kharif minor millet
+season,Watermelon,Kharif,hard,cited,iaspoint-2018,zaid cucurbit
+season,Watermelon,Rabi,hard,cited,iaspoint-2018,zaid cucurbit
+drought,Rice,drought_z<=-1.5,hard,unverified,general-waterintensive,rice water-intensive under drought; UNVERIFIED MP-specific
+drought,Sugarcane,drought_z<=-1.5,hard,unverified,general-waterintensive,sugarcane water-intensive under drought; UNVERIFIED MP-specific
+flood,Urad,flood_prob>=0.40,hard,cited,agritech-TNAU-2013,"avoid water stagnation at all stages"
+flood,Moong,flood_prob>=0.40,hard,unverified,general-waterlogging,summer pulse waterlogging-sensitive
+flood,Sesame (Til),flood_prob>=0.40,hard,unverified,general-waterlogging,sesame sensitive to waterlogging
+flood,Groundnut,flood_prob>=0.40,hard,unverified,general-waterlogging,peg/root zone waterlogging damage
+flood,Watermelon,flood_prob>=0.40,hard,unverified,general-waterlogging,cucurbit waterlogging damage
