@@ -1,0 +1,196 @@
+{
+  "generated": "2026-10-19T01:25:01.010591+00:00",
+  "checks": [
+    {
+      "name": "oracle_input_sha256_unchanged",
+      "status": "PASS",
+      "mismatches": {}
+    },
+    {
+      "name": "baseline_canonical_extraction",
+      "status": "PASS",
+      "coverage": {
+        "llama|C0": {
+          "present": 40,
+          "usable": 40
+        },
+        "llama|C0b": {
+          "present": 40,
+          "usable": 40
+        },
+        "llama|C1a": {
+          "present": 40,
+          "usable": 40
+        },
+        "llama|C2a": {
+          "present": 40,
+          "usable": 38
+        },
+        "llama|C2b": {
+          "present": 40,
+          "usable": 36
+        },
+        "nemotron|C0": {
+          "present": 40,
+          "usable": 39
+        },
+        "nemotron|C0b": {
+          "present": 40,
+          "usable": 38
+        },
+        "nemotron|C1a": {
+          "present": 40,
+          "usable": 37
+        },
+        "nemotron|C2a": {
+          "present": 40,
+          "usable": 40
+        },
+        "nemotron|C2b": {
+          "present": 40,
+          "usable": 39
+        }
+      }
+    },
+    {
+      "name": "c3_baseline_nonempty",
+      "status": "PASS",
+      "n_empty": 0
+    },
+    {
+      "name": "c3_recompute_reproduces_frozen_base_40",
+      "status": "PASS",
+      "match": 40,
+      "n_mismatch": 0
+    },
+    {
+      "name": "c3_recompute_complete_all_sets",
+      "status": "PASS",
+      "n_missing": 0,
+      "missing": []
+    },
+    {
+      "name": "c0_c0b_prompt_hash_invariance",
+      "status": "PASS",
+      "match": 160,
+      "unverifiable": 0,
+      "mismatch": []
+    },
+    {
+      "name": "run_records_present",
+      "status": "PASS",
+      "present": 3120,
+      "expected": 3120,
+      "usable": 3001,
+      "unusable": 119,
+      "unusable_reasons": {
+        "llama|invalid_json": 65,
+        "nemotron|invalid_json": 32,
+        "nemotron|truncated": 22
+      }
+    },
+    {
+      "name": "dedupe_no_duplicate_ok",
+      "status": "PASS",
+      "dup_ok": 0
+    },
+    {
+      "name": "usable_after_audit",
+      "status": "PASS",
+      "error_cells_left": 0
+    },
+    {
+      "name": "c0_c0b_not_rerun_reused_by_design",
+      "status": "PASS"
+    },
+    {
+      "name": "evidence_bundles_complete",
+      "status": "PASS",
+      "n": 520,
+      "expected": 520
+    },
+    {
+      "name": "season_invariant_across_sets",
+      "status": "PASS",
+      "bad": []
+    },
+    {
+      "name": "s_run_prompt_hash_recomputation",
+      "status": "PASS",
+      "match": 3120,
+      "mismatch": [],
+      "by_cond": {}
+    },
+    {
+      "name": "c2a_c2b_prompt_set_invariant",
+      "status": "PASS",
+      "bad": []
+    },
+    {
+      "name": "tool_output_chain_of_custody",
+      "status": "PASS",
+      "checked": 11660,
+      "match": 11660,
+      "bad": []
+    },
+    {
+      "name": "canonical_crops_within_oracle_universe",
+      "status": "PASS",
+      "missing": []
+    },
+    {
+      "name": "n0_evidence_identity_vs_archive",
+      "status": "PASS",
+      "bad": [],
+      "differing_fields": {}
+    },
+    {
+      "name": "n0_shift_control_shift5_zero",
+      "status": "PASS",
+      "max_shift": 0.0
+    },
+    {
+      "name": "n0_oracle_no_signal_strict_and_lenient",
+      "status": "PASS",
+      "max_D": 0,
+      "n": 80
+    },
+    {
+      "name": "n0_stale_equals_base",
+      "status": "PASS",
+      "max_stale": 0.0
+    }
+  ],
+  "c3_recompute": {
+    "pipeline": "run_deterministic_v2.py::score_crops (full_repo ablation, repo weights)",
+    "base_check": {
+      "match": 40,
+      "mismatch": []
+    },
+    "n_missing": 0,
+    "n_errors": 0
+  },
+  "prompt_hash": {
+    "c0_c0b": {
+      "match": 160,
+      "mismatch": [],
+      "unverifiable": 0,
+      "blank_sids": []
+    },
+    "s_runs": {
+      "match": 3120,
+      "mismatch": []
+    },
+    "s_runs_by_cond": {},
+    "set_invariance": {
+      "checked": 2080,
+      "bad": []
+    }
+  },
+  "chain_of_custody": {
+    "checked": 11660,
+    "match": 11660,
+    "bad": []
+  },
+  "n0_shift_max": 0.0
+}

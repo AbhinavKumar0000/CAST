@@ -1,0 +1,119 @@
+{
+  "condition": "C2a",
+  "inproc_run": "C:\\Codes\\mcp_for_farmers\\eval\\runs\\eval_nemotron-3-ultra\\results.json",
+  "mcp_run": "C:\\Codes\\mcp_for_farmers\\eval\\runs\\eval_nemotron-3-ultra_mcp_c2a50\\results.json",
+  "n_common": 50,
+  "mcp_scenarios_not_in_inproc": [],
+  "flags": {
+    "inproc": {
+      "n": 50,
+      "usable": 50,
+      "valid_json": 50,
+      "truncated": 0,
+      "has_error": 0,
+      "unknown_tool_calls_total": 0,
+      "forced_final": 0,
+      "finish_reasons": {
+        "stop": 50
+      },
+      "tool_calls_median": 6.0,
+      "latency_s_median": 19.366263650000292
+    },
+    "mcp": {
+      "n": 50,
+      "usable": 50,
+      "valid_json": 50,
+      "truncated": 0,
+      "has_error": 0,
+      "unknown_tool_calls_total": 0,
+      "forced_final": 0,
+      "finish_reasons": {
+        "stop": 50
+      },
+      "tool_calls_median": 6.0,
+      "latency_s_median": 28.5191072000016
+    }
+  },
+  "top5": {
+    "exact_order": 50,
+    "same_set": 50,
+    "n": 50,
+    "differences": []
+  },
+  "metrics": {
+    "strict_pp_sv": {
+      "inproc_mean": 0.8000000000000002,
+      "mcp_mean": 0.8000000000000002,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "strict_pp_hv": {
+      "inproc_mean": 0.15600000000000003,
+      "mcp_mean": 0.15600000000000003,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "strict_itt_sv": {
+      "inproc_mean": 0.8000000000000002,
+      "mcp_mean": 0.8000000000000002,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "strict_itt_hv": {
+      "inproc_mean": 0.15600000000000003,
+      "mcp_mean": 0.15600000000000003,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "lenient_pp_sv": {
+      "inproc_mean": 0.809,
+      "mcp_mean": 0.809,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "lenient_pp_hv": {
+      "inproc_mean": 0.13833333333333334,
+      "mcp_mean": 0.13833333333333334,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "lenient_itt_sv": {
+      "inproc_mean": 0.809,
+      "mcp_mean": 0.809,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    },
+    "lenient_itt_hv": {
+      "inproc_mean": 0.13833333333333334,
+      "mcp_mean": 0.13833333333333334,
+      "inproc_n": 50,
+      "mcp_n": 50,
+      "mean_abs_diff": 0.0,
+      "max_abs_diff": 0.0
+    }
+  },
+  "fidelity": {
+    "inproc": {
+      "jaccard": 0.8478571428571428,
+      "top1": 0.8
+    },
+    "mcp": {
+      "jaccard": 0.8478571428571428,
+      "top1": 0.8
+    }
+  }
+}

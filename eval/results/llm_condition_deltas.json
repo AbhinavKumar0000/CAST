@@ -1,0 +1,326 @@
+[
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.2335120254998551,
+    "c": 0.23830102977830248,
+    "delta": 0.004789004278447362
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.7119675456389453,
+    "c": 0.7541322314049587,
+    "delta": 0.0421646857660134
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.5915977961432507,
+    "delta": 0.0666485060823987
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.968,
+    "delta": -0.018000000000000016
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.2335120254998551,
+    "c": 0.6190978296080337,
+    "delta": 0.3855858041081786
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.7119675456389453,
+    "c": 0.9836734693877551,
+    "delta": 0.27170592374880986
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.731938775510204,
+    "delta": 0.20698948544935203
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.98,
+    "delta": -0.006000000000000005
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.2335120254998551,
+    "c": 0.3274047959670277,
+    "delta": 0.09389277046717259
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.7119675456389453,
+    "c": 0.8991416309012875,
+    "delta": 0.18717408526234225
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.49159513590844056,
+    "delta": -0.03335415415241144
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.956,
+    "delta": -0.030000000000000027
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.0787037037037037,
+    "c": 0.09074074074074073,
+    "delta": 0.012037037037037027
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.6333333333333333,
+    "delta": 0.06666666666666665
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.3373333333333334,
+    "c": 0.35200000000000004,
+    "delta": 0.014666666666666661
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 1.0,
+    "delta": 0.0
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.0787037037037037,
+    "c": 0.3788148148148148,
+    "delta": 0.3001111111111111
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.9933333333333333,
+    "delta": 0.42666666666666664
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.3373333333333334,
+    "c": 0.585,
+    "delta": 0.2476666666666666
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 1.0,
+    "delta": 0.0
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.0787037037037037,
+    "c": 0.30308767951625093,
+    "delta": 0.2243839758125472
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.8571428571428571,
+    "delta": 0.29047619047619044
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.3373333333333334,
+    "c": 0.4606349206349206,
+    "delta": 0.12330158730158725
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 0.8466666666666667,
+    "delta": -0.15333333333333332
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.17269253380364488,
+    "c": 0.15534979423868311,
+    "delta": -0.017342739564961768
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.7407407407407407,
+    "c": 0.8888888888888888,
+    "delta": 0.14814814814814814
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.5722222222222222,
+    "delta": 0.06851851851851853
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.84375,
+    "delta": 0.0
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.17269253380364488,
+    "c": 0.566392993979201,
+    "delta": 0.39370046017555604
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.7407407407407407,
+    "c": 0.9655172413793104,
+    "delta": 0.2247765006385697
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.6206896551724138,
+    "delta": 0.11698595146871016
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.90625,
+    "delta": 0.0625
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.17269253380364488,
+    "c": 0.28876984126984123,
+    "delta": 0.11607730746619635
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.7407407407407407,
+    "c": 0.7333333333333333,
+    "delta": -0.007407407407407418
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.4527777777777778,
+    "delta": -0.050925925925925875
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.9375,
+    "delta": 0.09375
+  }
+]

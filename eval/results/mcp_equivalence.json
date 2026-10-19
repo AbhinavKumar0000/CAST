@@ -1,0 +1,11 @@
+{
+  "scenarios": 50,
+  "tools_per_scenario": 6,
+  "calls": 300,
+  "model_visible_identical": 300,
+  "output_hash_identical": 250,
+  "model_visible_mismatches": [],
+  "output_hash_mismatches_by_tool": {
+    "climate_tool": 50
+  }
+}

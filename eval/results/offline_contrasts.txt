@@ -1,0 +1,125 @@
+====================================================================================================
+ITEM 5: HARD-VIOLATION CONTRASTS (Llama) - pre-registered pair family
+pairs=[('C2a', 'C0b'), ('C2a', 'C1a'), ('C2b', 'C0b'), ('C2b', 'C1a')]  n_scenarios=150  pilot_dev_in_150=40
+====================================================================================================
+
+--- WITH 40 pilot_dev | STRICT | per-protocol ---
+  metric=hv
+    C2a-C0b: n=127 diff=-0.247 [-0.291,-0.202] Cliff_d=-0.627 p=4.363e-15 holm=1.745e-14
+    C2a-C1a: n=127 diff=-0.260 [-0.307,-0.211] Cliff_d=-0.608 p=1.464e-13 holm=4.392e-13
+    C2b-C0b: n= 85 diff=-0.046 [-0.089,-0.003] Cliff_d=-0.131 p=5.307e-02 holm=5.307e-02
+    C2b-C1a: n= 85 diff=-0.058 [-0.105,-0.011] Cliff_d=-0.147 p=1.000e-02 holm=2.000e-02
+
+--- WITH 40 pilot_dev | STRICT | ITT ---
+  metric=hv
+    C2a-C0b: n=150 diff=-0.131 [-0.189,-0.071] Cliff_d=-0.386 p=1.449e-05 holm=2.898e-05
+    C2a-C1a: n=150 diff=-0.141 [-0.203,-0.079] Cliff_d=-0.373 p=3.964e-05 holm=3.964e-05
+    C2b-C0b: n=150 diff=+0.210 [+0.153,+0.266] Cliff_d=+0.327 p=6.627e-09 holm=2.651e-08
+    C2b-C1a: n=150 diff=+0.199 [+0.141,+0.257] Cliff_d=+0.322 p=9.790e-08 holm=2.937e-07
+
+--- WITH 40 pilot_dev | LENIENT | per-protocol ---
+  metric=hv
+    C2a-C0b: n=127 diff=-0.265 [-0.302,-0.227] Cliff_d=-0.688 p=1.984e-18 holm=7.937e-18
+    C2a-C1a: n=127 diff=-0.270 [-0.311,-0.228] Cliff_d=-0.654 p=1.143e-16 holm=3.429e-16
+    C2b-C0b: n= 85 diff=-0.058 [-0.100,-0.015] Cliff_d=-0.164 p=7.378e-03 holm=9.754e-03
+    C2b-C1a: n= 85 diff=-0.064 [-0.109,-0.017] Cliff_d=-0.165 p=4.877e-03 holm=9.754e-03
+
+--- WITH 40 pilot_dev | LENIENT | ITT ---
+  metric=hv
+    C2a-C0b: n=150 diff=-0.144 [-0.199,-0.085] Cliff_d=-0.437 p=5.115e-07 holm=1.023e-06
+    C2a-C1a: n=150 diff=-0.148 [-0.207,-0.087] Cliff_d=-0.413 p=2.172e-06 holm=2.172e-06
+    C2b-C0b: n=150 diff=+0.207 [+0.149,+0.264] Cliff_d=+0.307 p=4.246e-08 holm=1.698e-07
+    C2b-C1a: n=150 diff=+0.203 [+0.143,+0.262] Cliff_d=+0.312 p=1.868e-07 holm=5.603e-07
+
+--- WITHOUT 40 pilot_dev | STRICT | per-protocol ---
+  metric=hv
+    C2a-C0b: n= 96 diff=-0.231 [-0.283,-0.177] Cliff_d=-0.600 p=4.585e-11 holm=1.834e-10
+    C2a-C1a: n= 96 diff=-0.246 [-0.302,-0.187] Cliff_d=-0.581 p=8.087e-10 holm=2.426e-09
+    C2b-C0b: n= 69 diff=-0.076 [-0.121,-0.031] Cliff_d=-0.211 p=1.150e-03 holm=1.456e-03
+    C2b-C1a: n= 69 diff=-0.088 [-0.136,-0.038] Cliff_d=-0.236 p=7.282e-04 holm=1.456e-03
+
+--- WITHOUT 40 pilot_dev | STRICT | ITT ---
+  metric=hv
+    C2a-C0b: n=110 diff=-0.140 [-0.205,-0.075] Cliff_d=-0.405 p=1.152e-05 holm=4.610e-05
+    C2a-C1a: n=110 diff=-0.151 [-0.218,-0.080] Cliff_d=-0.392 p=1.622e-04 holm=4.867e-04
+    C2b-C0b: n=110 diff=+0.152 [+0.085,+0.219] Cliff_d=+0.206 p=1.045e-03 holm=2.090e-03
+    C2b-C1a: n=110 diff=+0.141 [+0.073,+0.209] Cliff_d=+0.192 p=1.537e-03 holm=2.090e-03
+
+--- WITHOUT 40 pilot_dev | LENIENT | per-protocol ---
+  metric=hv
+    C2a-C0b: n= 96 diff=-0.249 [-0.294,-0.204] Cliff_d=-0.655 p=1.384e-13 holm=5.538e-13
+    C2a-C1a: n= 96 diff=-0.258 [-0.307,-0.207] Cliff_d=-0.630 p=3.829e-12 holm=1.149e-11
+    C2b-C0b: n= 69 diff=-0.091 [-0.134,-0.047] Cliff_d=-0.256 p=4.803e-05 holm=9.605e-05
+    C2b-C1a: n= 69 diff=-0.095 [-0.144,-0.043] Cliff_d=-0.261 p=3.472e-04 holm=3.472e-04
+
+--- WITHOUT 40 pilot_dev | LENIENT | ITT ---
+  metric=hv
+    C2a-C0b: n=110 diff=-0.155 [-0.216,-0.092] Cliff_d=-0.453 p=4.384e-07 holm=1.754e-06
+    C2a-C1a: n=110 diff=-0.160 [-0.225,-0.093] Cliff_d=-0.435 p=1.036e-05 holm=3.107e-05
+    C2b-C0b: n=110 diff=+0.146 [+0.078,+0.213] Cliff_d=+0.179 p=4.367e-03 holm=4.947e-03
+    C2b-C1a: n=110 diff=+0.140 [+0.071,+0.209] Cliff_d=+0.175 p=2.473e-03 holm=4.947e-03
+
+====================================================================================================
+ITEM 6: EXPLORATORY CONTRASTS (Llama) - C1a-C0b and C2a-C2b
+====================================================================================================
+
+--- EXPLORATORY | STRICT | per-protocol ---
+  metric=sv
+    C1a-C0b: n=150 diff=+0.003 [-0.015,+0.021] Cliff_d=-0.006 p=5.235e-01 holm=5.235e-01
+    C2a-C2b: n= 71 diff=+0.459 [+0.407,+0.511] Cliff_d=+0.782 p=1.251e-12 holm=2.502e-12
+
+--- EXPLORATORY | STRICT | ITT ---
+  metric=sv
+    C1a-C0b: n=150 diff=+0.003 [-0.015,+0.021] Cliff_d=-0.006 p=5.235e-01 holm=5.235e-01
+    C2a-C2b: n=150 diff=+0.476 [+0.409,+0.542] Cliff_d=+0.653 p=3.477e-18 holm=6.955e-18
+
+--- EXPLORATORY | LENIENT | per-protocol ---
+  metric=sv
+    C1a-C0b: n=150 diff=+0.001 [-0.020,+0.022] Cliff_d=-0.002 p=5.323e-01 holm=5.323e-01
+    C2a-C2b: n= 71 diff=+0.379 [+0.327,+0.429] Cliff_d=+0.693 p=5.144e-12 holm=1.029e-11
+
+--- EXPLORATORY | LENIENT | ITT ---
+  metric=sv
+    C1a-C0b: n=150 diff=+0.001 [-0.020,+0.022] Cliff_d=-0.002 p=5.323e-01 holm=5.323e-01
+    C2a-C2b: n=150 diff=+0.434 [+0.365,+0.503] Cliff_d=+0.611 p=2.612e-16 holm=5.224e-16
+
+--- EXPLORATORY | STRICT | per-protocol ---
+  metric=hv
+    C1a-C0b: n=150 diff=+0.011 [-0.012,+0.033] Cliff_d=+0.024 p=3.671e-01 holm=3.671e-01
+    C2a-C2b: n= 71 diff=-0.198 [-0.257,-0.135] Cliff_d=-0.528 p=2.254e-06 holm=4.507e-06
+
+--- EXPLORATORY | STRICT | ITT ---
+  metric=hv
+    C1a-C0b: n=150 diff=+0.011 [-0.012,+0.033] Cliff_d=+0.024 p=3.671e-01 holm=3.671e-01
+    C2a-C2b: n=150 diff=-0.341 [-0.419,-0.260] Cliff_d=-0.524 p=1.455e-11 holm=2.910e-11
+
+--- EXPLORATORY | LENIENT | per-protocol ---
+  metric=hv
+    C1a-C0b: n=150 diff=+0.004 [-0.017,+0.026] Cliff_d=+0.009 p=5.561e-01 holm=5.561e-01
+    C2a-C2b: n= 71 diff=-0.204 [-0.256,-0.152] Cliff_d=-0.564 p=7.524e-08 holm=1.505e-07
+
+--- EXPLORATORY | LENIENT | ITT ---
+  metric=hv
+    C1a-C0b: n=150 diff=+0.004 [-0.017,+0.026] Cliff_d=+0.009 p=5.561e-01 holm=5.561e-01
+    C2a-C2b: n=150 diff=-0.350 [-0.430,-0.269] Cliff_d=-0.537 p=3.707e-12 holm=7.415e-12
+
+====================================================================================================
+ITEM 7 (DIAGNOSTIC ONLY): Fidelity of Llama C2a to C3 on the same 150
+====================================================================================================
+  C2a per-protocol n=148/150
+  top-5 Jaccard vs C3 (PP):    0.6852  (n=148)
+  top-5 Jaccard vs C3 (ITT, invalid=0): 0.6760  (n=150)
+  top-1 agreement vs C3 (PP):  0.7874  (n=127)
+  top-1 agreement vs C3 (ITT, invalid=0): 0.6667  (n=150)
+  [STRICT | PP] season-validity C2a vs C3: match=90 beat=3 lose=34 (n=127) | hard-violation: match=95 beat=2 lose=30 (n=127)
+  [STRICT | ITT] season-validity C2a vs C3: match=90 beat=3 lose=57 (n=150) | hard-violation: match=95 beat=2 lose=53 (n=150)
+  [LENIENT | PP] season-validity C2a vs C3: match=90 beat=3 lose=34 (n=127) | hard-violation: match=97 beat=2 lose=28 (n=127)
+  [LENIENT | ITT] season-validity C2a vs C3: match=90 beat=3 lose=57 (n=150) | hard-violation: match=97 beat=2 lose=51 (n=150)
+
+====================================================================================================
+ITEM 8: Unknown-tool rate (Llama) - finding
+====================================================================================================
+  C2a: unknown-tool runs = 56/150 (37.3%), forced_final runs = 3
+  C2b: unknown-tool runs = 75/150 (50.0%), forced_final runs = 9
+  invented tool names (all runs): [('top5_crops', 129), ('top5', 2)]
+  C2b - C2a unknown-run rate diff = +0.127 [+0.013,+0.240] Cliff_d=+0.127 p=3.037e-02  (paired, n=150)

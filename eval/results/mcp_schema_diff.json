@@ -1,0 +1,19 @@
+{
+  "tools_mcp": [
+    "climate_tool",
+    "crop_score",
+    "get_soil_by_coordinates",
+    "risk_tool",
+    "season_tool",
+    "weather_tool"
+  ],
+  "tools_harness": [
+    "climate_tool",
+    "crop_score",
+    "get_soil_by_coordinates",
+    "risk_tool",
+    "season_tool",
+    "weather_tool"
+  ],
+  "differences": {}
+}

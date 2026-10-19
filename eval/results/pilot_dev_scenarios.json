@@ -1,0 +1,30 @@
+{
+  "scenario_ids": [
+    "S000473",
+    "S000480",
+    "S000544",
+    "S000574",
+    "S000576",
+    "S000605",
+    "S000646",
+    "S000672",
+    "S000687",
+    "S000689",
+    "S000701",
+    "S000718",
+    "S000733",
+    "S000740",
+    "S000745",
+    "S000750",
+    "S000769",
+    "S000783",
+    "S000806",
+    "S000811"
+  ],
+  "model": "nvidia/nemotron-3-ultra-550b-a55b",
+  "conditions": [
+    "C1a"
+  ],
+  "repeat": 1,
+  "note": "pilot_dev records; if any prompt/harness change follows, restart the pilot and exclude these scenarios from primary analyses (or report with/without)."
+}

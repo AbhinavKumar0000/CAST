@@ -1,0 +1,32 @@
+{
+  "pilot_v2": [
+    "S000473",
+    "S000480",
+    "S000544",
+    "S000574",
+    "S000576",
+    "S000605",
+    "S000646",
+    "S000672",
+    "S000687",
+    "S000689",
+    "S000701",
+    "S000718",
+    "S000733",
+    "S000740",
+    "S000745",
+    "S000750",
+    "S000769",
+    "S000783",
+    "S000806",
+    "S000811"
+  ],
+  "n": 20,
+  "season_counts": {
+    "Kharif": 7,
+    "Rabi": 7,
+    "Zaid": 6
+  },
+  "excludes_pilot_v1": true,
+  "method": "first rows of llm_subset after pilot v1's first 20, per-season quota 7/7/6"
+}

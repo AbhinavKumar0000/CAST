@@ -17,7 +17,7 @@ scenarios = generate(cfg)
 by_id = {s['scenario_id']: s for s in scenarios}
 
 # Identify stress set from evidence files
-evidence_dir = dirs['runs_dir'] / 'adhoc' / 'evidence'
+evidence_dir = dirs['runs_dir'] / 'archive_v2' / 'evidence'  # canonical v2 bundles (was: adhoc/evidence)
 stress_ids = set()
 
 for path in evidence_dir.glob('*.json'):
