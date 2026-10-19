@@ -1,0 +1,19 @@
+Nemotron: final answer vs the scorer tool's ranking (report only)
+
+scorer ranking alone, Precision@5 over all 500 scenarios: 0.5035
+
+C2a (n=492)
+  ordered-identical to scorer : 0.516
+  set-identical to scorer     : 0.581
+  mean Jaccard vs scorer      : 0.831
+  mean identical positions /5 : 3.34
+  Precision@5 scorer alone    : 0.503
+  Precision@5 final answer    : 0.482
+
+C2b (n=494)
+  ordered-identical to scorer : 0.000
+  set-identical to scorer     : 0.000
+  mean Jaccard vs scorer      : 0.272
+  mean identical positions /5 : 0.54
+  Precision@5 scorer alone    : 0.503
+  Precision@5 final answer    : 0.622

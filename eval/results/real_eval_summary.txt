@@ -1,0 +1,45 @@
+
+=== model nemotron ===
+conditions present: ['C0', 'C0b', 'C1a', 'C2a', 'C2b']; n_scenarios=500
+
+=== model llama ===
+conditions present: ['C0', 'C0b', 'C1', 'C1a', 'C2', 'C2a', 'C2b']; n_scenarios=150
+
+===== nemotron: R_prim | per-protocol | WITH pilot =====
+cond  Precision@5 [95% CI]           nDCG@5 [95% CI]               
+C0    0.410 [0.378,0.443]          0.429 [0.395,0.463]           
+C0b   0.493 [0.465,0.521]          0.514 [0.484,0.544]           
+C1a   0.498 [0.475,0.520]          0.495 [0.469,0.520]           
+C2a   0.484 [0.457,0.511]          0.480 [0.455,0.506]           
+C2b   0.622 [0.592,0.651]          0.659 [0.631,0.685]           
+C3    0.503 [0.478,0.529]          0.512 [0.485,0.539]           
+contrasts (Precision@5):
+  C2a-C0b: -0.012 [-0.047,+0.025] Cliff_d=-0.029 p=5.29e-01 holm=7.38e-01 n=443
+  C2a-C1a: -0.013 [-0.042,+0.018] Cliff_d=-0.089 p=3.69e-01 holm=7.38e-01 n=470
+  C2b-C0b: +0.123 [+0.094,+0.151] Cliff_d=+0.217 p=1.00e-04 holm=5.00e-04 n=437
+  C2b-C1a: +0.123 [+0.093,+0.154] Cliff_d=+0.225 p=1.00e-04 holm=5.00e-04 n=465
+  C3-C2b: -0.120 [-0.153,-0.084] Cliff_d=-0.321 p=1.00e-04 holm=5.00e-04 n=494
+
+===== llama: R_prim | per-protocol | WITH pilot =====
+cond  Precision@5 [95% CI]           nDCG@5 [95% CI]               
+C0    0.273 [0.232,0.314]          0.287 [0.244,0.329]           
+C0b   0.311 [0.267,0.351]          0.316 [0.274,0.355]           
+C1a   0.315 [0.268,0.354]          0.365 [0.321,0.403]           
+C2a   0.506 [0.463,0.553]          0.500 [0.457,0.546]           
+C2b   0.328 [0.287,0.373]          0.369 [0.332,0.409]           
+C3    0.525 [0.488,0.564]          0.531 [0.494,0.569]           
+contrasts (Precision@5):
+  C2a-C0b: +0.188 [+0.119,+0.262] Cliff_d=+0.530 p=1.00e-04 holm=5.00e-04 n=127
+  C2a-C1a: +0.185 [+0.127,+0.253] Cliff_d=+0.549 p=1.00e-04 holm=5.00e-04 n=127
+  C2b-C0b: -0.011 [-0.067,+0.054] Cliff_d=-0.008 p=7.24e-01 holm=1.00e+00 n=85
+  C2b-C1a: +0.002 [-0.052,+0.065] Cliff_d=+0.044 p=9.36e-01 holm=1.00e+00 n=85
+  C3-C2b: +0.181 [+0.113,+0.251] Cliff_d=+0.541 p=1.00e-04 holm=5.00e-04 n=85
+
+out-of-vocab share of real top-5 (R_all) = 0.085
+
+UNVERIFIED crop-season rows vs real data:
+  Rice/rabi: real MP mean area = 0.0 ha -> NO real area
+  Maize/rabi: real MP mean area = 0.0 ha -> NO real area
+  Jowar/rabi: real MP mean area = 0.0 ha -> NO real area
+  Barley/rabi: real MP mean area = 738.8 ha -> supported
+  Arhar (Tur)/rabi: real MP mean area = 0.0 ha -> NO real area

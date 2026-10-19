@@ -1,0 +1,25 @@
+{
+  "scorer_ranking": "C3 = archive_v2 full_repo top5",
+  "reference": "R_prim (2015-16..2022-23, 21-crop registry)",
+  "scorer_precision_at_5_all_500": 0.5034666666666667,
+  "conditions": {
+    "C2a": {
+      "n": 492,
+      "ordered_identical_rate": 0.516260162601626,
+      "set_identical_rate": 0.5813008130081301,
+      "mean_jaccard": 0.8305103884372177,
+      "mean_positions_identical_of_5": 3.3353658536585367,
+      "precision_at_5_scorer": 0.5029132791327914,
+      "precision_at_5_final": 0.48238482384823844
+    },
+    "C2b": {
+      "n": 494,
+      "ordered_identical_rate": 0.0,
+      "set_identical_rate": 0.0,
+      "mean_jaccard": 0.27183342972816654,
+      "mean_positions_identical_of_5": 0.5445344129554656,
+      "precision_at_5_scorer": 0.5027665317139001,
+      "precision_at_5_final": 0.6222672064777327
+    }
+  }
+}
