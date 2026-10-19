@@ -1,0 +1,17 @@
+figure,model,contrast,analysis,metric,subset,mode,mean,lo,hi,p,holm,n
+contrasts_forest,llama,C2a-C0b,pp,stale,WITH_pilot,strict,0.032336,0.017660,0.049637,0.0004,0.0012000000000000001,518
+contrasts_forest,llama,C2a-C0b,itt,stale,WITH_pilot,strict,0.032212,0.017582,0.049360,0.0004,0.0012000000000000001,520
+contrasts_forest,llama,C2b-C0b,pp,stale,WITH_pilot,strict,-0.000547,-0.001752,0.000000,0.4527,0.4527,457
+contrasts_forest,llama,C2b-C0b,itt,stale,WITH_pilot,strict,0.009615,0.002024,0.019231,0.0348,0.0348,520
+contrasts_forest,llama,C2a-C1a,pp,stale,WITH_pilot,strict,0.029923,0.017131,0.043698,0.0001,0.0004,518
+contrasts_forest,llama,C2a-C1a,itt,stale,WITH_pilot,strict,0.029808,0.017094,0.043522,0.0001,0.0004,520
+contrasts_forest,llama,C3-C2b,pp,stale,WITH_pilot,strict,0.035011,0.017390,0.054893,0.0006,0.0012000000000000001,457
+contrasts_forest,llama,C3-C2b,itt,stale,WITH_pilot,strict,0.024038,0.009875,0.038462,0.0014,0.0028,520
+contrasts_forest,nemotron,C2a-C0b,pp,stale,WITH_pilot,strict,0.002530,-0.029412,0.027535,0.8625,1.0,494
+contrasts_forest,nemotron,C2a-C0b,itt,stale,WITH_pilot,strict,0.002404,-0.026509,0.026822,0.8591,1.0,520
+contrasts_forest,nemotron,C2b-C0b,pp,stale,WITH_pilot,strict,0.003653,-0.014958,0.018675,0.6685,1.0,479
+contrasts_forest,nemotron,C2b-C0b,itt,stale,WITH_pilot,strict,0.003365,-0.021635,0.027404,0.7788,1.0,520
+contrasts_forest,nemotron,C2a-C1a,pp,stale,WITH_pilot,strict,-0.002079,-0.022140,0.023438,0.8659,1.0,481
+contrasts_forest,nemotron,C2a-C1a,itt,stale,WITH_pilot,strict,-0.008173,-0.031883,0.016194,0.4819,1.0,520
+contrasts_forest,nemotron,C3-C2b,pp,stale,WITH_pilot,strict,0.003465,-0.019481,0.025863,0.7625,1.0,505
+contrasts_forest,nemotron,C3-C2b,itt,stale,WITH_pilot,strict,-0.002404,-0.024816,0.019780,0.8416,1.0,520

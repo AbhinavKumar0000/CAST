@@ -1,0 +1,298 @@
+{
+  "registered": "EXPLORATORY (PROTOCOL 8.34 item 6)",
+  "generated": "2026-10-19T03:51:37+00:00",
+  "selection_rule": "strict mode; sets WET1/WET2; conditions C3+C2a; usable top-5; crop in top5 ∩ D; sorted (cond C3-first, set, sid, model, crop); per condition the first candidate from each set with distinct scenario ids (C2a: llama for WET1, nemotron for WET2 when available), then fill in sorted order (3 C3 + 2 C2a)",
+  "n_candidates": 45,
+  "candidates_by_cond": {
+    "C3": 14,
+    "C2a": 31
+  },
+  "n_cases": 5,
+  "cases": [
+    {
+      "set": "WET1",
+      "sid": "S000358",
+      "season": "Kharif",
+      "district": "Alirajpur",
+      "condition": "C3",
+      "model": "model-independent",
+      "mode": "strict",
+      "crop_kept_in_top5": "Urad",
+      "advice_top5_position": 2,
+      "D": [
+        "Urad"
+      ],
+      "constraint_crossed": [
+        {
+          "hazard": "flood",
+          "flag_before": false,
+          "flag_after": true,
+          "constraint_table_status": "cited",
+          "mode": "strict"
+        }
+      ],
+      "scorer": {
+        "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+        "rank_full": 2,
+        "total_score": 0.898,
+        "components": {
+          "rainfall_match": 1.0,
+          "temperature_match": 0.99,
+          "soil_type_match": 1.0,
+          "season_alignment": 0.75,
+          "risk_penalty": 0.83
+        },
+        "weighted_contributions": {
+          "season": 0.225,
+          "rainfall": 0.2,
+          "soil": 0.2,
+          "temperature": 0.1485,
+          "risk": 0.1245
+        },
+        "stored_bundle_crop_score_if_available": {
+          "total_score": 0.778,
+          "scores": {
+            "rainfall_match": 1.0,
+            "temperature_match": 0.99,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.35,
+            "risk_penalty": 0.83
+          },
+          "plantable_now": false
+        },
+        "stored_tool_top6_matches_recompute": null,
+        "stored_tool_current_week": 31,
+        "as_of_week": 31
+      },
+      "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+    },
+    {
+      "set": "WET2",
+      "sid": "S001353",
+      "season": "Zaid",
+      "district": "Betul",
+      "condition": "C3",
+      "model": "model-independent",
+      "mode": "strict",
+      "crop_kept_in_top5": "Urad",
+      "advice_top5_position": 5,
+      "D": [
+        "Urad"
+      ],
+      "constraint_crossed": [
+        {
+          "hazard": "flood",
+          "flag_before": false,
+          "flag_after": true,
+          "constraint_table_status": "cited",
+          "mode": "strict"
+        }
+      ],
+      "scorer": {
+        "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+        "rank_full": 5,
+        "total_score": 0.481,
+        "components": {
+          "rainfall_match": 0.0,
+          "temperature_match": 1.0,
+          "soil_type_match": 1.0,
+          "season_alignment": 0.0,
+          "risk_penalty": 0.875
+        },
+        "weighted_contributions": {
+          "soil": 0.2,
+          "temperature": 0.15,
+          "risk": 0.1313,
+          "rainfall": 0.0,
+          "season": 0.0
+        },
+        "stored_bundle_crop_score_if_available": {
+          "total_score": 0.481,
+          "scores": {
+            "rainfall_match": 0.0,
+            "temperature_match": 1.0,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.0,
+            "risk_penalty": 0.875
+          },
+          "plantable_now": false
+        },
+        "stored_tool_top6_matches_recompute": null,
+        "stored_tool_current_week": 21,
+        "as_of_week": 21
+      },
+      "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+    },
+    {
+      "set": "WET1",
+      "sid": "S001538",
+      "season": "Kharif",
+      "district": "Bhind",
+      "condition": "C3",
+      "model": "model-independent",
+      "mode": "strict",
+      "crop_kept_in_top5": "Urad",
+      "advice_top5_position": 4,
+      "D": [
+        "Urad"
+      ],
+      "constraint_crossed": [
+        {
+          "hazard": "flood",
+          "flag_before": false,
+          "flag_after": true,
+          "constraint_table_status": "cited",
+          "mode": "strict"
+        }
+      ],
+      "scorer": {
+        "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+        "rank_full": 4,
+        "total_score": 0.632,
+        "components": {
+          "rainfall_match": 0.754,
+          "temperature_match": 0.75,
+          "soil_type_match": 0.1,
+          "season_alignment": 0.75,
+          "risk_penalty": 0.828
+        },
+        "weighted_contributions": {
+          "season": 0.225,
+          "rainfall": 0.1508,
+          "risk": 0.1242,
+          "temperature": 0.1125,
+          "soil": 0.02
+        },
+        "stored_bundle_crop_score_if_available": {
+          "total_score": 0.707,
+          "scores": {
+            "rainfall_match": 0.754,
+            "temperature_match": 0.75,
+            "soil_type_match": 0.1,
+            "season_alignment": 1.0,
+            "risk_penalty": 0.828
+          },
+          "plantable_now": true
+        },
+        "stored_tool_top6_matches_recompute": null,
+        "stored_tool_current_week": 24,
+        "as_of_week": 24
+      },
+      "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+    },
+    {
+      "set": "WET1",
+      "sid": "S000358",
+      "season": "Kharif",
+      "district": "Alirajpur",
+      "condition": "C2a",
+      "model": "llama",
+      "mode": "strict",
+      "crop_kept_in_top5": "Urad",
+      "advice_top5_position": 2,
+      "D": [
+        "Urad"
+      ],
+      "constraint_crossed": [
+        {
+          "hazard": "flood",
+          "flag_before": false,
+          "flag_after": true,
+          "constraint_table_status": "cited",
+          "mode": "strict"
+        }
+      ],
+      "scorer": {
+        "instrument": "MCP crop_score tool (mcp_server/crop_score_tool.py)",
+        "rank_full": 2,
+        "total_score": 0.778,
+        "components": {
+          "rainfall_match": 1.0,
+          "temperature_match": 0.99,
+          "soil_type_match": 1.0,
+          "season_alignment": 0.35,
+          "risk_penalty": 0.83
+        },
+        "weighted_contributions": {
+          "rainfall": 0.2,
+          "soil": 0.2,
+          "temperature": 0.1485,
+          "risk": 0.1245,
+          "season": 0.105
+        },
+        "stored_bundle_crop_score_if_available": {
+          "total_score": 0.778,
+          "scores": {
+            "rainfall_match": 1.0,
+            "temperature_match": 0.99,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.35,
+            "risk_penalty": 0.83
+          },
+          "plantable_now": false
+        },
+        "stored_tool_top6_matches_recompute": true,
+        "stored_tool_current_week": 31,
+        "as_of_week": 31
+      },
+      "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+    },
+    {
+      "set": "WET2",
+      "sid": "S000480",
+      "season": "Kharif",
+      "district": "Anuppur",
+      "condition": "C2a",
+      "model": "nemotron",
+      "mode": "strict",
+      "crop_kept_in_top5": "Urad",
+      "advice_top5_position": 5,
+      "D": [
+        "Urad"
+      ],
+      "constraint_crossed": [
+        {
+          "hazard": "flood",
+          "flag_before": false,
+          "flag_after": true,
+          "constraint_table_status": "cited",
+          "mode": "strict"
+        }
+      ],
+      "scorer": {
+        "instrument": "MCP crop_score tool (mcp_server/crop_score_tool.py)",
+        "rank_full": 5,
+        "total_score": 0.852,
+        "components": {
+          "rainfall_match": 0.336,
+          "temperature_match": 1.0,
+          "soil_type_match": 1.0,
+          "season_alignment": 1.0,
+          "risk_penalty": 0.901
+        },
+        "weighted_contributions": {
+          "season": 0.3,
+          "soil": 0.2,
+          "temperature": 0.15,
+          "risk": 0.1351,
+          "rainfall": 0.0672
+        },
+        "stored_bundle_crop_score_if_available": {
+          "total_score": 0.852,
+          "scores": {
+            "rainfall_match": 0.336,
+            "temperature_match": 1.0,
+            "soil_type_match": 1.0,
+            "season_alignment": 1.0,
+            "risk_penalty": 0.901
+          },
+          "plantable_now": true
+        },
+        "stored_tool_top6_matches_recompute": true,
+        "stored_tool_current_week": 28,
+        "as_of_week": 28
+      },
+      "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+    }
+  ]
+}

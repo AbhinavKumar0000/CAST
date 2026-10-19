@@ -1,0 +1,59 @@
+{
+  "registered": "EXPLORATORY (PROTOCOL 8.34 item 1b)",
+  "n_sids": 500,
+  "n_common": 500,
+  "n_tool_missing": 0,
+  "tool_missing": [],
+  "sids_tool_vs_det_differ_ordered": 242,
+  "sids_tool_vs_det_differ_set": 209,
+  "share_ordered_differ": 0.484,
+  "scorer_is_det_proxy_for_tool": true,
+  "det_proxy": {
+    "scorer_precision_at_5_all": 0.5034666666666667,
+    "n_scorer_all": 500,
+    "conditions": {
+      "C2a": {
+        "n": 492,
+        "ordered_identical": 0.516260162601626,
+        "set_identical": 0.5813008130081301,
+        "jaccard": 0.8305103884372177,
+        "positions_identical": 3.3353658536585367,
+        "precision_at_5_scorer": 0.5029132791327914,
+        "precision_at_5_final": 0.48238482384823844
+      },
+      "C2b": {
+        "n": 494,
+        "ordered_identical": 0.0,
+        "set_identical": 0.0,
+        "jaccard": 0.27183342972816654,
+        "positions_identical": 0.5445344129554656,
+        "precision_at_5_scorer": 0.5027665317139001,
+        "precision_at_5_final": 0.6222672064777327
+      }
+    }
+  },
+  "tool_actual": {
+    "scorer_precision_at_5_all": 0.4832666666666667,
+    "n_scorer_all": 500,
+    "conditions": {
+      "C2a": {
+        "n": 492,
+        "ordered_identical": 0.9979674796747967,
+        "set_identical": 0.9979674796747967,
+        "jaccard": 0.9993224932249322,
+        "positions_identical": 4.997967479674797,
+        "precision_at_5_scorer": 0.48197831978319783,
+        "precision_at_5_final": 0.48238482384823844
+      },
+      "C2b": {
+        "n": 494,
+        "ordered_identical": 0.0,
+        "set_identical": 0.0,
+        "jaccard": 0.258217659533449,
+        "positions_identical": 0.5263157894736842,
+        "precision_at_5_scorer": 0.4841430499325236,
+        "precision_at_5_final": 0.6222672064777327
+      }
+    }
+  }
+}
