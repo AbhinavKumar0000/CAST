@@ -120,6 +120,15 @@ def print_status() -> None:
     progress = read_progress()
     if not progress:
         print("No active job.")
+        try:
+            cfg = load_config()
+            daily_budget = int(cfg["cost_control"]["daily_request_budget"])
+            from eval.llm.budget import DailyBudget
+            b = DailyBudget(daily_budget).status()
+            print(f"Daily HTTP budget ({b['utc_date']} UTC): {b['count']}/{daily_budget} "
+                  f"| remaining {b['remaining']}")
+        except Exception:
+            pass
         return
     
     pct = (progress.get("completed", 0) / progress.get("total", 1)) * 100
@@ -138,12 +147,15 @@ def print_status() -> None:
     print(f"Started: {progress['started_at']} | Updated: {progress['last_update']}")
     print(f"Status: {progress.get('status', 'unknown')}")
     
-    # Daily budget
+    # Daily budget (PROTOCOL 8.12): real UTC-day HTTP request count, not an estimate.
     cfg = load_config()
-    daily_budget = cfg["cost_control"]["daily_request_budget"]
-    # Count today's requests from cache (simplified)
-    used_today = progress.get("completed", 0)  # approximation
-    print(f"\nDaily budget: {used_today}/{daily_budget} ({used_today/daily_budget*100:.1f}%)")
+    daily_budget = int(cfg["cost_control"]["daily_request_budget"])
+    from eval.llm.budget import DailyBudget
+    b = DailyBudget(daily_budget).status()
+    used_today, day = b["count"], b["utc_date"]
+    pct_budget = used_today / daily_budget * 100 if daily_budget else 0
+    print(f"\nDaily HTTP budget ({day} UTC): {used_today}/{daily_budget} "
+          f"({pct_budget:.1f}%) | remaining {b['remaining']}")
     
     print(f"\nNEXT RESUME COMMAND: (same command, runner is resumable)")
 

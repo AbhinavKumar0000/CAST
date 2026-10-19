@@ -28,9 +28,12 @@ import pytz
 from eval.common import config_dirs, load_config, write_json
 from eval.weather_cache import as_date_map, load_or_fetch_district, slice_window
 
-# Import the real tool modules (unmodified).
-from mcp_server import climate_tool, crop_score_tool, risk_tool, season_tool, soil_tool, weather_tool
+# Import the real tool modules (unmodified) - but use eval-specific climate/risk tools
+from mcp_server import crop_score_tool, season_tool, soil_tool, weather_tool
 from mcp_server import open_meteo_client
+
+# Evaluation-specific tools that use pre-cached weather data
+from eval.tools import eval_climate_tool, eval_risk_tool
 
 logger = logging.getLogger(__name__)
 
@@ -155,7 +158,7 @@ class EvidenceProvider:
         # Clear in-memory TTL caches so different dates at the same 0.1deg cell
         # do not collide.
         weather_tool._WEATHER_CACHE.clear()
-        climate_tool._CLIMATE_CACHE.clear()
+        # Don't clear climate_tool._CLIMATE_CACHE since we use eval_climate_tool
 
     # -- public --------------------------------------------------------------
     def build(self, scenario: dict[str, Any]) -> dict[str, Any]:
@@ -168,10 +171,12 @@ class EvidenceProvider:
         self._install_patches(date_map, as_of)
         try:
             weather = weather_tool.run(lat, lon)
-            climate = climate_tool.run(lat, lon)
+            # Use eval-specific climate tool that reads from cache
+            climate = eval_climate_tool.run(lat, lon)
             season = season_tool.run(lat, lon)
             soil = soil_tool.run(lat, lon)
-            risk = risk_tool.run(lat, lon)
+            # Use eval-specific risk tool that reads from cache
+            risk = eval_risk_tool.run(lat, lon, as_of=as_of)
             crop = crop_score_tool.run(
                 latitude=lat,
                 longitude=lon,

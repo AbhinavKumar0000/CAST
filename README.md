@@ -64,8 +64,8 @@ eval/
 ├── scripts/
 │   ├── fetch_nvidia_models.py   # Model discovery from /v1/models
 │   ├── smoke_test_models.py     # 14 candidates tested
-│   ├── analyze_deterministic_full.py  # C3 + ablations on 10k
-│   └── generate_figures.py      # Figures E01-E06
+│   ├── analyze_deterministic_v2.py  # C3 + ablations on 10k (canonical summary writer)
+│   └── generate_figures.py      # Figures E01-E06 (SUPERSEDED by figures/paper/)
 ├── models/
 │   ├── models.yaml      # Machine-readable model registry
 │   └── MODELS.md        # Human-readable model documentation
@@ -73,11 +73,11 @@ eval/
 │   ├── scenarios.jsonl  # 10,000 scenarios
 │   ├── stress.jsonl     # 4,212 stress scenarios
 │   └── llm_subset.jsonl # 500 LLM scenarios (150 stress)
-├── runs/adhoc/
-│   ├── evidence/        # 10,000 evidence bundles
-│   └── deterministic/   # 10,000 C3 + ablation results
+├── runs/archive_v2/      # frozen v2 grid (canonical)
+│   ├── evidence/        # 10,000 evidence bundles (as_of_date+week)
+│   └── deterministic/   # 10,000 C3 + ablation results (full_repo = C3)
 ├── results/             # JSON/CSV aggregates
-└── figures/             # Fig_E01-E06 (PNG@300dpi + PDF)
+└── figures/             # paper/ = canonical figure set (Fig01-Fig14); Fig_E01-E06 superseded
 ```
 
 ### Evaluation Status (as of 2026-10-10)

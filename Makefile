@@ -43,8 +43,8 @@ weather:
 	$(PY) -c "from eval.weather_cache import load_all; load_all(force=False)"
 
 deterministic:
-	@echo "STEP 4: Running deterministic C3 + ablations..."
-	$(PY) $(EVAL_DIR)/scripts/analyze_deterministic_full.py
+	@echo "STEP 4: Running deterministic C3 + ablations (canonical writer)..."
+	$(PY) $(EVAL_DIR)/scripts/analyze_deterministic_v2.py
 
 analyze:
 	@echo "STEP 6-7: Computing metrics and statistics..."

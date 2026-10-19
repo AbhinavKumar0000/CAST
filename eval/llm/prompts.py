@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import re
+from pathlib import Path
 from typing import Any
 
 # Canonical crop names = the repo registry (crop_log.csv).
@@ -39,17 +40,24 @@ ALIASES = {
     "watermelon": "Watermelon", "tarbooz": "Watermelon",
 }
 
-_CANON_LOWER = {c.lower(): c for c in CANONICAL_CROPS}
+def _norm_key(name: str) -> str:
+    key = re.sub(r"[^a-z0-9 ]", " ", name.strip().lower())
+    return re.sub(r"\s+", " ", key).strip()
+
+
+# Normalise both lookup sides, so parenthesised canonical names
+# ("Sesame (Til)", "Arhar (Tur)") match their punctuation-stripped input form.
+_CANON_LOWER = {_norm_key(c): c for c in CANONICAL_CROPS}
+_ALIASES_NORM = {_norm_key(k): v for k, v in ALIASES.items()}
 
 
 def normalize_crop(name: str) -> str | None:
     """Return the canonical registry name, or None if out of registry."""
     if not name:
         return None
-    key = re.sub(r"[^a-z0-9 ]", " ", name.strip().lower())
-    key = re.sub(r"\s+", " ", key).strip()
-    if key in ALIASES:
-        return ALIASES[key]
+    key = _norm_key(name)
+    if key in _ALIASES_NORM:
+        return _ALIASES_NORM[key]
     if key in _CANON_LOWER:
         return _CANON_LOWER[key]
     return None
@@ -63,6 +71,14 @@ OUTPUT_CONTRACT = (
     'Output EXACTLY this format:\n'
     '{"top5": ["Soybean", "Wheat", "Rice", "Maize", "Cotton"], "explanation": "Brief reason <=60 words"}\n'
     "Use EXACT crop names from the candidate list. No invented names. Rank best-first."
+)
+
+# Harness-fix (PROTOCOL ss8.10, 2026-10-13): appended ONLY to tool-condition prompts
+# (C1a/C2a/C2b/C1b). C0/C0b prompts are intentionally untouched so cached records stay
+# reusable. Reinforces the system message: JSON object only, no prose around it.
+FINAL_JSON_ONLY = (
+    '\nReply with the final JSON object only; no analysis or explanation text '
+    'outside the JSON.'
 )
 
 CROP_LIST_TEXT = "Candidate crops (use these exact names): " + ", ".join(CANONICAL_CROPS) + "."
@@ -106,27 +122,88 @@ def prompt_c1(scenario: dict[str, Any], evidence: dict[str, Any]) -> str:
         f"SOIL: {_compact(evidence.get('soil'))}\n"
         f"RISK: {_compact(evidence.get('risk'))}\n"
         f"CROP_SCORE: {_compact(evidence.get('crop_score'))}\n"
-        f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}"
+        f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}{FINAL_JSON_ONLY}"
     )
 
 
-def prompt_c2(scenario: dict[str, Any]) -> str:
+def _load_candidate_requirements() -> list[dict[str, str]]:
+    import csv
+
+    path = Path(__file__).resolve().parent.parent.parent / "crop_log.csv"
+    with path.open(encoding="utf-8", newline="") as handle:
+        return list(csv.DictReader(handle))
+
+
+def candidate_requirements_text() -> str:
+    """Raw candidate crop requirements (registry), NO scores, NO ranking, NO match flags."""
+    rows = _load_candidate_requirements()
+    lines = []
+    for i, r in enumerate(rows, 1):
+        lines.append(
+            _compact({
+                "crop": r.get("Crop", ""),
+                "season_supported": r.get("season_supported", ""),
+                "rainfall_range_mm": r.get("Rainfall", ""),
+                "temperature_range_c": r.get("Tempreture", ""),
+                "soil_type": r.get("Soil Type", ""),
+                "sowing_window_weeks": f"{r.get('sowing_start_week', '')}..{r.get('sowing_end_week', '')}",
+                "days_to_harvest": r.get("days_to_harvest", ""),
+                "peak_water_week": r.get("peak_water_week", ""),
+                "risk_sensitivity": r.get("risk_sensitivity", ""),
+            })
+        )
+    return "\n".join(f"{i}. {line}" for i, line in enumerate(lines, 1))
+
+
+# Phase 8 STEP B: raw candidate requirements (no scores/ranking/match flags).
+_CANDIDATE_REQUIREMENTS_TEXT = candidate_requirements_text()
+
+
+def prompt_c1a(scenario: dict[str, Any], evidence: dict[str, Any]) -> str:
+    """Fair stuffing (C1a): the same raw evidence the tools would return, WITHOUT the
+    CROP_SCORE ranking, suitability scores, or per-crop match flags."""
+    return (
+        "You are an agronomy advisor for Madhya Pradesh, India.\n"
+        f"District: {scenario['district']}. Coordinates: {scenario['lat']:.4f}, {scenario['lon']:.4f}. "
+        f"Date: {scenario['as_of_date']}.\n"
+        "The following raw tool outputs are provided as evidence. Base your recommendation "
+        "strictly on them; do not invent numbers.\n"
+        f"WEATHER: {_compact(evidence.get('weather'))}\n"
+        f"CLIMATE_NORMALS: {_compact(evidence.get('climate'))}\n"
+        f"SEASON: {_compact(evidence.get('season'))}\n"
+        f"SOIL: {_compact(evidence.get('soil'))}\n"
+        f"RISK: {_compact(evidence.get('risk'))}\n"
+        f"CANDIDATE_CROP_REQUIREMENTS:\n{_CANDIDATE_REQUIREMENTS_TEXT}\n"
+        f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}{FINAL_JSON_ONLY}"
+    )
+
+
+def prompt_c1b(scenario: dict[str, Any], evidence: dict[str, Any]) -> str:
+    """Oracle (C1b): the current C1 prompt, i.e. the C3 ranking injected. Relabelled
+    per Phase 8 STEP B; upper bound, leaks the answer - never a fair baseline."""
+    return prompt_c1(scenario, evidence)
+
+
+def prompt_c2(scenario: dict[str, Any], tools: list[str] | None = None) -> str:
+    tool_names = tools or [
+        "weather_tool", "climate_tool", "season_tool", "risk_tool",
+        "get_soil_by_coordinates", "crop_score",
+    ]
+    numbered = "\n".join(f"{i + 1}. {t}" for i, t in enumerate(tool_names))
+    must = "You MUST call ALL of the following tools with the given latitude and longitude "
+    if len(tool_names) == 6:
+        must += "before making any recommendation."
+    else:
+        must += "before making any recommendation. Do NOT call any other tool."
     return (
         "You are an agronomy advisor for Madhya Pradesh, India, with access to agricultural tools.\n"
         f"District: {scenario['district']}. Coordinates: {scenario['lat']:.4f}, {scenario['lon']:.4f}. "
         f"Date: {scenario['as_of_date']}.\n"
-        "You MUST call ALL of the following tools with the given latitude and longitude "
-        "before making any recommendation:\n"
-        "1. weather_tool\n"
-        "2. climate_tool\n"
-        "3. season_tool\n"
-        "4. risk_tool\n"
-        "5. get_soil_by_coordinates\n"
-        "6. crop_score\n"
-        "Call them in any order, but you must call ALL six. After receiving all tool outputs, "
-        "base your final recommendation strictly on the tool outputs. Do not invent soil, "
-        "weather, climate, season, risk, or crop suitability values.\n"
-        f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}"
+        f"{must}\n{numbered}\n"
+        "Call them in any order, but you must call ALL of the listed tools. After receiving "
+        "all tool outputs, base your final recommendation strictly on the tool outputs. Do not "
+        "invent soil, weather, climate, season, risk, or crop suitability values.\n"
+        f"{CROP_LIST_TEXT}\n{OUTPUT_CONTRACT}{FINAL_JSON_ONLY}"
     )
 
 

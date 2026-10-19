@@ -26,7 +26,7 @@ paths:
 
 model:
   # SAME model in EVERY LLM condition. Provider is the auth/transport backend.
-  #   provider: "nvidia"    -> NVIDIA NIM OpenAI-compatible API (needs NVIDIA_API_KEY)
+  #   provider: "nvidia"    -> NVIDIA NIM OpenAI-compatible API (needs NVIDIA_API_KEY or NVIDIA_API_KEYS)
   #   provider: "gemini"    -> Google Generative Language API (legacy, disabled)
   #   provider: "opencode"  -> shell out to opencode CLI (legacy, disabled)
   #   provider: "kilo"      -> Kilo Gateway (legacy, disabled)
@@ -35,8 +35,17 @@ model:
   temperature: 0.2
   top_p: 1.0
   max_output_tokens: 4096
+  max_output_tokens_tools: 8192   # DISCLOSED ASYMMETRY (PROTOCOL ss8.10, 2026-10-13):
+                                  # tool conditions (C1a/C1b/C2a/C2b) get 8192 because the
+                                  # final response of a tool run also uses this cap (was
+                                  # 2048 -> caused finish=length truncation in pilot v1).
+                                  # C0/C0b have no tools and stay at max_output_tokens=4096.
+  max_tool_rounds: 15        # Phase 8 STEP A: C2 tool-loop cap (was hard-coded 10)
   nvidia:
     base_url: "https://integrate.api.nvidia.com/v1"
+    # Multi-key support: set NVIDIA_API_KEYS (comma-separated) or NVIDIA_API_KEY (single) in env
+    # Example: NVIDIA_API_KEYS="nvapi-key1,nvapi-key2,nvapi-key3"
+    # Round-robin rotation bypasses per-account rate limits
     # Model selection (verified via /v1/models endpoint):
     # PRIMARY: nvidia/nemotron-3-ultra-550b-a55b (largest accessible model)
     # COMPARISON: z-ai/glm-5.3, meta/llama-3.2-11b-vision-instruct
