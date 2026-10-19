@@ -1,0 +1,19 @@
+{
+  "c3_distinct_crops": 21,
+  "c3_shannon_entropy": 4.029016659598211,
+  "c3_per_district_differentiation": 0.179667432229171,
+  "c3_season_validity_overall": 0.74792,
+  "c3_season_validity_stress": 0.547673314339981,
+  "c3_season_validity_normal": 0.8936420179682102,
+  "n_scenarios": 10000,
+  "n_stress": 4212,
+  "n_normal": 5788,
+  "meta": {
+    "run_id": "adhoc",
+    "protocol_version": "1.0.0",
+    "config_sha256": "49e2c476ba0ccfba48783e5fc4d5da101794673dd86df2859f6c9af07a02cc80",
+    "git_commit": "f75e3f45b44cb80165579484115d511ff3e4e661",
+    "model_name_used": "deterministic_analysis",
+    "created_utc": "2026-10-13T22:41:40.870641+00:00"
+  }
+}

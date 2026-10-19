@@ -1,0 +1,130 @@
+[
+ {
+  "model": "llama-3.2-11b",
+  "cond": "C0",
+  "n": 150,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 150
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 14.611612569332744,
+  "tin_mean": 346,
+  "tout_mean": 83.2,
+  "max_rounds_reached": 0,
+  "trunc": 0
+ },
+ {
+  "model": "llama-3.2-11b",
+  "cond": "C0b",
+  "n": 150,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 150
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 17.2421927493345,
+  "tin_mean": 362,
+  "tout_mean": 88.98666666666666,
+  "max_rounds_reached": 0,
+  "trunc": 0
+ },
+ {
+  "model": "llama-3.2-11b",
+  "cond": "C1",
+  "n": 150,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 150
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 20.527624713336117,
+  "tin_mean": 1477.48,
+  "tout_mean": 72.99333333333334,
+  "max_rounds_reached": 0,
+  "trunc": null
+ },
+ {
+  "model": "llama-3.2-11b",
+  "cond": "C2",
+  "n": 132,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 132
+  },
+  "calls_mean": 6.409090909090909,
+  "lat_mean_s": 57.04766282803471,
+  "tin_mean": 14944.136363636364,
+  "tout_mean": 498.6136363636364,
+  "max_rounds_reached": 0,
+  "trunc": null
+ },
+ {
+  "model": "nemotron-3-ultra",
+  "cond": "C0",
+  "n": 500,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 500
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 34.233335578599366,
+  "tin_mean": 360.528,
+  "tout_mean": 948.932,
+  "max_rounds_reached": 0,
+  "trunc": 0
+ },
+ {
+  "model": "nemotron-3-ultra",
+  "cond": "C0b",
+  "n": 500,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 500
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 54.66571104100102,
+  "tin_mean": 373.924,
+  "tout_mean": 1388.918,
+  "max_rounds_reached": 0,
+  "trunc": 0
+ },
+ {
+  "model": "nemotron-3-ultra",
+  "cond": "C1",
+  "n": 500,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 500
+  },
+  "calls_mean": 0,
+  "lat_mean_s": 46.6256970141998,
+  "tin_mean": 1665.282,
+  "tout_mean": 1227.778,
+  "max_rounds_reached": 0,
+  "trunc": null
+ },
+ {
+  "model": "nemotron-3-ultra",
+  "cond": "C2",
+  "n": 500,
+  "http_mean": 1,
+  "http_median": 1.0,
+  "rounds_hist": {
+   "1": 500
+  },
+  "calls_mean": 5.376,
+  "lat_mean_s": 54.430586461598516,
+  "tin_mean": 4899.328,
+  "tout_mean": 856.704,
+  "max_rounds_reached": 0,
+  "trunc": null
+ }
+]

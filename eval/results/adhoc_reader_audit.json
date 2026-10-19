@@ -1,0 +1,52 @@
+{
+  "audit": "adhoc-directory readers across eval/ (closed)",
+  "canonical": {
+    "c3_source": "eval/runs/archive_v2/deterministic (full_repo.top5, _v=2)",
+    "evidence_source": "eval/runs/archive_v2/evidence (_v=2, adds as_of_date+week)",
+    "c3_canonical_summary_writer": "eval/scripts/analyze_deterministic_v2.py",
+    "figure_stats_writer": "eval/figures_paper.py"
+  },
+  "repointed_to_canonical": [
+    {"file": "eval/scripts/build_master_long.py", "line": 38},
+    {"file": "eval/scripts/analyze_cross_model.py", "line": 51},
+    {"file": "eval/scripts/diagnostics.py"},
+    {"file": "eval/scripts/recompute_normalization_fix.py", "line": 25},
+    {"file": "eval/scripts/generate_figures.py", "line": 105},
+    {"file": "eval/scripts/finalize_stress_and_subset.py", "line": 20, "to": "archive_v2/evidence"},
+    {"file": "eval/mcp_eval/server.py", "line": 27, "to": "archive_v2/evidence (default; unwired per DIAGNOSTICS)"},
+    {"file": "eval/scripts/_pre_pilot_season_check.py", "line": 35, "to": "archive_v2/evidence"},
+    {"file": "Makefile", "line": 47, "to": "analyze_deterministic_v2.py (was analyze_deterministic_full.py)"}
+  ],
+  "retired_v1_writers": [
+    {"file": "eval/scripts/archive_v1/analyze_deterministic.py", "output": "c3_deterministic_summary.v1.json"},
+    {"file": "eval/scripts/archive_v1/analyze_deterministic_full.py", "output": "c3_deterministic_summary.v1.json"}
+  ],
+  "kept_v1_generators": [
+    {"file": "eval/scripts/build_stress_set.py", "line": 21, "why": "writes adhoc/evidence bundles (v1 producer); v2 successor = build_evidence_v2.py"},
+    {"file": "eval/scripts/build_missing_evidence.py", "line": 17, "why": "writes adhoc/evidence bundles (v1 producer)"},
+    {"file": "eval/scripts/run_deterministic.py", "lines": [240, 241], "why": "writes adhoc/evidence+deterministic (v1 producer); v2 successor = run_deterministic_v2.py"},
+    {"file": "eval/scripts/run_deterministic_fast.py", "lines": [225, 226], "why": "writes adhoc/deterministic (v1 producer)"},
+    {"file": "eval/scripts/complete_deterministic.py", "lines": [173, 174], "why": "writes adhoc/deterministic (v1 producer)"}
+  ],
+  "kept_intentional_v1_comparators": [
+    {"file": "eval/scripts/build_evidence_v2.py", "line": 51, "why": "reads v1 bundles as the migration input to build v2"},
+    {"file": "eval/scripts/run_deterministic_v2.py", "line": 247, "why": "explicit drift vs v1"},
+    {"file": "eval/scripts/drift_v1_v2.py", "line": 6, "why": "explicit drift v1 vs v2"},
+    {"file": "eval/scripts/test_step_a.py", "line": 169, "why": "legacy v1 check"},
+    {"file": "eval/scripts/_barley_compare_sources.py", "line": 4, "why": "audit"},
+    {"file": "eval/scripts/_barley_reconcile.py", "line": 5, "why": "audit"},
+    {"file": "eval/scripts/_barley_source_audit.py", "lines": [7, 8], "why": "audit (measures the staleness)"},
+    {"file": "eval/scripts/_barley_top1.py", "line": 6, "why": "audit"},
+    {"file": "eval/scripts/_stale_source_audit.py", "line": 5, "why": "audit"}
+  ],
+  "snapshot_diffs_not_live_adhoc": [
+    {"file": "eval/scripts/_diff_master.py"}, {"file": "eval/scripts/_diff_norm.py"}, {"file": "eval/scripts/_diff_agg.py"}
+  ],
+  "prose_metadata_only": [
+    {"file": "eval/config.yaml", "line": 6, "note": "run_id default label = 'adhoc' (not a directory read)"},
+    {"file": "eval/report/RESULTS_REPORT.md", "line": 35, "note": "updated to canonical path"},
+    {"file": "README.md", "note": "tree updated"},
+    {"file": "eval/results/deterministic_meta.json", "note": "run_id metadata"},
+    {"file": "eval/results/figure_stats.json", "note": "run_id metadata (owner: eval/figures_paper.py)"}
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "stale_source": "eval/runs/adhoc/evidence (crop_score tool bundles; _v absent) \u2014 used by build_master_long.py / analyze_cross_model.py / diagnostics.py / recompute_normalization_fix.py",
+  "frozen_v2_grid": "eval/runs/archive_v2/deterministic (full_repo ablations; _v=2)",
+  "n_common": 10000,
+  "top1_agreement": 8333,
+  "top1_differ": 1667,
+  "top5_set_agreement": 5929,
+  "top5_set_differ": 4071,
+  "barley": {
+    "stale_bundle": {
+      "rabi_n": 3319,
+      "top1": 303,
+      "top1_pct": 9.1,
+      "top5": 2914,
+      "top5_pct": 87.8
+    },
+    "frozen_grid": {
+      "rabi_n": 3319,
+      "top1": 163,
+      "top1_pct": 4.9,
+      "top5": 3319,
+      "top5_pct": 100.0
+    }
+  }
+}

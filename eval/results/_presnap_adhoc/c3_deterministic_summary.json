@@ -1,0 +1,50 @@
+{
+  "phase": 8,
+  "evidence_version": 2,
+  "week_anchored_to": "as_of_date",
+  "c3_distinct_crops": 21,
+  "c3_shannon_entropy": 4.029016659598211,
+  "c3_per_district_differentiation": 0.179667432229171,
+  "c3_season_validity_overall": 0.74792,
+  "c3_season_validity_stress": 0.547673314339981,
+  "c3_season_validity_normal": 0.8936420179682102,
+  "n_scenarios": 10000,
+  "n_stress": 4212,
+  "n_normal": 5788,
+  "per_season": {
+    "Kharif": {
+      "n": 3366,
+      "validity": 0.9893642305407012
+    },
+    "Rabi": {
+      "n": 3319,
+      "validity": 0.9865019584212112
+    },
+    "Zaid": {
+      "n": 3315,
+      "validity": 0.26389140271493217
+    }
+  },
+  "ablation_jaccard_vs_full": {
+    "full_equal": 0.9105083333333333,
+    "no_weather": 0.9072440476190478,
+    "no_climate": 0.8172142857142857,
+    "no_soil": 0.6061380952380953,
+    "no_risk": 0.8683809523809523,
+    "no_season": 1.0
+  },
+  "weight_sensitivity_jaccard_vs_full": {
+    "sens_rainfall_plus": 0.9802761904761904,
+    "sens_rainfall_minus": 0.9807761904761905,
+    "sens_temperature_plus": 0.9853666666666666,
+    "sens_temperature_minus": 0.9771666666666667,
+    "sens_soil_plus": 0.9636761904761907,
+    "sens_soil_minus": 0.9207428571428572,
+    "sens_season_plus": 0.9236238095238095,
+    "sens_season_minus": 0.9542142857142859,
+    "sens_risk_plus": 0.9727809523809523,
+    "sens_risk_minus": 0.9577952380952381
+  },
+  "config_shasum_note": "config.yaml modified in Phase 8 STEP A (max_tool_rounds); v2 runs carry new run ID",
+  "generated_at": "2026-10-12T21:38:30.869713+00:00"
+}

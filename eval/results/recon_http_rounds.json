@@ -1,0 +1,165 @@
+{
+  "nemotron B1": {
+    "n": 450,
+    "base_http": 797,
+    "base_http_per_scen": 1.771111111111111,
+    "by_condition": {
+      "C1a": {
+        "n": 150,
+        "mean_tools": 0.0,
+        "rounds_hist": {
+          "0": 150
+        },
+        "mean_rounds": 0.0,
+        "base_http_per_scen": 1.0,
+        "base_http_total": 150
+      },
+      "C2a": {
+        "n": 150,
+        "mean_tools": 6.0,
+        "rounds_hist": {
+          "1": 137,
+          "2": 9,
+          "6": 4
+        },
+        "mean_rounds": 1.193,
+        "base_http_per_scen": 2.193,
+        "base_http_total": 329
+      },
+      "C2b": {
+        "n": 150,
+        "mean_tools": 5.0,
+        "rounds_hist": {
+          "1": 141,
+          "2": 6,
+          "5": 3
+        },
+        "mean_rounds": 1.12,
+        "base_http_per_scen": 2.12,
+        "base_http_total": 318
+      }
+    }
+  },
+  "nemotron B2": {
+    "n": 1050,
+    "base_http": 1882,
+    "base_http_per_scen": 1.7923809523809524,
+    "by_condition": {
+      "C1a": {
+        "n": 350,
+        "mean_tools": 0.0,
+        "rounds_hist": {
+          "0": 350
+        },
+        "mean_rounds": 0.0,
+        "base_http_per_scen": 1.0,
+        "base_http_total": 350
+      },
+      "C2a": {
+        "n": 350,
+        "mean_tools": 6.0,
+        "rounds_hist": {
+          "1": 322,
+          "2": 18,
+          "6": 10
+        },
+        "mean_rounds": 1.194,
+        "base_http_per_scen": 2.194,
+        "base_http_total": 768
+      },
+      "C2b": {
+        "n": 350,
+        "mean_tools": 5.0,
+        "rounds_hist": {
+          "1": 316,
+          "2": 24,
+          "5": 10
+        },
+        "mean_rounds": 1.183,
+        "base_http_per_scen": 2.183,
+        "base_http_total": 764
+      }
+    }
+  },
+  "nemotron MCP C2a50": {
+    "n": 50,
+    "base_http": 106,
+    "base_http_per_scen": 2.12,
+    "by_condition": {
+      "C2a": {
+        "n": 50,
+        "mean_tools": 6.0,
+        "rounds_hist": {
+          "1": 44,
+          "2": 6
+        },
+        "mean_rounds": 1.12,
+        "base_http_per_scen": 2.12,
+        "base_http_total": 106
+      }
+    }
+  },
+  "llama-3.2-11b": {
+    "n": 750,
+    "base_http": 2630,
+    "base_http_per_scen": 3.506666666666667,
+    "by_condition": {
+      "C0": {
+        "n": 150,
+        "mean_tools": 0.0,
+        "rounds_hist": {
+          "0": 150
+        },
+        "mean_rounds": 0.0,
+        "base_http_per_scen": 1.0,
+        "base_http_total": 150
+      },
+      "C0b": {
+        "n": 150,
+        "mean_tools": 0.0,
+        "rounds_hist": {
+          "0": 150
+        },
+        "mean_rounds": 0.0,
+        "base_http_per_scen": 1.0,
+        "base_http_total": 150
+      },
+      "C1a": {
+        "n": 150,
+        "mean_tools": 0.0,
+        "rounds_hist": {
+          "0": 150
+        },
+        "mean_rounds": 0.0,
+        "base_http_per_scen": 1.0,
+        "base_http_total": 150
+      },
+      "C2a": {
+        "n": 150,
+        "mean_tools": 6.493,
+        "rounds_hist": {
+          "6": 91,
+          "7": 56,
+          "12": 3
+        },
+        "mean_rounds": 6.493,
+        "base_http_per_scen": 7.493,
+        "base_http_total": 1124
+      },
+      "C2b": {
+        "n": 150,
+        "mean_tools": 6.04,
+        "rounds_hist": {
+          "5": 55,
+          "6": 81,
+          "7": 4,
+          "9": 1,
+          "12": 9
+        },
+        "mean_rounds": 6.04,
+        "base_http_per_scen": 7.04,
+        "base_http_total": 1056
+      }
+    }
+  }
+}

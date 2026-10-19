@@ -1,0 +1,51 @@
+====================================================================================================
+HTTP / TOOL-ROUND RECONCILIATION
+====================================================================================================
+base_requests = tool_call_rounds + 1 (final answer); budget counter also counts retries.
+
+=== nemotron B1  (results.json) ===
+  cond     n mean_tools rounds_hist {rounds:n}       mean_rounds base_req/scen base_HTTP_total
+  C1a    150       0.00 {0: 150}                            0.00          1.00             150
+  C2a    150       6.00 {1: 137, 2: 9, 6: 4}                1.19          2.19             329
+  C2b    150       5.00 {1: 141, 2: 6, 5: 3}                1.12          2.12             318
+  -- nemotron B1: base (no-retry) HTTP = 797 over 450 scenario-runs = 1.771/scen
+
+=== nemotron B2  (results.json) ===
+  cond     n mean_tools rounds_hist {rounds:n}       mean_rounds base_req/scen base_HTTP_total
+  C1a    350       0.00 {0: 350}                            0.00          1.00             350
+  C2a    350       6.00 {1: 322, 2: 18, 6: 10}              1.19          2.19             768
+  C2b    350       5.00 {1: 316, 2: 24, 5: 10}              1.18          2.18             764
+  -- nemotron B2: base (no-retry) HTTP = 1882 over 1050 scenario-runs = 1.792/scen
+
+=== nemotron MCP C2a50  (results.json) ===
+  cond     n mean_tools rounds_hist {rounds:n}       mean_rounds base_req/scen base_HTTP_total
+  C2a     50       6.00 {1: 44, 2: 6}                       1.12          2.12             106
+  -- nemotron MCP C2a50: base (no-retry) HTTP = 106 over 50 scenario-runs = 2.120/scen
+
+=== llama-3.2-11b  (results.json) ===
+  cond     n mean_tools rounds_hist {rounds:n}       mean_rounds base_req/scen base_HTTP_total
+  C0     150       0.00 {0: 150}                            0.00          1.00             150
+  C0b    150       0.00 {0: 150}                            0.00          1.00             150
+  C1a    150       0.00 {0: 150}                            0.00          1.00             150
+  C2a    150       6.49 {6: 91, 7: 56, 12: 3}               6.49          7.49            1124
+  C2b    150       6.04 {5: 55, 6: 81, 7: 4, 9: 1, 12: 9}        6.04          7.04            1056
+  -- llama-3.2-11b: base (no-retry) HTTP = 2630 over 750 scenario-runs = 3.507/scen
+
+=== RECONCILIATION of the '7.0 HTTP/scen' claim ===
+  B1 C2a rounds histogram = {'1': 137, '2': 9, '6': 4}  (rounds = tool-call rounds)
+  B1 C2a mean tools = 6.0 -> if you WRONGLY count one HTTP per tool: 6.0+1 = 7.0/scen  <-- the erroneous '7.0'
+  B1 C2a CORRECT base requests/scen = 2.193 (329 total) ; budget counter adds retries -> 2.19/scen observed.
+  MCP C2a base = 106 for n=50 (2.12/scen); +retries -> 123 observed (2.12 base + 0.34 retry).
+
+=== EFFICIENCY: tool-rounds/scenario by model ===
+  nemotron B1          C1a   mean_rounds=0.00 tools=0.00 base_req/scen=1.00
+  nemotron B1          C2a   mean_rounds=1.19 tools=6.00 base_req/scen=2.19
+  nemotron B1          C2b   mean_rounds=1.12 tools=5.00 base_req/scen=2.12
+  nemotron B2          C1a   mean_rounds=0.00 tools=0.00 base_req/scen=1.00
+  nemotron B2          C2a   mean_rounds=1.19 tools=6.00 base_req/scen=2.19
+  nemotron B2          C2b   mean_rounds=1.18 tools=5.00 base_req/scen=2.18
+  llama-3.2-11b        C0    mean_rounds=0.00 tools=0.00 base_req/scen=1.00
+  llama-3.2-11b        C0b   mean_rounds=0.00 tools=0.00 base_req/scen=1.00
+  llama-3.2-11b        C1a   mean_rounds=0.00 tools=0.00 base_req/scen=1.00
+  llama-3.2-11b        C2a   mean_rounds=6.49 tools=6.49 base_req/scen=7.49
+  llama-3.2-11b        C2b   mean_rounds=6.04 tools=6.04 base_req/scen=7.04

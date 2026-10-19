@@ -1,0 +1,326 @@
+[
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.2356442577030812,
+    "c": 0.23305129214220122,
+    "delta": -0.002592965560879984
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.7363083164300203,
+    "c": 0.7768595041322314,
+    "delta": 0.04055118770221111
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.5915977961432507,
+    "delta": 0.0666485060823987
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.968,
+    "delta": -0.018000000000000016
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.2356442577030812,
+    "c": 0.7088645934564302,
+    "delta": 0.473220335753349
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.7363083164300203,
+    "c": 0.9816326530612245,
+    "delta": 0.24532433663120423
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.731938775510204,
+    "delta": 0.20698948544935203
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.98,
+    "delta": -0.006000000000000005
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.2356442577030812,
+    "c": 0.3810366850602902,
+    "delta": 0.145392427357209
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.7363083164300203,
+    "c": 0.907725321888412,
+    "delta": 0.17141700545839178
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.524949290060852,
+    "c": 0.49159513590844056,
+    "delta": -0.03335415415241144
+  },
+  {
+    "model": "nemotron",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 0.986,
+    "c": 0.956,
+    "delta": -0.030000000000000027
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.07592592592592591,
+    "c": 0.0925925925925926,
+    "delta": 0.01666666666666669
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.6333333333333333,
+    "delta": 0.06666666666666665
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.3373333333333333,
+    "c": 0.352,
+    "delta": 0.014666666666666661
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 1.0,
+    "delta": 0.0
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.07592592592592591,
+    "c": 0.41382804232804227,
+    "delta": 0.33790211640211637
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.9933333333333333,
+    "delta": 0.42666666666666664
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.3373333333333333,
+    "c": 0.585,
+    "delta": 0.24766666666666665
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 1.0,
+    "delta": 0.0
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.07592592592592591,
+    "c": 0.333390022675737,
+    "delta": 0.2574640967498111
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.5666666666666667,
+    "c": 0.8571428571428571,
+    "delta": 0.29047619047619044
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.3373333333333333,
+    "c": 0.4606349206349206,
+    "delta": 0.1233015873015873
+  },
+  {
+    "model": "llama",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 1.0,
+    "c": 0.8466666666666667,
+    "delta": -0.15333333333333332
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "jaccard",
+    "base": 0.1801146384479718,
+    "c": 0.15784832451499117,
+    "delta": -0.02226631393298062
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "acc5",
+    "base": 0.8148148148148148,
+    "c": 0.8518518518518519,
+    "delta": 0.03703703703703709
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.5722222222222223,
+    "delta": 0.06851851851851865
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C0b",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.84375,
+    "delta": 0.0
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "jaccard",
+    "base": 0.1801146384479718,
+    "c": 0.5890530925013684,
+    "delta": 0.40893845405339657
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "acc5",
+    "base": 0.8148148148148148,
+    "c": 0.9655172413793104,
+    "delta": 0.15070242656449562
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.6206896551724138,
+    "delta": 0.11698595146871016
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C1",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.90625,
+    "delta": 0.0625
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "jaccard",
+    "base": 0.1801146384479718,
+    "c": 0.3030555555555555,
+    "delta": 0.12294091710758373
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "acc5",
+    "base": 0.8148148148148148,
+    "c": 0.7333333333333333,
+    "delta": -0.08148148148148149
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "season",
+    "base": 0.5037037037037037,
+    "c": 0.4527777777777778,
+    "delta": -0.050925925925925875
+  },
+  {
+    "model": "glm",
+    "from": "C0",
+    "to": "C2",
+    "metric": "valid_json_rate_any",
+    "base": 0.84375,
+    "c": 0.9375,
+    "delta": 0.09375
+  }
+]

@@ -1,0 +1,50 @@
+Processing 10000 files...
+  2000/10000
+  4000/10000
+  6000/10000
+  8000/10000
+  10000/10000
+
+C3 scenarios: 10000
+Distinct crops: 21
+Shannon entropy: 4.0290
+Per-district diff: 0.1797
+Season validity overall: 0.7479 (n=10000)
+Season validity stress: 0.5477 (n=4212)
+Season validity normal: 0.8936 (n=5788)
+
+Per-season breakdown:
+  Kharif: n=3366, validity=0.9894
+  Rabi: n=3319, validity=0.9865
+  Zaid: n=3315, validity=0.2639
+
+=== Ablation Analysis ===
+  full_repo: 10000 scenarios
+  full_equal: 10000 scenarios
+  no_weather: 10000 scenarios
+  no_climate: 10000 scenarios
+  no_soil: 10000 scenarios
+  no_risk: 10000 scenarios
+  no_season: 10000 scenarios
+
+Jaccard similarity vs full_repo:
+  full_equal: mean Jaccard = 0.9105 (n=10000)
+  no_weather: mean Jaccard = 0.9072 (n=10000)
+  no_climate: mean Jaccard = 0.8172 (n=10000)
+  no_soil: mean Jaccard = 0.6061 (n=10000)
+  no_risk: mean Jaccard = 0.8684 (n=10000)
+  no_season: mean Jaccard = 1.0000 (n=10000)
+
+=== Weight Sensitivity ===
+  sens_rainfall_plus: mean Jaccard = 0.9803 (n=10000)
+  sens_rainfall_minus: mean Jaccard = 0.9808 (n=10000)
+  sens_temperature_plus: mean Jaccard = 0.9854 (n=10000)
+  sens_temperature_minus: mean Jaccard = 0.9772 (n=10000)
+  sens_soil_plus: mean Jaccard = 0.9637 (n=10000)
+  sens_soil_minus: mean Jaccard = 0.9207 (n=10000)
+  sens_season_plus: mean Jaccard = 0.9236 (n=10000)
+  sens_season_minus: mean Jaccard = 0.9542 (n=10000)
+  sens_risk_plus: mean Jaccard = 0.9728 (n=10000)
+  sens_risk_minus: mean Jaccard = 0.9578 (n=10000)
+
+Summary saved to C:\Codes\mcp_for_farmers\eval\results\c3_deterministic_summary.json

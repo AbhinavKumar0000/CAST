@@ -1,0 +1,14 @@
+{
+  "adhoc_n": 10000,
+  "v2_n": 10000,
+  "only_in_adhoc": [],
+  "only_in_v2": [],
+  "full_repo_top5_mismatches": 1502,
+  "season_field_mismatches": 0,
+  "keyset_mismatches": 10000,
+  "keys_only_in_adhoc": [],
+  "keys_only_in_v2": [
+    "as_of_date",
+    "week"
+  ]
+}
