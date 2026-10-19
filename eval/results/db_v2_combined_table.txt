@@ -1,0 +1,43 @@
+Combined table - all conditions on the SAME test reference (window 2020-21..2022-23).
+LLM conditions used db_v1 and were NOT re-run on db_v2; C3 recomputed under both databases.
+
+===== nemotron-3-ultra (n=500) =====
+  reference R_test_all:
+    cond            P@5   nDCG@5
+    C0            0.377    0.401
+    C0b           0.461    0.489
+    C1a           0.438    0.443
+    C2a           0.425    0.419
+    C2b           0.601    0.640
+    C3 (db_v1)    0.440    0.441
+    C3 (db_v2)    0.430    0.435
+  reference R_test_reg:
+    cond            P@5   nDCG@5
+    C0            0.407    0.423
+    C0b           0.495    0.514
+    C1a           0.502    0.497
+    C2a           0.480    0.472
+    C2b           0.637    0.668
+    C3 (db_v1)    0.500    0.503
+    C3 (db_v2)    0.480    0.489
+
+===== llama-3.2-11b (n=150) =====
+  reference R_test_all:
+    cond            P@5   nDCG@5
+    C0            0.267    0.282
+    C0b           0.304    0.312
+    C1a           0.300    0.353
+    C2a           0.372    0.365
+    C2b           0.204    0.230
+    C3 (db_v1)    0.452    0.453
+    C3 (db_v2)    0.446    0.450
+  reference R_test_reg:
+    cond            P@5   nDCG@5
+    C0            0.275    0.287
+    C0b           0.308    0.314
+    C1a           0.309    0.360
+    C2a           0.428    0.419
+    C2b           0.212    0.236
+    C3 (db_v1)    0.520    0.522
+    C3 (db_v2)    0.503    0.510
+

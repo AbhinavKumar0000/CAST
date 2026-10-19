@@ -1,4 +1,8 @@
-"""Full deterministic analysis - optimized for all 8628 scenarios."""
+"""RETIRED (v1). Superseded by eval/scripts/analyze_deterministic_v2.py, the sole
+writer of the canonical eval/results/c3_deterministic_summary.json. This copy
+reads the frozen v2 grid but MUST NOT touch the canonical summary: it writes the
+v1-suffixed file c3_deterministic_summary.v1.json instead.
+"""
 
 import json
 import sys
@@ -28,7 +32,7 @@ with open(dirs['stress_path']) as f:
     for line in f:
         stress_ids.add(json.loads(line)['scenario_id'])
 
-det_dir = dirs['runs_dir'] / 'adhoc' / 'deterministic'
+det_dir = dirs['runs_dir'] / 'archive_v2' / 'deterministic'
 files = list(det_dir.glob('*.json'))
 print(f"Processing {len(files)} files...")
 
@@ -160,5 +164,5 @@ summary = {
 meta = ResultMeta.build(cfg, "deterministic_analysis")
 summary["meta"] = meta.as_dict()
 
-write_json(dirs['results_dir'] / "c3_deterministic_summary.json", summary)
-print(f"\nSummary saved to {dirs['results_dir'] / 'c3_deterministic_summary.json'}")
+write_json(dirs['results_dir'] / "c3_deterministic_summary.v1.json", summary)
+print(f"\nSummary saved to {dirs['results_dir'] / 'c3_deterministic_summary.v1.json'}")

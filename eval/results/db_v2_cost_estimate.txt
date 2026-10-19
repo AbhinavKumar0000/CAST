@@ -1,0 +1,27 @@
+STEP 7 - volume estimate for re-running LLM conditions on db_v2 (NOT executed).
+Conditions to re-run: C0, C0b, C1a, C2a, C2b (C3 is deterministic, no API call).
+Projection uses token/request volumes ACTUALLY recorded in the db_v1 runs.
+Dollar cost omitted: no citable public per-token price for these NVIDIA-hosted models.
+
+===== nemotron-3-ultra (500 scenarios, db_v1 actuals) =====
+  C0   n=500  req=  500  in=   152176 out(+reason)= 447809  tool_rounds=   0 err=44
+  C0b  n=500  req=  500  in=   162735 out(+reason)= 679348  tool_rounds=   0 err=36
+  C1a  n=500  req=  500  in=  1422468 out(+reason)=1419070  tool_rounds=   0 err=0
+  C2a  n=500  req= 3500  in=  2468604 out(+reason)= 408394  tool_rounds=3000 err=0
+  C2b  n=500  req= 3000  in=  1836215 out(+reason)=1209045  tool_rounds=2500 err=0
+  TOTAL n=2500 requests=8000 input_tokens=6042198 output_tokens=4163666 tool_rounds=5500
+
+===== llama-3.2-11b (150 scenarios, db_v1 actuals) =====
+  C0   n=150  req=  150  in=    51900 out(+reason)=  12480  tool_rounds=   0 err=0
+  C0b  n=150  req=  150  in=    54300 out(+reason)=  13348  tool_rounds=   0 err=0
+  C1a  n=150  req=  150  in=   379461 out(+reason)=   9946  tool_rounds=   0 err=0
+  C2a  n=150  req= 1124  in=  2340385 out(+reason)=  74851  tool_rounds= 974 err=0
+  C2b  n=150  req= 1056  in=  1853633 out(+reason)=  66565  tool_rounds= 906 err=0
+  TOTAL n=750 requests=2630 input_tokens=4679679 output_tokens=177190 tool_rounds=1880
+
+===== PROJECTED db_v2 re-run (both models, 5 conditions) =====
+  total requests: 10630
+  total input tokens:  10721877
+  total output tokens: 4340856
+  approx sequential time at ~10 req/min: 17.7 hours
+

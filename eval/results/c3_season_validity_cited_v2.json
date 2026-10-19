@@ -1,0 +1,103 @@
+{
+  "phase": 8,
+  "semantics": {
+    "strict": "UNVERIFIED/absent rows count as invalid (denominator = full top5)",
+    "lenient": "UNVERIFIED/absent rows excluded from the denominator"
+  },
+  "tables": "v1 frozen (2026-10-13) and v1.1 (Barley cited, see ground_truth/CHANGELOG.md)",
+  "n_scenarios": 10000,
+  "n_stress": 4212,
+  "results": {
+    "v1|strict": {
+      "table": "v1",
+      "mode": "strict",
+      "season_validity_overall": 0.76952,
+      "season_validity_stress": 0.6784900284900284,
+      "season_validity_normal": 0.8357636489288182,
+      "mean_denominator": 5.0,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.7865019584212113,
+        "Zaid": 0.5292911010558069
+      },
+      "per_season_n": {
+        "Kharif": 3366,
+        "Rabi": 3319,
+        "Zaid": 3315
+      },
+      "hard_violating_crops": 5732,
+      "hard_total_evaluated": 50000,
+      "hard_violation_rate": 0.11464
+    },
+    "v1|lenient": {
+      "table": "v1",
+      "mode": "lenient",
+      "season_validity_overall": 0.8349799999999999,
+      "season_validity_stress": 0.7112219056663501,
+      "season_validity_normal": 0.9250403132918682,
+      "mean_denominator": 4.6669,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9837300391684243,
+        "Zaid": 0.5292911010558069
+      },
+      "per_season_n": {
+        "Kharif": 3366,
+        "Rabi": 3319,
+        "Zaid": 3315
+      },
+      "hard_violating_crops": 4071,
+      "hard_total_evaluated": 48339,
+      "hard_violation_rate": 0.0842177124061317
+    },
+    "v1.1|strict": {
+      "table": "v1.1",
+      "mode": "strict",
+      "season_validity_overall": 0.8358999999999999,
+      "season_validity_stress": 0.7122032288698955,
+      "season_validity_normal": 0.9259156876295785,
+      "mean_denominator": 5.0,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9865019584212112,
+        "Zaid": 0.5292911010558069
+      },
+      "per_season_n": {
+        "Kharif": 3366,
+        "Rabi": 3319,
+        "Zaid": 3315
+      },
+      "hard_violating_crops": 5732,
+      "hard_total_evaluated": 50000,
+      "hard_violation_rate": 0.11464
+    },
+    "v1.1|lenient": {
+      "table": "v1.1",
+      "mode": "lenient",
+      "season_validity_overall": 0.8360799999999999,
+      "season_validity_stress": 0.7125593542260208,
+      "season_validity_normal": 0.9259675190048376,
+      "mean_denominator": 4.9988,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9870442904489304,
+        "Zaid": 0.5292911010558069
+      },
+      "per_season_n": {
+        "Kharif": 3366,
+        "Rabi": 3319,
+        "Zaid": 3315
+      },
+      "hard_violating_crops": 4625,
+      "hard_total_evaluated": 48893,
+      "hard_violation_rate": 0.09459431820506004
+    }
+  },
+  "v1_cross_checks": {
+    "strict_season == v1 cited season": true,
+    "strict_hard  == v1 all_rows hard": true,
+    "lenient_hard_viol == v1 cited viol (den shrinks, viol unchanged)": true,
+    "lenient_hard_rate >= v1 cited hard": true
+  },
+  "generated_at": "2026-10-12T22:27:24.077276+00:00"
+}

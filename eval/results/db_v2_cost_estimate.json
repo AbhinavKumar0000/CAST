@@ -1,0 +1,114 @@
+{
+  "note": "projection only; no calls made; no invented prices.",
+  "projection": {
+    "total_requests": 10630,
+    "total_input_tokens": 10721877,
+    "total_output_tokens": 4340856,
+    "nemotron": {
+      "per_condition": {
+        "C0": {
+          "scenarios": 500,
+          "mean_input_tokens_per_req": 304.352,
+          "mean_output_tokens_per_req": 895.618,
+          "total_input_tokens": 152176,
+          "total_output_tokens": 447809,
+          "total_requests": 500,
+          "errors": 44
+        },
+        "C0b": {
+          "scenarios": 500,
+          "mean_input_tokens_per_req": 325.47,
+          "mean_output_tokens_per_req": 1358.696,
+          "total_input_tokens": 162735,
+          "total_output_tokens": 679348,
+          "total_requests": 500,
+          "errors": 36
+        },
+        "C1a": {
+          "scenarios": 500,
+          "mean_input_tokens_per_req": 2844.936,
+          "mean_output_tokens_per_req": 2838.14,
+          "total_input_tokens": 1422468,
+          "total_output_tokens": 1419070,
+          "total_requests": 500,
+          "errors": 0
+        },
+        "C2a": {
+          "scenarios": 500,
+          "mean_input_tokens_per_req": 705.3154285714286,
+          "mean_output_tokens_per_req": 116.684,
+          "total_input_tokens": 2468604,
+          "total_output_tokens": 408394,
+          "total_requests": 3500,
+          "errors": 0
+        },
+        "C2b": {
+          "scenarios": 500,
+          "mean_input_tokens_per_req": 612.0716666666667,
+          "mean_output_tokens_per_req": 403.015,
+          "total_input_tokens": 1836215,
+          "total_output_tokens": 1209045,
+          "total_requests": 3000,
+          "errors": 0
+        }
+      },
+      "total_requests": 8000,
+      "total_input_tokens": 6042198,
+      "total_output_tokens": 4163666,
+      "total_scenarios": 2500
+    },
+    "llama": {
+      "per_condition": {
+        "C0": {
+          "scenarios": 150,
+          "mean_input_tokens_per_req": 346.0,
+          "mean_output_tokens_per_req": 83.2,
+          "total_input_tokens": 51900,
+          "total_output_tokens": 12480,
+          "total_requests": 150,
+          "errors": 0
+        },
+        "C0b": {
+          "scenarios": 150,
+          "mean_input_tokens_per_req": 362.0,
+          "mean_output_tokens_per_req": 88.98666666666666,
+          "total_input_tokens": 54300,
+          "total_output_tokens": 13348,
+          "total_requests": 150,
+          "errors": 0
+        },
+        "C1a": {
+          "scenarios": 150,
+          "mean_input_tokens_per_req": 2529.74,
+          "mean_output_tokens_per_req": 66.30666666666667,
+          "total_input_tokens": 379461,
+          "total_output_tokens": 9946,
+          "total_requests": 150,
+          "errors": 0
+        },
+        "C2a": {
+          "scenarios": 150,
+          "mean_input_tokens_per_req": 2082.193060498221,
+          "mean_output_tokens_per_req": 66.59341637010677,
+          "total_input_tokens": 2340385,
+          "total_output_tokens": 74851,
+          "total_requests": 1124,
+          "errors": 0
+        },
+        "C2b": {
+          "scenarios": 150,
+          "mean_input_tokens_per_req": 1755.3342803030303,
+          "mean_output_tokens_per_req": 63.035037878787875,
+          "total_input_tokens": 1853633,
+          "total_output_tokens": 66565,
+          "total_requests": 1056,
+          "errors": 0
+        }
+      },
+      "total_requests": 2630,
+      "total_input_tokens": 4679679,
+      "total_output_tokens": 177190,
+      "total_scenarios": 750
+    }
+  }
+}

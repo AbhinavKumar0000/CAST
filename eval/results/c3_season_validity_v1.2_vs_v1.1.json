@@ -1,0 +1,58 @@
+{
+  "scenarios": 10000,
+  "summary": {
+    "v1.1|strict": {
+      "overall": 0.8358999999999999,
+      "stress": 0.7122032288698955,
+      "normal": 0.9259156876295785,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9865019584212112,
+        "Zaid": 0.5292911010558069
+      },
+      "hard_violating": 5732,
+      "hard_evaluated": 50000,
+      "hard_violation_rate": 0.11464
+    },
+    "v1.1|lenient": {
+      "overall": 0.8360799999999999,
+      "stress": 0.7125593542260208,
+      "normal": 0.9259675190048376,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9870442904489304,
+        "Zaid": 0.5292911010558069
+      },
+      "hard_violating": 4625,
+      "hard_evaluated": 48893,
+      "hard_violation_rate": 0.09459431820506004
+    },
+    "v1.2|strict": {
+      "overall": 0.8358999999999999,
+      "stress": 0.7122032288698955,
+      "normal": 0.9259156876295785,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9865019584212112,
+        "Zaid": 0.5292911010558069
+      },
+      "hard_violating": 5732,
+      "hard_evaluated": 50000,
+      "hard_violation_rate": 0.11464
+    },
+    "v1.2|lenient": {
+      "overall": 0.8358999999999999,
+      "stress": 0.7122032288698955,
+      "normal": 0.9259156876295785,
+      "per_season": {
+        "Kharif": 0.9893642305407012,
+        "Rabi": 0.9865019584212112,
+        "Zaid": 0.5292911010558069
+      },
+      "hard_violating": 4625,
+      "hard_evaluated": 48893,
+      "hard_violation_rate": 0.09459431820506004
+    }
+  },
+  "note": "v1.1 tables byte-identical to before; only Jowar/Rabi and Arhar/Rabi season rows changed to 'contradicted' in v1.2"
+}

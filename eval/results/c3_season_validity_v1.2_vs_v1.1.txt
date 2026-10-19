@@ -1,0 +1,11 @@
+C3 scenarios: 10000
+Season-validity under ground-truth v1.1 vs v1.2 (contradicted = invalid).
+
+table|mode       overall    stress    normal    Kharif      Rabi      Zaid  hardrate
+v1.1|strict      0.83590   0.71220   0.92592   0.98936   0.98650   0.52929   0.11464
+v1.2|strict      0.83590   0.71220   0.92592   0.98936   0.98650   0.52929   0.11464
+v1.1|lenient     0.83608   0.71256   0.92597   0.98936   0.98704   0.52929   0.09459
+v1.2|lenient     0.83590   0.71220   0.92592   0.98936   0.98650   0.52929   0.09459
+
+DELTA v1.2-v1.1 (strict): overall +0.00000; Kharif +0.00000 Rabi +0.00000 Zaid +0.00000
+DELTA v1.2-v1.1 (lenient): overall -0.00018; Kharif +0.00000 Rabi -0.00054 Zaid +0.00000

@@ -1,0 +1,64 @@
+{
+  "modes": [
+    {
+      "phase": 8,
+      "source_table": "crop_season_table.csv (cited rows) + hard_constraints.csv",
+      "mode": "cited",
+      "frozen_at": "2026-10-13",
+      "n_scenarios": 10000,
+      "n_stress": 4212,
+      "n_normal": 5788,
+      "season_validity_overall": 0.76952,
+      "season_validity_stress": 0.6784900284900284,
+      "season_validity_normal": 0.8357636489288182,
+      "per_season": {
+        "Kharif": {
+          "n": 3366,
+          "validity": 0.9893642305407012
+        },
+        "Rabi": {
+          "n": 3319,
+          "validity": 0.7865019584212113
+        },
+        "Zaid": {
+          "n": 3315,
+          "validity": 0.5292911010558069
+        }
+      },
+      "hard_violating_crops": 4071,
+      "hard_total_evaluated": 50000,
+      "hard_violation_rate": 0.08142,
+      "generated_at": "2026-10-12T21:56:07.157382+00:00"
+    },
+    {
+      "phase": 8,
+      "source_table": "crop_season_table.csv (cited rows) + hard_constraints.csv",
+      "mode": "all_rows",
+      "frozen_at": "2026-10-13",
+      "n_scenarios": 10000,
+      "n_stress": 4212,
+      "n_normal": 5788,
+      "season_validity_overall": 0.76952,
+      "season_validity_stress": 0.6784900284900284,
+      "season_validity_normal": 0.8357636489288182,
+      "per_season": {
+        "Kharif": {
+          "n": 3366,
+          "validity": 0.9893642305407012
+        },
+        "Rabi": {
+          "n": 3319,
+          "validity": 0.7865019584212113
+        },
+        "Zaid": {
+          "n": 3315,
+          "validity": 0.5292911010558069
+        }
+      },
+      "hard_violating_crops": 5732,
+      "hard_total_evaluated": 50000,
+      "hard_violation_rate": 0.11464,
+      "generated_at": "2026-10-12T21:56:07.689192+00:00"
+    }
+  ]
+}

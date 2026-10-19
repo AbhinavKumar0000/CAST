@@ -1,0 +1,44 @@
+subset scenarios with C3: 500; db_v1 n=500 db_v2 n=500
+
+=== PRIMARY: test-period unrestricted reference (R_test_all), n=500 ===
+  Precision@5:
+    db_v1: 0.4396 [0.4105,0.4702] n=500
+    db_v2: 0.4304 [0.4018,0.4615] n=500
+    db_v2-db_v1: -0.0092 [-0.0159,-0.0031] cliff_d=-0.031 p=5.50e-03 holm=9.40e-03
+  nDCG@5:
+    db_v1: 0.4414 [0.4115,0.4721] n=500
+    db_v2: 0.4349 [0.4046,0.4661] n=500
+    db_v2-db_v1: -0.0065 [-0.0111,-0.0022] cliff_d=-0.020 p=4.70e-03 holm=9.40e-03
+
+=== IN-SAMPLE: build period (R_build_all), labelled in-sample ===
+  Precision@5: db_v1 0.4598 db_v2 0.4534 (db_v2-db_v1 -0.0064)
+  nDCG@5: db_v1 0.4720 db_v2 0.4677 (db_v2-db_v1 -0.0043)
+
+=== SECONDARY: test restricted to db_v1 21-crop vocab (R_test_reg) ===
+  Precision@5: db_v1 0.5005 db_v2 0.4805 db_v2-db_v1 -0.0200 [-0.0259,-0.0142] p=0.00e+00 holm=0.00e+00
+  nDCG@5: db_v1 0.5032 db_v2 0.4888 db_v2-db_v1 -0.0143 [-0.0187,-0.0101] p=0.00e+00 holm=0.00e+00
+
+=== SENSITIVITY ===
+  sens_R_2023_24: db_v1 0.4380 db_v2 0.4260 contrast -0.0120 [-0.0189,-0.0054] p=7.00e-04
+  sens_R_2024_25: db_v1 0.4141 db_v2 0.4049 contrast -0.0092 [-0.0161,-0.0024] p=7.40e-03
+
+=== PER-SEASON (primary, Precision@5) ===
+  db_v1: Kharif=0.362(n190) Rabi=0.451(n177) Zaid=0.535(n133)
+  db_v2: Kharif=0.362(n190) Rabi=0.425(n177) Zaid=0.535(n133)
+
+=== LINSEED DIAGNOSTIC (why db_v2 moves) ===
+  reference cells with Linseed: 46/500
+  db_v2 recommends Linseed in 69 scenarios; true positives 22
+  P@5 where db_v2 has Linseed: 0.4290 -> 0.3623 (n=69)
+  P@5 elsewhere: 0.4413 -> 0.4413 (n=431)
+
+=== CEILING (out-of-vocab share of R_test_all top-5) ===
+  db_v1 vocab: 0.0876
+  db_v2 vocab: 0.0706
+  Linseed in reference: 13 cells, 13 slots
+
+=== SEASON VALIDITY / HARD VIOLATION (10,000 C3, GT v1.2) ===
+  db_v1|strict   overall 0.83590  hard 5732/50000 = 0.11464  Kharif 0.9894 Rabi 0.9865 Zaid 0.5293
+  db_v2|strict   overall 0.81132  hard 5658/50000 = 0.11316  Kharif 0.9894 Rabi 0.9124 Zaid 0.5293
+  db_v1|lenient  overall 0.83590  hard 4625/48893 = 0.09459  Kharif 0.9894 Rabi 0.9865 Zaid 0.5293
+  db_v2|lenient  overall 0.83736  hard 4554/48896 = 0.09314  Kharif 0.9894 Rabi 0.9909 Zaid 0.5293
