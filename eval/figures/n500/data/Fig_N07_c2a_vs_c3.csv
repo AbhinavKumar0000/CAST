@@ -1,0 +1,13 @@
+metric,spec,category,count,n,frac
+sv,strict,match,361,500,0.722
+sv,strict,beat,13,500,0.026
+sv,strict,lose,126,500,0.252
+sv,lenient,match,361,500,0.722
+sv,lenient,beat,13,500,0.026
+sv,lenient,lose,126,500,0.252
+hv,strict,match,397,500,0.794
+hv,strict,beat,2,500,0.004
+hv,strict,lose,101,500,0.202
+hv,lenient,match,406,500,0.812
+hv,lenient,beat,1,500,0.002
+hv,lenient,lose,93,500,0.186

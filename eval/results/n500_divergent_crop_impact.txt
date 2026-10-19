@@ -1,0 +1,84 @@
+====================================================================================================
+DIVERGENT-CROP PROVENANCE IMPACT (Nemotron n=500; crops = Groundnut, Urad, Sunflower)
+====================================================================================================
+  (cited GT adds a Zaid season for these three; the uncited scorer registry lacks it)
+  C0  : scenarios with >=1 divergent crop in top-5 = 156/500 (31.2%)  {'Groundnut': 49, 'Sunflower': 91, 'Urad': 128}
+  C0b : scenarios with >=1 divergent crop in top-5 = 137/500 (27.4%)  {'Urad': 105, 'Sunflower': 69, 'Groundnut': 35}
+  C1a : scenarios with >=1 divergent crop in top-5 = 216/500 (43.2%)  {'Groundnut': 142, 'Urad': 105, 'Sunflower': 48}
+  C2a : scenarios with >=1 divergent crop in top-5 = 414/500 (82.8%)  {'Sunflower': 297, 'Groundnut': 138, 'Urad': 147}
+  C2b : scenarios with >=1 divergent crop in top-5 = 157/500 (31.4%)  {'Urad': 132, 'Sunflower': 97, 'Groundnut': 42}
+  C3  : scenarios with >=1 divergent crop in top-5 = 437/500 (87.4%)  {'Sunflower': 312, 'Groundnut': 135, 'Urad': 126}
+
+  C3 top-5 has a divergent crop in 437/500 scenarios; any LLM condition top-5 in 467/500; either in 480/500.
+
+====================================================================================================
+HEADLINE MOVEMENT: pre-registered contrasts, baseline vs divergent-crops-removed
+====================================================================================================
+
+--- STRICT | per-protocol | sv ---
+  C2a-C0b: base +0.161 [holm 2.706e-13] -> stripped +0.139 [holm 2.588e-09]  delta=-0.023  sign_flip=no
+  C2a-C1a: base +0.135 [holm 3.883e-15] -> stripped +0.120 [holm 5.679e-10]  delta=-0.015  sign_flip=no
+  C2b-C0b: base +0.128 [holm 2.809e-12] -> stripped +0.114 [holm 2.588e-09]  delta=-0.014  sign_flip=no
+  C2b-C1a: base +0.105 [holm 2.477e-11] -> stripped +0.100 [holm 8.778e-10]  delta=-0.005  sign_flip=no
+
+--- STRICT | per-protocol | hv ---
+  C2a-C0b: base -0.135 [holm 1.547e-10] -> stripped -0.132 [holm 1.215e-08]  delta=+0.003  sign_flip=no
+  C2a-C1a: base -0.128 [holm 3.067e-14] -> stripped -0.124 [holm 5.085e-12]  delta=+0.004  sign_flip=no
+  C2b-C0b: base -0.140 [holm 7.722e-17] -> stripped -0.132 [holm 3.729e-11]  delta=+0.009  sign_flip=no
+  C2b-C1a: base -0.138 [holm 6.428e-21] -> stripped -0.129 [holm 1.505e-20]  delta=+0.008  sign_flip=no
+
+--- STRICT | ITT | sv ---
+  C2a-C0b: base +0.231 [holm 3.071e-24] -> stripped +0.201 [holm 1.789e-17]  delta=-0.030  sign_flip=no
+  C2a-C1a: base +0.178 [holm 7.560e-22] -> stripped +0.160 [holm 2.752e-16]  delta=-0.018  sign_flip=no
+  C2b-C0b: base +0.191 [holm 7.560e-22] -> stripped +0.173 [holm 2.580e-17]  delta=-0.019  sign_flip=no
+  C2b-C1a: base +0.138 [holm 2.649e-15] -> stripped +0.132 [holm 3.448e-14]  delta=-0.006  sign_flip=no
+
+--- STRICT | ITT | hv ---
+  C2a-C0b: base -0.212 [holm 5.655e-21] -> stripped -0.205 [holm 6.952e-19]  delta=+0.007  sign_flip=no
+  C2a-C1a: base -0.173 [holm 5.725e-21] -> stripped -0.169 [holm 7.752e-19]  delta=+0.004  sign_flip=no
+  C2b-C0b: base -0.212 [holm 5.732e-27] -> stripped -0.200 [holm 1.620e-21]  delta=+0.012  sign_flip=no
+  C2b-C1a: base -0.174 [holm 1.243e-24] -> stripped -0.165 [holm 4.174e-24]  delta=+0.009  sign_flip=no
+
+--- LENIENT | per-protocol | sv ---
+  C2a-C0b: base +0.155 [holm 1.068e-13] -> stripped +0.133 [holm 1.145e-10]  delta=-0.023  sign_flip=no
+  C2a-C1a: base +0.136 [holm 3.994e-16] -> stripped +0.121 [holm 7.621e-11]  delta=-0.015  sign_flip=no
+  C2b-C0b: base +0.147 [holm 3.994e-16] -> stripped +0.135 [holm 7.621e-11]  delta=-0.012  sign_flip=no
+  C2b-C1a: base +0.131 [holm 3.951e-16] -> stripped +0.127 [holm 2.334e-16]  delta=-0.004  sign_flip=no
+
+--- LENIENT | per-protocol | hv ---
+  C2a-C0b: base -0.148 [holm 9.652e-13] -> stripped -0.155 [holm 3.823e-12]  delta=-0.008  sign_flip=no
+  C2a-C1a: base -0.140 [holm 2.659e-17] -> stripped -0.146 [holm 7.160e-18]  delta=-0.006  sign_flip=no
+  C2b-C0b: base -0.136 [holm 2.703e-16] -> stripped -0.128 [holm 4.833e-11]  delta=+0.009  sign_flip=no
+  C2b-C1a: base -0.132 [holm 1.312e-20] -> stripped -0.123 [holm 4.778e-19]  delta=+0.010  sign_flip=no
+
+--- LENIENT | ITT | sv ---
+  C2a-C0b: base +0.226 [holm 2.139e-24] -> stripped +0.196 [holm 2.316e-19]  delta=-0.030  sign_flip=no
+  C2a-C1a: base +0.179 [holm 7.300e-23] -> stripped +0.161 [holm 1.452e-17]  delta=-0.018  sign_flip=no
+  C2b-C0b: base +0.212 [holm 8.279e-26] -> stripped +0.195 [holm 2.316e-19]  delta=-0.017  sign_flip=no
+  C2b-C1a: base +0.164 [holm 9.588e-21] -> stripped +0.159 [holm 2.509e-20]  delta=-0.005  sign_flip=no
+
+--- LENIENT | ITT | hv ---
+  C2a-C0b: base -0.226 [holm 3.842e-24] -> stripped -0.231 [holm 1.318e-23]  delta=-0.005  sign_flip=no
+  C2a-C1a: base -0.186 [holm 3.842e-24] -> stripped -0.192 [holm 2.315e-24]  delta=-0.006  sign_flip=no
+  C2b-C0b: base -0.209 [holm 3.793e-26] -> stripped -0.197 [holm 1.680e-21]  delta=+0.012  sign_flip=no
+  C2b-C1a: base -0.169 [holm 2.762e-24] -> stripped -0.159 [holm 6.480e-23]  delta=+0.010  sign_flip=no
+
+====================================================================================================
+CLAIMABILITY (sign+significance, PP&ITT): baseline vs stripped
+====================================================================================================
+  strict_sv_C2a-C0b: baseline=CLAIM stripped=CLAIM
+  strict_sv_C2a-C1a: baseline=CLAIM stripped=CLAIM
+  strict_sv_C2b-C0b: baseline=CLAIM stripped=CLAIM
+  strict_sv_C2b-C1a: baseline=CLAIM stripped=CLAIM
+  strict_hv_C2a-C0b: baseline=CLAIM stripped=CLAIM
+  strict_hv_C2a-C1a: baseline=CLAIM stripped=CLAIM
+  strict_hv_C2b-C0b: baseline=CLAIM stripped=CLAIM
+  strict_hv_C2b-C1a: baseline=CLAIM stripped=CLAIM
+  lenient_sv_C2a-C0b: baseline=CLAIM stripped=CLAIM
+  lenient_sv_C2a-C1a: baseline=CLAIM stripped=CLAIM
+  lenient_sv_C2b-C0b: baseline=CLAIM stripped=CLAIM
+  lenient_sv_C2b-C1a: baseline=CLAIM stripped=CLAIM
+  lenient_hv_C2a-C0b: baseline=CLAIM stripped=CLAIM
+  lenient_hv_C2a-C1a: baseline=CLAIM stripped=CLAIM
+  lenient_hv_C2b-C0b: baseline=CLAIM stripped=CLAIM
+  lenient_hv_C2b-C1a: baseline=CLAIM stripped=CLAIM

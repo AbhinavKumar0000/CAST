@@ -1,0 +1,82 @@
+====================================================================================================
+CHECK 1: DOES SEASON EXPLAIN THE B1/B2 HETEROGENEITY?
+====================================================================================================
+  B1 (n=150): Kharif=47 Rabi=60 Zaid=43
+  B2 (n=350): Kharif=143 Rabi=117 Zaid=90
+  merged (n=500): Kharif=190 Rabi=177 Zaid=133
+
+  --- paired diff d = sv(C2b) - sv(C0b), strict PP, sv (n=437) ---
+  pilot_dev in this paired set: B1=39, B2=0
+  cell means (half x season):
+    B1/Kharif: mean d = +0.081 (n=42)
+    B1/Rabi  : mean d = +0.038 (n=53)
+    B1/Zaid  : mean d = +0.077 (n=35)
+    B2/Kharif: mean d = +0.197 (n=126)
+    B2/Rabi  : mean d = +0.073 (n=105)
+    B2/Zaid  : mean d = +0.203 (n=76)
+  Model A  d ~ isB2              : isB2 coef = +0.094 (SE 0.038, p=1.535e-02), R2=0.013
+  Model B  d ~ isB2 + Rabi + Zaid: isB2 coef = +0.087 (SE 0.038, p=2.363e-02); Rabi -0.099 (p=1.491e-02); Zaid +0.001 (p=9.786e-01), R2=0.030
+  Model C  + isPilot             : isB2 coef = +0.105 (SE 0.044, p=1.676e-02); isPilot +0.060 (p=3.937e-01), R2=0.032
+  => half difference SURVIVES season adjustment
+
+  --- paired diff d = sv(C2b) - sv(C1a), strict PP, sv (n=465) ---
+  pilot_dev in this paired set: B1=39, B2=0
+  cell means (half x season):
+    B1/Kharif: mean d = +0.068 (n=44)
+    B1/Rabi  : mean d = -0.073 (n=55)
+    B1/Zaid  : mean d = +0.234 (n=41)
+    B2/Kharif: mean d = +0.166 (n=131)
+    B2/Rabi  : mean d = -0.065 (n=108)
+    B2/Zaid  : mean d = +0.295 (n=86)
+  Model A  d ~ isB2              : isB2 coef = +0.062 (SE 0.035, p=7.202e-02), R2=0.007
+  Model B  d ~ isB2 + Rabi + Zaid: isB2 coef = +0.054 (SE 0.032, p=9.174e-02); Rabi -0.205 (p=4.642e-09); Zaid +0.138 (p=1.918e-04), R2=0.167
+  Model C  + isPilot             : isB2 coef = +0.028 (SE 0.036, p=4.384e-01); isPilot -0.093 (p=1.168e-01), R2=0.171
+  => season explains the half difference (isB2 n.s. after adjustment)
+
+====================================================================================================
+CHECK 2: FOUR PRE-REGISTERED CONTRASTS BY SEASON, n=500 (EXPLORATORY / post hoc)
+====================================================================================================
+
+--- season-validity | STRICT | per-protocol | metric=sv ---
+  season     n  C2a-C0b                C2a-C1a                C2b-C0b                C2b-C1a               
+  Kharif   190  +0.275 [+0.211,+0.342]  +0.250 [+0.191,+0.312]  +0.168 [+0.114,+0.225]  +0.142 [+0.091,+0.193]
+  Rabi     177  +0.119 [+0.072,+0.166]  -0.012 [-0.053,+0.030]  +0.061 [+0.016,+0.107]  -0.067 [-0.110,-0.023]
+  Zaid     133  +0.053 [-0.034,+0.139]  +0.167 [+0.135,+0.200]  +0.163 [+0.081,+0.246]  +0.276 [+0.220,+0.328]
+
+--- season-validity | STRICT | per-protocol | metric=hv ---
+  season     n  C2a-C0b                C2a-C1a                C2b-C0b                C2b-C1a               
+  Kharif   190  -0.229 [-0.304,-0.156]  -0.223 [-0.288,-0.159]  -0.193 [-0.249,-0.140]  -0.189 [-0.241,-0.138]
+  Rabi     177  -0.133 [-0.178,-0.089]  -0.004 [-0.029,+0.021]  -0.128 [-0.168,-0.090]  -0.005 [-0.028,+0.017]
+  Zaid     133  +0.004 [-0.065,+0.074]  -0.158 [-0.194,-0.121]  -0.077 [-0.136,-0.020]  -0.238 [-0.277,-0.197]
+
+--- season-validity | STRICT | ITT | metric=sv ---
+  season     n  C2a-C0b                C2a-C1a                C2b-C0b                C2b-C1a               
+  Kharif   190  +0.347 [+0.283,+0.414]  +0.300 [+0.239,+0.364]  +0.241 [+0.181,+0.302]  +0.194 [+0.137,+0.254]
+  Rabi     177  +0.184 [+0.132,+0.236]  +0.044 [-0.005,+0.095]  +0.113 [+0.060,+0.165]  -0.027 [-0.079,+0.026]
+  Zaid     133  +0.127 [+0.046,+0.208]  +0.180 [+0.147,+0.215]  +0.225 [+0.148,+0.303]  +0.278 [+0.224,+0.331]
+
+--- season-validity | STRICT | ITT | metric=hv ---
+  season     n  C2a-C0b                C2a-C1a                C2b-C0b                C2b-C1a               
+  Kharif   190  -0.293 [-0.364,-0.221]  -0.267 [-0.335,-0.204]  -0.263 [-0.322,-0.204]  -0.237 [-0.295,-0.181]
+  Rabi     177  -0.205 [-0.258,-0.153]  -0.069 [-0.114,-0.027]  -0.188 [-0.238,-0.138]  -0.052 [-0.096,-0.009]
+  Zaid     133  -0.105 [-0.180,-0.029]  -0.177 [-0.218,-0.137]  -0.172 [-0.239,-0.106]  -0.245 [-0.289,-0.202]
+
+  (Kharif n=190, Rabi n=177, Zaid n=133; strict PP/hv printed for completeness.)
+
+====================================================================================================
+CHECK 3: RABI ANOMALY vs THE INERT RAINFALL CHANNEL (scorer rainfall_match)
+====================================================================================================
+  Per-season scorer rainfall_match (across all crops of each scenario):
+  season  n_cropvals    mean     std  frac==0  mean per-scen spread
+  Kharif        1140   0.909   0.172    0.004                 0.098
+  Rabi          1062   0.000   0.000    1.000                 0.000
+  Zaid           798   0.000   0.000    1.000                 0.000
+
+  C2b-C1a strict PP season-validity (from CHECK 2) vs rainfall informative-ness:
+  Kharif : C2b-C1a diff = +0.142 ; rainfall_match frac==0 = 0.004, mean spread = 0.098
+  Rabi   : C2b-C1a diff = -0.067 ; rainfall_match frac==0 = 1.000, mean spread = 0.000
+  Zaid   : C2b-C1a diff = +0.276 ; rainfall_match frac==0 = 1.000, mean spread = 0.000
+
+  Scenario-level corr(per-scenario rainfall_match spread, sv C2b-C1a diff): Pearson r=+0.040 p=3.841e-01; Spearman rho=+0.044 p=3.443e-01 (n=465)
+
+  INTERPRETATION (conservative): the scorer rainfall channel is inert in Rabi iff frac==0 ~ 1.0 there while Kharif/Zaid vary. NOTE: C1a and C2b see the SAME rainfall values (pasted vs fetched), so rainfall inertness alone cannot produce a C2b-vs-C1a divergence; reported as a coincidence of season, not a demonstrated mechanism, unless the sign tracks the channel across seasons with variation.

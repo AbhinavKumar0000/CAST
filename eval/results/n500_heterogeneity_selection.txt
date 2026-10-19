@@ -1,0 +1,69 @@
+====================================================================================================
+PART 1: WHICH SELECTION VARIABLES DIFFER BETWEEN B1 (150) AND B2 (350)?
+====================================================================================================
+  B1 n=150  B2 n=350  stress.jsonl size=4212  subset in stress=150/500
+
+  district: B1 distinct=17 B2 distinct=35 union=51 | chi2=483.6 dof=50 analytic p=0.000 perm_p=0.0005
+    B1 top districts: Ashoknagar=14, Betul=14, Bhopal=11, Chhindwara=11, Dindori=11, Anuppur=10
+    B2 top districts: Sidhi=20, Singrauli=18, Rajgarh=14, Raisen=13, Ratlam=13, Sheopur=13, West Nimar=13, Katni=12
+
+  agro_climatic_zone: B1 counts={'None': 150} B2 counts={'None': 350}
+    chi2=0.000 dof=0 analytic_p=1.000 perm_p=1.0000
+
+  covariate       B1 mean   B2 mean     diff   perm_p
+  stress            0.407     0.254   +0.152   0.0008  <-- differs
+  drought           0.160     0.123   +0.037   0.3217
+  flood             0.053     0.054   -0.001   1.0000
+  margin_t1t5       0.111     0.115   -0.004   0.5545
+  margin_t1t2       0.031     0.034   -0.003   0.4283
+  cutoff_5_6        0.016     0.015   +0.000   0.9282
+  n_seasvalid       8.307     8.937   -0.630   0.0602
+  n_crops           6.000     6.000   +0.000   1.0000
+
+  season-valid crop pool (GT v1.1 cited): {'Kharif': 13, 'Rabi': 7, 'Annual': 1, 'Zaid': 5}
+
+  district overlap: B1-only=16 B2-only=34 shared=1; scenarios in shared districts=16/500
+
+  => continuous covariates that differ (p<0.05): ['stress']
+  => district differs: True (perm_p=0.0005); zone differs: False (perm_p=1.0000)
+
+====================================================================================================
+PART 2: RE-TEST THE C2b-C0b BATCH COEFFICIENT WITH THE DIFFERING COVARIATES ADDED
+====================================================================================================
+
+  --- d = sv(C2b) - sv(C0b), strict PP (n=437); differing covars = ['stress'] ---
+  model          isB2 coef      SE          p      R2
+  C_base            +0.105   0.044  1.676e-02   0.032
+  D_cov             +0.088   0.043  4.358e-02   0.061
+  E_cov+zone        +0.088   0.043  4.358e-02   0.061
+  F_districtFE      +0.190   0.216  3.811e-01   0.128
+  => batch effect SURVIVES covariate adjustment -> UNEXPLAINED
+  G_shareddist      +0.226   0.288  4.620e-01   0.241   (n=12, shared districts=1, B1=7 B2=5)
+  => within shared districts the batch effect is NOT significant (district composition explains it)
+
+  --- d = sv(C2b) - sv(C1a), strict PP (n=465); differing covars = ['stress'] ---
+  model          isB2 coef      SE          p      R2
+  C_base            +0.028   0.036  4.384e-01   0.171
+  D_cov             +0.019   0.036  6.044e-01   0.183
+  E_cov+zone        +0.019   0.036  6.044e-01   0.183
+  F_districtFE      -0.001   0.167  9.951e-01   0.283
+  => covariates ABSORB the batch effect (isB2 n.s.)
+  G_shareddist      -0.020   0.199  9.217e-01   0.449   (n=16, shared districts=1, B1=11 B2=5)
+  => within shared districts the batch effect is NOT significant (district composition explains it)
+
+====================================================================================================
+PART 3: C2b CONTRASTS BY HALF (so the heterogeneity is visible, not averaged away)
+(strict PP, season-validity; diff [95% CI] and two-sample interaction perm p B2-vs-B1)
+====================================================================================================
+
+  C2b-C0b:
+    B1    (n=130): +0.062 [-0.000,+0.126]
+    B2    (n=307): +0.156 [+0.116,+0.198]
+    merged(n=437): +0.128 [+0.094,+0.163]
+    interaction diff(B2)-diff(B1) = +0.094 [+0.019,+0.169], perm_p=0.0186
+
+  C2b-C1a:
+    B1    (n=140): +0.061 [+0.001,+0.123]
+    B2    (n=325): +0.124 [+0.087,+0.160]
+    merged(n=465): +0.105 [+0.074,+0.136]
+    interaction diff(B2)-diff(B1) = +0.062 [-0.010,+0.133], perm_p=0.0784

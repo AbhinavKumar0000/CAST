@@ -1,0 +1,349 @@
+====================================================================================================
+ITEM 1: MERGE / COVERAGE (Nemotron n=500)
+====================================================================================================
+  C0  : distinct sids = 500/500
+  C0b : distinct sids = 500/500
+  C1a : distinct sids = 500/500
+  C2a : distinct sids = 500/500
+  C2b : distinct sids = 500/500
+  C3  : distinct sids = 500/500
+  C0  : PP-usable n = 451/500 ; ITT n = 500/500
+  C0b : PP-usable n = 442/500 ; ITT n = 500/500
+  C1a : PP-usable n = 470/500 ; ITT n = 500/500
+  C2a : PP-usable n = 500/500 ; ITT n = 500/500
+  C2b : PP-usable n = 494/500 ; ITT n = 500/500
+  C3  : non-empty top5 = 500/500
+
+ITEM 7 (cross-model scope): Nemotron is n=500 (full llm_subset); Llama is n=150. Any cross-model comparison is reported at n=150 (common support). pilot_dev in the 500 = 40; WITHOUT-pilot n = 460.
+
+====================================================================================================
+ITEM 2 CELLS: WITH pilot_dev  (n scenarios = 500)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.551 [0.510,0.592]                451 0.382 [0.348,0.418]           451
+C0b   0.646 [0.606,0.683]                442 0.292 [0.260,0.326]           442
+C1a   0.665 [0.629,0.699]                470 0.292 [0.263,0.323]           470
+C2a   0.803 [0.782,0.824]                500 0.161 [0.142,0.182]           500
+C2b   0.772 [0.749,0.796]                494 0.151 [0.133,0.168]           494
+C3    0.863 [0.844,0.882]                500 0.104 [0.090,0.120]           500
+
+--- STRICT | ITT ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.497 [0.458,0.538]                500 0.443 [0.407,0.478]           500
+C0b   0.571 [0.531,0.610]                500 0.374 [0.338,0.410]           500
+C1a   0.625 [0.590,0.660]                500 0.334 [0.303,0.366]           500
+C2a   0.803 [0.782,0.824]                500 0.161 [0.142,0.182]           500
+C2b   0.763 [0.740,0.787]                500 0.161 [0.142,0.180]           500
+C3    0.863 [0.844,0.882]                500 0.104 [0.090,0.120]           500
+
+--- LENIENT | per-protocol ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.554 [0.513,0.595]                451 0.373 [0.338,0.409]           451
+C0b   0.657 [0.618,0.695]                442 0.284 [0.251,0.318]           442
+C1a   0.670 [0.635,0.703]                470 0.282 [0.253,0.313]           470
+C2a   0.808 [0.788,0.829]                500 0.139 [0.121,0.158]           500
+C2b   0.803 [0.781,0.826]                494 0.146 [0.129,0.164]           494
+C3    0.863 [0.844,0.882]                500 0.085 [0.073,0.098]           500
+
+--- LENIENT | ITT ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.500 [0.460,0.540]                500 0.435 [0.398,0.471]           500
+C0b   0.581 [0.541,0.620]                500 0.367 [0.331,0.403]           500
+C1a   0.630 [0.594,0.665]                500 0.325 [0.294,0.357]           500
+C2a   0.808 [0.788,0.829]                500 0.139 [0.121,0.158]           500
+C2b   0.794 [0.770,0.817]                500 0.157 [0.138,0.176]           500
+C3    0.863 [0.844,0.882]                500 0.085 [0.073,0.098]           500
+
+====================================================================================================
+ITEM 3 PRE-REGISTERED CONTRASTS: WITH pilot_dev  (n scenarios = 500)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+  metric=season-validity
+    C2a-C0b: n=442 diff=+0.161 [+0.122,+0.200] Cliff_d=+0.132 p=1.160e-13 holm=3.481e-13
+    C2a-C1a: n=470 diff=+0.135 [+0.106,+0.166] Cliff_d=+0.141 p=9.708e-16 holm=3.883e-15
+    C2b-C0b: n=436 diff=+0.128 [+0.093,+0.163] Cliff_d=+0.076 p=1.792e-12 holm=3.585e-12
+    C2b-C1a: n=465 diff=+0.105 [+0.074,+0.136] Cliff_d=+0.082 p=2.477e-11 holm=2.477e-11
+  metric=hard-violation
+    C2a-C0b: n=442 diff=-0.134 [-0.173,-0.096] Cliff_d=-0.162 p=2.086e-10 holm=2.086e-10
+    C2a-C1a: n=470 diff=-0.128 [-0.158,-0.100] Cliff_d=-0.174 p=1.533e-14 holm=3.067e-14
+    C2b-C0b: n=436 diff=-0.140 [-0.170,-0.110] Cliff_d=-0.158 p=4.009e-17 holm=1.203e-16
+    C2b-C1a: n=465 diff=-0.138 [-0.163,-0.113] Cliff_d=-0.181 p=1.607e-21 holm=6.428e-21
+
+--- STRICT | ITT ---
+  metric=season-validity
+    C2a-C0b: n=500 diff=+0.232 [+0.194,+0.272] Cliff_d=+0.225 p=6.019e-25 holm=2.408e-24
+    C2a-C1a: n=500 diff=+0.178 [+0.147,+0.210] Cliff_d=+0.191 p=2.919e-22 holm=5.933e-22
+    C2b-C0b: n=500 diff=+0.193 [+0.156,+0.230] Cliff_d=+0.167 p=1.978e-22 holm=5.933e-22
+    C2b-C1a: n=500 diff=+0.138 [+0.104,+0.172] Cliff_d=+0.126 p=2.649e-15 holm=2.649e-15
+  metric=hard-violation
+    C2a-C0b: n=500 diff=-0.213 [-0.253,-0.174] Cliff_d=-0.250 p=2.384e-21 holm=4.767e-21
+    C2a-C1a: n=500 diff=-0.173 [-0.205,-0.142] Cliff_d=-0.228 p=5.725e-21 holm=5.725e-21
+    C2b-C0b: n=500 diff=-0.213 [-0.248,-0.180] Cliff_d=-0.243 p=1.333e-27 holm=5.334e-27
+    C2b-C1a: n=500 diff=-0.174 [-0.204,-0.144] Cliff_d=-0.222 p=4.144e-25 holm=1.243e-24
+
+--- LENIENT | per-protocol ---
+  metric=season-validity
+    C2a-C0b: n=442 diff=+0.155 [+0.117,+0.193] Cliff_d=+0.118 p=1.421e-13 holm=1.421e-13
+    C2a-C1a: n=470 diff=+0.136 [+0.107,+0.166] Cliff_d=+0.139 p=1.331e-16 holm=3.994e-16
+    C2b-C0b: n=436 diff=+0.146 [+0.112,+0.181] Cliff_d=+0.111 p=2.841e-16 holm=5.683e-16
+    C2b-C1a: n=465 diff=+0.131 [+0.102,+0.160] Cliff_d=+0.132 p=9.877e-17 holm=3.951e-16
+  metric=hard-violation
+    C2a-C0b: n=442 diff=-0.147 [-0.185,-0.109] Cliff_d=-0.167 p=1.374e-12 holm=1.374e-12
+    C2a-C1a: n=470 diff=-0.140 [-0.169,-0.111] Cliff_d=-0.201 p=8.865e-18 holm=2.659e-17
+    C2b-C0b: n=436 diff=-0.136 [-0.166,-0.106] Cliff_d=-0.137 p=2.100e-16 holm=4.200e-16
+    C2b-C1a: n=465 diff=-0.132 [-0.158,-0.108] Cliff_d=-0.177 p=3.281e-21 holm=1.312e-20
+
+--- LENIENT | ITT ---
+  metric=season-validity
+    C2a-C0b: n=500 diff=+0.227 [+0.189,+0.266] Cliff_d=+0.213 p=5.786e-25 holm=1.736e-24
+    C2a-C1a: n=500 diff=+0.179 [+0.149,+0.211] Cliff_d=+0.190 p=3.650e-23 holm=7.300e-23
+    C2b-C0b: n=500 diff=+0.213 [+0.177,+0.250] Cliff_d=+0.199 p=1.806e-26 holm=7.226e-26
+    C2b-C1a: n=500 diff=+0.164 [+0.132,+0.197] Cliff_d=+0.172 p=9.588e-21 holm=9.588e-21
+  metric=hard-violation
+    C2a-C0b: n=500 diff=-0.228 [-0.267,-0.189] Cliff_d=-0.255 p=1.677e-24 holm=3.355e-24
+    C2a-C1a: n=500 diff=-0.186 [-0.218,-0.156] Cliff_d=-0.255 p=2.261e-24 holm=3.355e-24
+    C2b-C0b: n=500 diff=-0.210 [-0.245,-0.176] Cliff_d=-0.223 p=8.820e-27 holm=3.528e-26
+    C2b-C1a: n=500 diff=-0.169 [-0.199,-0.140] Cliff_d=-0.218 p=9.208e-25 holm=2.762e-24
+
+====================================================================================================
+ITEM 4 EXPLORATORY CONTRASTS: WITH pilot_dev  (n scenarios = 500)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+  metric=season-validity
+    C1a-C0b: n=414 diff=+0.019 [-0.016,+0.054] Cliff_d=+0.013 p=3.159e-01 holm=3.159e-01
+    C2a-C2b: n=494 diff=+0.032 [+0.007,+0.057] Cliff_d=+0.062 p=6.844e-02 holm=1.369e-01
+  metric=hard-violation
+    C1a-C0b: n=414 diff=+0.005 [-0.024,+0.035] Cliff_d=+0.017 p=5.039e-01 holm=1.000e+00
+    C2a-C2b: n=494 diff=+0.009 [-0.015,+0.032] Cliff_d=-0.008 p=5.039e-01 holm=1.000e+00
+
+--- STRICT | ITT ---
+  metric=season-validity
+    C1a-C0b: n=500 diff=+0.055 [+0.016,+0.094] Cliff_d=+0.066 p=9.065e-03 holm=1.813e-02
+    C2a-C2b: n=500 diff=+0.040 [+0.014,+0.066] Cliff_d=+0.071 p=2.335e-02 holm=2.335e-02
+  metric=hard-violation
+    C1a-C0b: n=500 diff=-0.040 [-0.077,-0.002] Cliff_d=-0.043 p=6.466e-02 holm=1.293e-01
+    C2a-C2b: n=500 diff=+0.000 [-0.024,+0.024] Cliff_d=-0.016 p=9.150e-01 holm=9.150e-01
+
+--- LENIENT | per-protocol ---
+  metric=season-validity
+    C1a-C0b: n=414 diff=+0.013 [-0.021,+0.046] Cliff_d=+0.006 p=4.661e-01 holm=9.322e-01
+    C2a-C2b: n=494 diff=+0.006 [-0.017,+0.030] Cliff_d=-0.006 p=6.722e-01 holm=9.322e-01
+  metric=hard-violation
+    C1a-C0b: n=414 diff=+0.004 [-0.025,+0.033] Cliff_d=+0.023 p=5.239e-01 holm=9.123e-01
+    C2a-C2b: n=494 diff=-0.008 [-0.031,+0.014] Cliff_d=-0.036 p=4.562e-01 holm=9.123e-01
+
+--- LENIENT | ITT ---
+  metric=season-validity
+    C1a-C0b: n=500 diff=+0.049 [+0.010,+0.088] Cliff_d=+0.059 p=1.816e-02 holm=3.632e-02
+    C2a-C2b: n=500 diff=+0.014 [-0.010,+0.039] Cliff_d=+0.005 p=9.292e-01 holm=9.292e-01
+  metric=hard-violation
+    C1a-C0b: n=500 diff=-0.042 [-0.079,-0.004] Cliff_d=-0.039 p=5.043e-02 holm=1.009e-01
+    C2a-C2b: n=500 diff=-0.017 [-0.041,+0.006] Cliff_d=-0.047 p=2.013e-01 holm=2.013e-01
+
+--- CLAIMABILITY (WITH pilot_dev) - PP and ITT must AGREE in sign AND be significant (Holm<0.05 both); primary family = 4 pre-registered pairs ---
+  [prereg strict |sv] C2a-C0b: PP +0.161 holm=3.481e-13 (n=442) | ITT +0.232 holm=2.408e-24 (n=500) -> CLAIMABLE
+  [prereg strict |sv] C2a-C1a: PP +0.135 holm=3.883e-15 (n=470) | ITT +0.178 holm=5.933e-22 (n=500) -> CLAIMABLE
+  [prereg strict |sv] C2b-C0b: PP +0.128 holm=3.585e-12 (n=436) | ITT +0.193 holm=5.933e-22 (n=500) -> CLAIMABLE
+  [prereg strict |sv] C2b-C1a: PP +0.105 holm=2.477e-11 (n=465) | ITT +0.138 holm=2.649e-15 (n=500) -> CLAIMABLE
+  [prereg strict |hv] C2a-C0b: PP -0.134 holm=2.086e-10 (n=442) | ITT -0.213 holm=4.767e-21 (n=500) -> CLAIMABLE
+  [prereg strict |hv] C2a-C1a: PP -0.128 holm=3.067e-14 (n=470) | ITT -0.173 holm=5.725e-21 (n=500) -> CLAIMABLE
+  [prereg strict |hv] C2b-C0b: PP -0.140 holm=1.203e-16 (n=436) | ITT -0.213 holm=5.334e-27 (n=500) -> CLAIMABLE
+  [prereg strict |hv] C2b-C1a: PP -0.138 holm=6.428e-21 (n=465) | ITT -0.174 holm=1.243e-24 (n=500) -> CLAIMABLE
+  [prereg lenient|sv] C2a-C0b: PP +0.155 holm=1.421e-13 (n=442) | ITT +0.227 holm=1.736e-24 (n=500) -> CLAIMABLE
+  [prereg lenient|sv] C2a-C1a: PP +0.136 holm=3.994e-16 (n=470) | ITT +0.179 holm=7.300e-23 (n=500) -> CLAIMABLE
+  [prereg lenient|sv] C2b-C0b: PP +0.146 holm=5.683e-16 (n=436) | ITT +0.213 holm=7.226e-26 (n=500) -> CLAIMABLE
+  [prereg lenient|sv] C2b-C1a: PP +0.131 holm=3.951e-16 (n=465) | ITT +0.164 holm=9.588e-21 (n=500) -> CLAIMABLE
+  [prereg lenient|hv] C2a-C0b: PP -0.147 holm=1.374e-12 (n=442) | ITT -0.228 holm=3.355e-24 (n=500) -> CLAIMABLE
+  [prereg lenient|hv] C2a-C1a: PP -0.140 holm=2.659e-17 (n=470) | ITT -0.186 holm=3.355e-24 (n=500) -> CLAIMABLE
+  [prereg lenient|hv] C2b-C0b: PP -0.136 holm=4.200e-16 (n=436) | ITT -0.210 holm=3.528e-26 (n=500) -> CLAIMABLE
+  [prereg lenient|hv] C2b-C1a: PP -0.132 holm=1.312e-20 (n=465) | ITT -0.169 holm=2.762e-24 (n=500) -> CLAIMABLE
+  [explor strict |sv] C1a-C0b: PP +0.019 holm=3.159e-01 (n=414) | ITT +0.055 holm=1.813e-02 (n=500) -> not
+  [explor strict |sv] C2a-C2b: PP +0.032 holm=1.369e-01 (n=494) | ITT +0.040 holm=2.335e-02 (n=500) -> not
+  [explor strict |hv] C1a-C0b: PP +0.005 holm=1.000e+00 (n=414) | ITT -0.040 holm=1.293e-01 (n=500) -> not
+  [explor strict |hv] C2a-C2b: PP +0.009 holm=1.000e+00 (n=494) | ITT +0.000 holm=9.150e-01 (n=500) -> not
+  [explor lenient|sv] C1a-C0b: PP +0.013 holm=9.322e-01 (n=414) | ITT +0.049 holm=3.632e-02 (n=500) -> not
+  [explor lenient|sv] C2a-C2b: PP +0.006 holm=9.322e-01 (n=494) | ITT +0.014 holm=9.292e-01 (n=500) -> not
+  [explor lenient|hv] C1a-C0b: PP +0.004 holm=9.123e-01 (n=414) | ITT -0.042 holm=1.009e-01 (n=500) -> not
+  [explor lenient|hv] C2a-C2b: PP -0.008 holm=9.123e-01 (n=494) | ITT -0.017 holm=2.013e-01 (n=500) -> not
+
+====================================================================================================
+ITEM 5 FIDELITY-to-C3 (C2a vs C3 full_repo): WITH pilot_dev (n = 500)
+====================================================================================================
+  C2a per-protocol n = 500/500
+  top-5 Jaccard vs C3 (PP) = 0.8307 (n=500) | (ITT, invalid=0) = 0.8307
+  top-1 agreement vs C3 (PP) = 0.8500 (n=500) | (ITT, invalid=0) = 0.8500
+  [STRICT|PP] sv C2a vs C3: match=361 (72.2%) beat=13 (2.6%) lose=126 (25.2%) n=500 || hv: match=397 (79.4%) beat=2 (0.4%) lose=101 (20.2%)
+  [STRICT|ITT] sv C2a vs C3: match=361 (72.2%) beat=13 (2.6%) lose=126 (25.2%) n=500 || hv: match=397 (79.4%) beat=2 (0.4%) lose=101 (20.2%)
+  [LENIENT|PP] sv C2a vs C3: match=361 (72.2%) beat=13 (2.6%) lose=126 (25.2%) n=500 || hv: match=406 (81.2%) beat=1 (0.2%) lose=93 (18.6%)
+  [LENIENT|ITT] sv C2a vs C3: match=361 (72.2%) beat=13 (2.6%) lose=126 (25.2%) n=500 || hv: match=406 (81.2%) beat=1 (0.2%) lose=93 (18.6%)
+
+====================================================================================================
+ITEM 2 CELLS: WITHOUT pilot_dev  (n scenarios = 460)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.560 [0.517,0.605]                411 0.375 [0.338,0.413]           411
+C0b   0.650 [0.609,0.690]                403 0.290 [0.256,0.325]           403
+C1a   0.660 [0.623,0.697]                431 0.294 [0.262,0.326]           431
+C2a   0.800 [0.777,0.821]                460 0.165 [0.144,0.187]           460
+C2b   0.778 [0.754,0.801]                454 0.146 [0.128,0.165]           454
+C3    0.863 [0.843,0.883]                460 0.105 [0.090,0.120]           460
+
+--- STRICT | ITT ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.501 [0.458,0.542]                460 0.442 [0.404,0.480]           460
+C0b   0.569 [0.528,0.610]                460 0.378 [0.341,0.415]           460
+C1a   0.619 [0.582,0.656]                460 0.338 [0.306,0.371]           460
+C2a   0.800 [0.777,0.821]                460 0.165 [0.144,0.187]           460
+C2b   0.768 [0.743,0.793]                460 0.157 [0.138,0.177]           460
+C3    0.863 [0.843,0.883]                460 0.105 [0.090,0.120]           460
+
+--- LENIENT | per-protocol ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.563 [0.520,0.608]                411 0.367 [0.329,0.405]           411
+C0b   0.660 [0.620,0.701]                403 0.283 [0.248,0.318]           403
+C1a   0.665 [0.628,0.701]                431 0.285 [0.253,0.317]           431
+C2a   0.805 [0.783,0.826]                460 0.143 [0.124,0.163]           460
+C2b   0.808 [0.784,0.831]                454 0.142 [0.124,0.161]           454
+C3    0.864 [0.844,0.883]                460 0.086 [0.073,0.099]           460
+
+--- LENIENT | ITT ---
+cond  season-validity [95% CI]            n_sv hard-violation [95% CI]             n_hv
+C0    0.503 [0.461,0.545]                460 0.434 [0.397,0.473]           460
+C0b   0.579 [0.537,0.619]                460 0.372 [0.334,0.409]           460
+C1a   0.623 [0.586,0.660]                460 0.330 [0.297,0.362]           460
+C2a   0.805 [0.783,0.826]                460 0.143 [0.124,0.163]           460
+C2b   0.798 [0.773,0.822]                460 0.153 [0.133,0.174]           460
+C3    0.864 [0.844,0.883]                460 0.086 [0.073,0.099]           460
+
+====================================================================================================
+ITEM 3 PRE-REGISTERED CONTRASTS: WITHOUT pilot_dev  (n scenarios = 460)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+  metric=season-validity
+    C2a-C0b: n=403 diff=+0.154 [+0.112,+0.194] Cliff_d=+0.118 p=1.065e-11 holm=2.129e-11
+    C2a-C1a: n=431 diff=+0.136 [+0.104,+0.169] Cliff_d=+0.137 p=5.117e-14 holm=2.047e-13
+    C2b-C0b: n=397 diff=+0.130 [+0.094,+0.167] Cliff_d=+0.073 p=1.952e-11 holm=2.129e-11
+    C2b-C1a: n=426 diff=+0.115 [+0.083,+0.147] Cliff_d=+0.090 p=5.067e-12 holm=1.520e-11
+  metric=hard-violation
+    C2a-C0b: n=403 diff=-0.129 [-0.170,-0.088] Cliff_d=-0.146 p=7.296e-09 holm=7.296e-09
+    C2a-C1a: n=431 diff=-0.126 [-0.157,-0.095] Cliff_d=-0.164 p=1.859e-12 holm=3.717e-12
+    C2b-C0b: n=397 diff=-0.142 [-0.174,-0.111] Cliff_d=-0.159 p=5.355e-16 holm=1.606e-15
+    C2b-C1a: n=426 diff=-0.144 [-0.170,-0.117] Cliff_d=-0.187 p=5.231e-21 holm=2.092e-20
+
+--- STRICT | ITT ---
+  metric=season-validity
+    C2a-C0b: n=460 diff=+0.231 [+0.189,+0.271] Cliff_d=+0.219 p=1.205e-22 holm=4.818e-22
+    C2a-C1a: n=460 diff=+0.181 [+0.147,+0.215] Cliff_d=+0.191 p=2.563e-20 holm=5.125e-20
+    C2b-C0b: n=460 diff=+0.199 [+0.160,+0.236] Cliff_d=+0.171 p=3.585e-21 holm=1.076e-20
+    C2b-C1a: n=460 diff=+0.149 [+0.114,+0.184] Cliff_d=+0.137 p=7.347e-16 holm=7.347e-16
+  metric=hard-violation
+    C2a-C0b: n=460 diff=-0.213 [-0.254,-0.172] Cliff_d=-0.242 p=1.891e-19 holm=3.781e-19
+    C2a-C1a: n=460 diff=-0.173 [-0.207,-0.140] Cliff_d=-0.222 p=1.251e-18 holm=1.251e-18
+    C2b-C0b: n=460 diff=-0.221 [-0.256,-0.185] Cliff_d=-0.249 p=3.012e-26 holm=1.205e-25
+    C2b-C1a: n=460 diff=-0.181 [-0.212,-0.150] Cliff_d=-0.230 p=3.121e-24 holm=9.362e-24
+
+--- LENIENT | per-protocol ---
+  metric=season-validity
+    C2a-C0b: n=403 diff=+0.149 [+0.108,+0.189] Cliff_d=+0.108 p=1.349e-11 holm=1.349e-11
+    C2a-C1a: n=431 diff=+0.137 [+0.106,+0.169] Cliff_d=+0.135 p=8.537e-15 holm=2.504e-14
+    C2b-C0b: n=397 diff=+0.148 [+0.112,+0.184] Cliff_d=+0.112 p=8.346e-15 holm=2.504e-14
+    C2b-C1a: n=426 diff=+0.140 [+0.110,+0.171] Cliff_d=+0.140 p=8.984e-17 holm=3.594e-16
+  metric=hard-violation
+    C2a-C0b: n=403 diff=-0.143 [-0.183,-0.103] Cliff_d=-0.156 p=5.077e-11 holm=5.077e-11
+    C2a-C1a: n=431 diff=-0.137 [-0.169,-0.108] Cliff_d=-0.190 p=2.544e-15 holm=5.282e-15
+    C2b-C0b: n=397 diff=-0.139 [-0.171,-0.108] Cliff_d=-0.141 p=1.761e-15 holm=5.282e-15
+    C2b-C1a: n=426 diff=-0.139 [-0.165,-0.113] Cliff_d=-0.184 p=9.212e-21 holm=3.685e-20
+
+--- LENIENT | ITT ---
+  metric=season-validity
+    C2a-C0b: n=460 diff=+0.227 [+0.186,+0.267] Cliff_d=+0.209 p=1.182e-22 holm=3.547e-22
+    C2a-C1a: n=460 diff=+0.182 [+0.149,+0.215] Cliff_d=+0.189 p=3.845e-21 holm=7.691e-21
+    C2b-C0b: n=460 diff=+0.219 [+0.181,+0.256] Cliff_d=+0.206 p=8.961e-25 holm=3.584e-24
+    C2b-C1a: n=460 diff=+0.175 [+0.141,+0.208] Cliff_d=+0.182 p=1.608e-20 holm=1.608e-20
+  metric=hard-violation
+    C2a-C0b: n=460 diff=-0.229 [-0.269,-0.188] Cliff_d=-0.251 p=1.203e-22 holm=2.407e-22
+    C2a-C1a: n=460 diff=-0.187 [-0.219,-0.154] Cliff_d=-0.248 p=1.064e-21 holm=1.064e-21
+    C2b-C0b: n=460 diff=-0.219 [-0.254,-0.182] Cliff_d=-0.233 p=1.317e-25 holm=5.267e-25
+    C2b-C1a: n=460 diff=-0.176 [-0.207,-0.146] Cliff_d=-0.226 p=6.071e-24 holm=1.821e-23
+
+====================================================================================================
+ITEM 4 EXPLORATORY CONTRASTS: WITHOUT pilot_dev  (n scenarios = 460)
+====================================================================================================
+
+--- STRICT | per-protocol ---
+  metric=season-validity
+    C1a-C0b: n=376 diff=+0.011 [-0.026,+0.048] Cliff_d=+0.002 p=6.382e-01 holm=6.382e-01
+    C2a-C2b: n=454 diff=+0.023 [-0.004,+0.049] Cliff_d=+0.043 p=2.601e-01 holm=5.202e-01
+  metric=hard-violation
+    C1a-C0b: n=376 diff=+0.009 [-0.024,+0.041] Cliff_d=+0.023 p=3.903e-01 holm=3.903e-01
+    C2a-C2b: n=454 diff=+0.017 [-0.008,+0.042] Cliff_d=+0.015 p=1.919e-01 holm=3.839e-01
+
+--- STRICT | ITT ---
+  metric=season-validity
+    C1a-C0b: n=460 diff=+0.050 [+0.007,+0.091] Cliff_d=+0.060 p=2.827e-02 holm=5.654e-02
+    C2a-C2b: n=460 diff=+0.032 [+0.004,+0.059] Cliff_d=+0.054 p=1.082e-01 holm=1.082e-01
+  metric=hard-violation
+    C1a-C0b: n=460 diff=-0.040 [-0.079,+0.000] Cliff_d=-0.042 p=8.557e-02 holm=1.711e-01
+    C2a-C2b: n=460 diff=+0.007 [-0.018,+0.033] Cliff_d=+0.005 p=4.870e-01 holm=4.870e-01
+
+--- LENIENT | per-protocol ---
+  metric=season-validity
+    C1a-C0b: n=376 diff=+0.005 [-0.031,+0.042] Cliff_d=-0.003 p=8.065e-01 holm=8.065e-01
+    C2a-C2b: n=454 diff=-0.002 [-0.027,+0.024] Cliff_d=-0.023 p=3.373e-01 holm=6.745e-01
+  metric=hard-violation
+    C1a-C0b: n=376 diff=+0.007 [-0.025,+0.039] Cliff_d=+0.027 p=4.345e-01 holm=8.690e-01
+    C2a-C2b: n=454 diff=-0.000 [-0.024,+0.024] Cliff_d=-0.015 p=9.705e-01 holm=9.705e-01
+
+--- LENIENT | ITT ---
+  metric=season-validity
+    C1a-C0b: n=460 diff=+0.044 [+0.002,+0.085] Cliff_d=+0.055 p=4.704e-02 holm=9.408e-02
+    C2a-C2b: n=460 diff=+0.007 [-0.018,+0.033] Cliff_d=-0.012 p=6.796e-01 holm=6.796e-01
+  metric=hard-violation
+    C1a-C0b: n=460 diff=-0.042 [-0.081,-0.003] Cliff_d=-0.040 p=6.211e-02 holm=1.242e-01
+    C2a-C2b: n=460 diff=-0.010 [-0.035,+0.014] Cliff_d=-0.027 p=5.371e-01 holm=5.371e-01
+
+--- CLAIMABILITY (WITHOUT pilot_dev) - PP and ITT must AGREE in sign AND be significant (Holm<0.05 both); primary family = 4 pre-registered pairs ---
+  [prereg strict |sv] C2a-C0b: PP +0.154 holm=2.129e-11 (n=403) | ITT +0.231 holm=4.818e-22 (n=460) -> CLAIMABLE
+  [prereg strict |sv] C2a-C1a: PP +0.136 holm=2.047e-13 (n=431) | ITT +0.181 holm=5.125e-20 (n=460) -> CLAIMABLE
+  [prereg strict |sv] C2b-C0b: PP +0.130 holm=2.129e-11 (n=397) | ITT +0.199 holm=1.076e-20 (n=460) -> CLAIMABLE
+  [prereg strict |sv] C2b-C1a: PP +0.115 holm=1.520e-11 (n=426) | ITT +0.149 holm=7.347e-16 (n=460) -> CLAIMABLE
+  [prereg strict |hv] C2a-C0b: PP -0.129 holm=7.296e-09 (n=403) | ITT -0.213 holm=3.781e-19 (n=460) -> CLAIMABLE
+  [prereg strict |hv] C2a-C1a: PP -0.126 holm=3.717e-12 (n=431) | ITT -0.173 holm=1.251e-18 (n=460) -> CLAIMABLE
+  [prereg strict |hv] C2b-C0b: PP -0.142 holm=1.606e-15 (n=397) | ITT -0.221 holm=1.205e-25 (n=460) -> CLAIMABLE
+  [prereg strict |hv] C2b-C1a: PP -0.144 holm=2.092e-20 (n=426) | ITT -0.181 holm=9.362e-24 (n=460) -> CLAIMABLE
+  [prereg lenient|sv] C2a-C0b: PP +0.149 holm=1.349e-11 (n=403) | ITT +0.227 holm=3.547e-22 (n=460) -> CLAIMABLE
+  [prereg lenient|sv] C2a-C1a: PP +0.137 holm=2.504e-14 (n=431) | ITT +0.182 holm=7.691e-21 (n=460) -> CLAIMABLE
+  [prereg lenient|sv] C2b-C0b: PP +0.148 holm=2.504e-14 (n=397) | ITT +0.219 holm=3.584e-24 (n=460) -> CLAIMABLE
+  [prereg lenient|sv] C2b-C1a: PP +0.140 holm=3.594e-16 (n=426) | ITT +0.175 holm=1.608e-20 (n=460) -> CLAIMABLE
+  [prereg lenient|hv] C2a-C0b: PP -0.143 holm=5.077e-11 (n=403) | ITT -0.229 holm=2.407e-22 (n=460) -> CLAIMABLE
+  [prereg lenient|hv] C2a-C1a: PP -0.137 holm=5.282e-15 (n=431) | ITT -0.187 holm=1.064e-21 (n=460) -> CLAIMABLE
+  [prereg lenient|hv] C2b-C0b: PP -0.139 holm=5.282e-15 (n=397) | ITT -0.219 holm=5.267e-25 (n=460) -> CLAIMABLE
+  [prereg lenient|hv] C2b-C1a: PP -0.139 holm=3.685e-20 (n=426) | ITT -0.176 holm=1.821e-23 (n=460) -> CLAIMABLE
+  [explor strict |sv] C1a-C0b: PP +0.011 holm=6.382e-01 (n=376) | ITT +0.050 holm=5.654e-02 (n=460) -> not
+  [explor strict |sv] C2a-C2b: PP +0.023 holm=5.202e-01 (n=454) | ITT +0.032 holm=1.082e-01 (n=460) -> not
+  [explor strict |hv] C1a-C0b: PP +0.009 holm=3.903e-01 (n=376) | ITT -0.040 holm=1.711e-01 (n=460) -> not
+  [explor strict |hv] C2a-C2b: PP +0.017 holm=3.839e-01 (n=454) | ITT +0.007 holm=4.870e-01 (n=460) -> not
+  [explor lenient|sv] C1a-C0b: PP +0.005 holm=8.065e-01 (n=376) | ITT +0.044 holm=9.408e-02 (n=460) -> not
+  [explor lenient|sv] C2a-C2b: PP -0.002 holm=6.745e-01 (n=454) | ITT +0.007 holm=6.796e-01 (n=460) -> not
+  [explor lenient|hv] C1a-C0b: PP +0.007 holm=8.690e-01 (n=376) | ITT -0.042 holm=1.242e-01 (n=460) -> not
+  [explor lenient|hv] C2a-C2b: PP -0.000 holm=9.705e-01 (n=454) | ITT -0.010 holm=5.371e-01 (n=460) -> not
+
+====================================================================================================
+ITEM 5 FIDELITY-to-C3 (C2a vs C3 full_repo): WITHOUT pilot_dev (n = 460)
+====================================================================================================
+  C2a per-protocol n = 460/460
+  top-5 Jaccard vs C3 (PP) = 0.8258 (n=460) | (ITT, invalid=0) = 0.8258
+  top-1 agreement vs C3 (PP) = 0.8543 (n=460) | (ITT, invalid=0) = 0.8543
+  [STRICT|PP] sv C2a vs C3: match=330 (71.7%) beat=10 (2.2%) lose=120 (26.1%) n=460 || hv: match=361 (78.5%) beat=1 (0.2%) lose=98 (21.3%)
+  [STRICT|ITT] sv C2a vs C3: match=330 (71.7%) beat=10 (2.2%) lose=120 (26.1%) n=460 || hv: match=361 (78.5%) beat=1 (0.2%) lose=98 (21.3%)
+  [LENIENT|PP] sv C2a vs C3: match=330 (71.7%) beat=10 (2.2%) lose=120 (26.1%) n=460 || hv: match=370 (80.4%) beat=0 (0.0%) lose=90 (19.6%)
+  [LENIENT|ITT] sv C2a vs C3: match=330 (71.7%) beat=10 (2.2%) lose=120 (26.1%) n=460 || hv: match=370 (80.4%) beat=0 (0.0%) lose=90 (19.6%)
+
+C1a 8192-truncation at n=500: truncated=30/500 (6.0%), valid_json=484/500, PP-usable=470/500, ITT n=500
