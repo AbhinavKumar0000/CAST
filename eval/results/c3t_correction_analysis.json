@@ -1,6 +1,6 @@
 {
   "registered": "PROTOCOL 8.35 (instrument correction, not tuning), 2026-10-19 22:56:19 UTC",
-  "generated": "2026-10-20T01:14:49+00:00",
+  "generated": "2026-10-20T01:42:21+00:00",
   "instruments": {
     "C3": "run_deterministic_v2.py::score_crops full_repo (empty sowing windows; registered, unchanged)",
     "C3t": "identical pipeline passing real sowing_start_week/sowing_end_week into _season_alignment_score",
@@ -13,34 +13,68 @@
     "season": 0.3,
     "risk": 0.15
   },
+  "metric_definitions": {
+    "season_validity": "Fraction of crops in top5 valid for scenario season (per-crop check, mean over scenarios). Matches recompute_season_validity_v1_2.py.",
+    "hard_violation": "Per-crop check against season/drought/flood constraints; rate = violations / (5 * n_scenarios). Matches recompute_season_validity_v1_2.py."
+  },
+  "gt_used": {
+    "season": "crop_season_table_v1.2.csv (Jowar/Rabi, Arhar/Rabi = contradicted)",
+    "hard": "hard_constraints_v1.1.csv"
+  },
+  "reconciliation": {
+    "earlier_C3_v1.2_strict": {
+      "season_validity_strict": 0.8359,
+      "season_validity_lenient": 0.8359,
+      "hard_violation_strict": 0.11464,
+      "hard_violation_lenient": 0.09459,
+      "source": "eval/results/c3_season_validity_v1.2_vs_v1.1.json (v1.2|strict/lenient)",
+      "gt_season": "crop_season_table_v1.2.csv (Jowar/Rabi, Arhar/Rabi = contradicted)",
+      "gt_hard": "hard_constraints_v1.1.csv",
+      "definition": "season_validity = mean over scenarios of (valid crops in top5 / crops checked); hard_violation = total violations / (5 * n_scenarios)"
+    },
+    "our_C3_db_v1": {
+      "season_validity_strict": 0.8359,
+      "season_validity_lenient": 0.8359,
+      "hard_violation_strict": 0.11464,
+      "hard_violation_lenient": 0.094594,
+      "n_scenarios": 10000,
+      "n_crop_checks": 50000
+    },
+    "match_sv": true,
+    "match_hv": true
+  },
   "season_validity_hard_violation_10k": {
     "C3_db_v1": {
-      "season_validity_strict": 0.9999,
-      "season_validity_lenient": 0.9999,
-      "hard_violation_strict": 0.6893,
-      "hard_violation_lenient": 0.4038,
-      "n": 10000
+      "season_validity_strict": 0.8359,
+      "season_validity_lenient": 0.8359,
+      "hard_violation_strict": 0.11464,
+      "hard_violation_lenient": 0.094594,
+      "n_scenarios": 10000,
+      "n_crop_checks": 50000
     },
     "C3_db_v2": {
-      "season_validity_strict": 0.9994,
-      "season_validity_lenient": 0.9994,
-      "hard_violation_strict": 0.6803,
-      "hard_violation_lenient": 0.3964,
-      "n": 10000
+      "season_validity_strict": 0.81132,
+      "season_validity_lenient": 0.83736,
+      "hard_violation_strict": 0.11316,
+      "hard_violation_lenient": 0.093136,
+      "n_scenarios": 10000,
+      "n_crop_checks": 50000
     },
     "C3t_db_v1": {
-      "season_validity_strict": 0.9048,
-      "season_validity_lenient": 0.9048,
-      "hard_violation_strict": 0.8051,
-      "hard_violation_lenient": 0.4885,
-      "n": 10000
+      "season_validity_strict": 0.79,
+      "season_validity_lenient": 0.790525,
+      "hard_violation_strict": 0.16146,
+      "hard_violation_lenient": 0.139888,
+      "n_scenarios": 10000,
+      "n_crop_checks": 50000
     },
     "C3t_db_v2": {
-      "season_validity_strict": 0.9043,
-      "season_validity_lenient": 0.9043,
-      "hard_violation_strict": 0.8037,
-      "hard_violation_lenient": 0.4872,
-      "n": 10000
+      "season_validity_strict": 0.76926,
+      "season_validity_lenient": 0.788915,
+      "hard_violation_strict": 0.161,
+      "hard_violation_lenient": 0.139558,
+      "n_scenarios": 10000,
+      "n_crop_checks": 50000
     }
   },
   "real_data_metrics_llm_subset": {
@@ -93,7 +127,6 @@
       "n_evaluated": 500
     }
   },
-  "c2a_vs_c3_match_beat_lose": {},
   "s_followup_data": {
     "meta": {
       "registered": "EXPLORATORY (PROTOCOL 8.34, registered 2026-10-19 02:44:25 UTC)",

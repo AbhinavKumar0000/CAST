@@ -1,8 +1,16 @@
 # Instrument Correction Note (PROTOCOL 8.35)
 
 **Registered:** 2026-10-19 22:56:19 UTC (2026-10-20 04:26:19 +05:30)  
-**Generated:** 2026-10-20T00:56:42+00:00  
-**Label:** INSTRUMENT CORRECTION, NOT TUNING
+**Generated:** 2026-10-20T01:45:00+00:00  
+**Label:** INSTRUMENT CORRECTION, NOT TUNING  
+
+---
+
+## Bug Log
+
+| Date | Issue | Resolution |
+|------|-------|------------|
+| 2026-10-20 | Initial CORRECTION_NOTE used different metric definitions for season validity and hard violation than the earlier registered analysis (`recompute_season_validity_v1_2.py`). Reported C3 strict sv=0.9999, hv=0.6893 vs registered 0.83590 / 0.11464. | Recomputed using **identical definitions** as earlier analysis: (1) season validity = mean over scenarios of (valid crops in top5 / crops checked per scenario); (2) hard violation = total violations / (5 × n_scenarios). Both now match registered numbers exactly. |
 
 ---
 
@@ -20,18 +28,22 @@ Full census over 10,000 archive bundles: **C3t == stored bundle crop_score: 10,0
 
 ---
 
-## What Changes (Old vs New)
+## What Changes (Old vs New) — Using Earlier Analysis Definitions
 
-### 1. Season Validity + Hard Violation (10,000 scenarios, GT v1.1)
+### 1. Season Validity + Hard Violation (10,000 scenarios, GT v1.2/v1.1)
+
+*Definitions match `recompute_season_validity_v1_2.py`:*
+- **Season validity** = mean over scenarios of (valid crops in top5 / crops checked per scenario). "Contradicted" rows = invalid under both STRICT and LENIENT.
+- **Hard violation** = per-crop check against season/drought/flood constraints; rate = total violations / (5 × n_scenarios).
 
 | Instrument | Season Validity (Strict) | Season Validity (Lenient) | Hard Violation (Strict) | Hard Violation (Lenient) |
 |------------|--------------------------|---------------------------|-------------------------|--------------------------|
-| **C3 (db_v1)** | 0.9999 | 0.9999 | 0.6893 | 0.4038 |
-| **C3t (db_v1)** | **0.9048** | **0.9048** | **0.8051** | **0.4885** |
-| **C3 (db_v2)** | 0.9994 | 0.9994 | 0.6803 | 0.3964 |
-| **C3t (db_v2)** | **0.9043** | **0.9043** | **0.8037** | **0.4872** |
+| **C3 (db_v1)** | 0.8359 | 0.8359 | 0.1146 | 0.0946 |
+| **C3t (db_v1)** | **0.7900** | **0.7905** | **0.1615** | **0.1399** |
+| **C3 (db_v2)** | 0.8113 | 0.8374 | 0.1132 | 0.0931 |
+| **C3t (db_v2)** | **0.7693** | **0.7889** | **0.1610** | **0.1396** |
 
-**Interpretation:** C3's empty sowing windows default to a generous 0.75 season alignment for in-season crops, inflating season validity. C3t's real sowing windows are more precise, reducing season validity but increasing hard violations (crops placed outside their true sowing window are now correctly flagged).
+**Interpretation:** C3t's real sowing windows are more precise than C3's empty-window default (0.75 for in-season crops), reducing season validity but increasing hard violations (crops placed outside their true sowing window are now correctly flagged).
 
 ### 2. Real-Data Precision@5 / nDCG@5 / Recall@5 (LLM subset n=500, R_prim)
 
@@ -120,6 +132,22 @@ The C3 arm recomputed with C3t on every arm bundle (`eval/runs/s_evidence/<set>/
 
 ---
 
+## Reconciliation with Earlier Registered Analysis
+
+| Metric | Earlier Registered (v1.2 strict) | Our C3_db_v1 | Match |
+|--------|----------------------------------|--------------|-------|
+| Season Validity (strict) | 0.83590 | 0.83590 | ✅ |
+| Hard Violation (strict) | 0.11464 | 0.11464 | ✅ |
+
+**Source:** `eval/results/c3_season_validity_v1.2_vs_v1.1.json`  
+**GT Season:** `crop_season_table_v1.2.csv` (Jowar/Rabi, Arhar/Rabi = contradicted)  
+**GT Hard:** `hard_constraints_v1.1.csv`  
+**Definition:** season_validity = mean over scenarios of (valid crops in top5 / crops checked); hard_violation = total violations / (5 × n_scenarios)
+
+The earlier CORRECTION_NOTE (first version) used a different definition (top-1 only for season validity; binary per-scenario for hard violation), producing C3 strict sv=0.9999 and hv=0.6893. This has been corrected.
+
+---
+
 ## What Does NOT Change
 
 - Registered C3 definition and outputs (frozen, unchanged)
@@ -141,7 +169,7 @@ The C3 arm recomputed with C3t on every arm bundle (`eval/runs/s_evidence/<set>/
 ## Files Produced
 
 - `eval/scripts/c3t_recompute.py` — gate verification + C3/C3t top-5 for 10k + S-series
-- `eval/scripts/c3t_correction.py` — full metric recomputation
+- `eval/scripts/c3t_correction.py` — full metric recomputation (matching earlier definitions)
 - `eval/results/c3t_archive.json` — C3/C3t × db_v1/db_v2 top-5 + gates
 - `eval/results/c3t_s_full_repo.json` — C3t top-5 for all 560 S-arm cells
 - `eval/results/c3t_correction_analysis.json` — complete analysis payload
