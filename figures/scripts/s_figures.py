@@ -395,11 +395,11 @@ def oracle_signal_fig() -> None:
         for off, mode in zip(offsets, ["strict", "lenient"]):
             means, los, his, ns = [], [], [], []
             for s in SETS:
-                key = f"N1"
-                if key in _oracle:
-                    st = _oracle[key][mode]
-                    n_signal = st.get("scenarios_with_signal", 0)
-                    n_total = st.get("newly_infeasible_total", 40)
+                key = f"{s}|{mode}"
+                if key in _scores["signal"]:
+                    st = _scores["signal"][key]
+                    n_signal = st.get("n_sig", 0)
+                    n_total = 40  # base 40 scenarios per set
                     p = n_signal / n_total if n_total > 0 else 0
                     se = np.sqrt(p * (1 - p) / n_total) if n_total > 0 else 0
                     means.append(p)
@@ -410,6 +410,11 @@ def oracle_signal_fig() -> None:
                                  "scope": s, "mode": mode,
                                  "n_signal": n_signal, "n_total": n_total,
                                  "mean": f"{p:.6f}", "lo": f"{p-se:.6f}", "hi": f"{p+se:.6f}"})
+                else:
+                    means.append(0)
+                    los.append(0)
+                    his.append(0)
+                    ns.append(0)
             ax.errorbar(x + off, means, yerr=[los, his], fmt="o", ms=5, lw=1.5,
                         capsize=3, color="#D55E00" if mode == "strict" else "#E69F00",
                         label=mode.capitalize())
