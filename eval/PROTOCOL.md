@@ -1479,7 +1479,7 @@ approves. Outputs: `eval/results/S_REPORT.md` + per-set tables; `eval/PROGRESS.m
 for approval after each model-call batch.
 ---
 
-## 8.34 S-series FOLLOW-UP analyses — EXPLORATORY (NOT pre-registered) — registered 2026-10-19 02:44:25 UTC (08:14:25 +05:30)
+## 8.34 S-series FOLLOW-UP analyses ï¿½ EXPLORATORY (NOT pre-registered) ï¿½ registered 2026-10-19 02:44:25 UTC (08:14:25 +05:30)
 
 Trigger: user task "Follow-up analyses on S-series" received 2026-10-19, executed offline (NO model
 calls). Registered BEFORE computation, per instruction. Frozen definitions, oracle, scenarios,
@@ -1490,34 +1490,87 @@ reported whatever they are.
 
 Planned analyses (fixed now, before computing):
 
-1. **B6 root cause** — side-by-side top-5s, scores, inputs for the 17/40 base scenarios where
+1. **B6 root cause** ï¿½ side-by-side top-5s, scores, inputs for the 17/40 base scenarios where
    bundle `crop_score` output differs from the registered C3 pipeline; counts per cause
    (data version / tie-breaking / rounding / season handling / state / other); check whether the
    earlier real-data analysis (where C3 was a proxy for the scorer) is affected and quantify.
-2. **Exposure-conditioned retention** (EXPLORATORY metric) — per condition x model, mode
+2. **Exposure-conditioned retention** (EXPLORATORY metric) ï¿½ per condition x model, mode
    {strict, lenient}: exposure = baseline top-5 of that condition intersects D; retention =
    |base_top5 n D n shifted_top5| / |base_top5 n D|, mean over EXPOSED cells, district-clustered
    bootstrap CI (seed 42, n=10000, paired cluster resample), pp (usable cells) and ITT (unusable
    response but exposed -> worst case = all retained = 1.0; unusable baseline -> excluded,
    exposure unknown). n reported per entry. C0/C0b are excluded from shifted comparisons (reused
-   by design, §8.33.4); baseline exposure reported for context only.
-3. **Delta-violation** — Violation@5(shift, F1) minus Violation@5(condition baseline, F1) per
+   by design, ï¿½8.33.4); baseline exposure reported for context only.
+3. **Delta-violation** ï¿½ Violation@5(shift, F1) minus Violation@5(condition baseline, F1) per
    cell, pooled WITH_pilot, pp+ITT, strict+lenient, over (a) signal cells |D|>0 and (b) all cells.
    C0/C0b delta = 0 by construction (reused responses), noted not tested.
-4. **Headline swap** — Stale@5 tables presented with the |D|>0 conditional version (§8.34-analysis
-   2 of S_REPORT §5) as PRIMARY and the as-registered 0-filled version as sensitivity; every Stale
+4. **Headline swap** ï¿½ Stale@5 tables presented with the |D|>0 conditional version (ï¿½8.34-analysis
+   2 of S_REPORT ï¿½5) as PRIMARY and the as-registered 0-filled version as sensitivity; every Stale
    and Violation table/figure title gains the qualifier "higher = worse".
-5. **Power** — minimum detectable difference (MDD) for the Stale contrasts given observed variance
+5. **Power** ï¿½ minimum detectable difference (MDD) for the Stale contrasts given observed variance
    and the 57 strict signal cells: SE from the observed conditional contrast CI half-width
    (SE = (hi - lo) / (2 x 1.96)); MDD_80 = (z_{1-a/2} + z_{0.80}) x SE at a = 0.05 and a = 0.0125
    (worst Holm rank, 4 contrasts).
-6. **Case studies** — 5 WET1/WET2 scenarios where C3 or C2a kept a newly infeasible crop: crop,
+6. **Case studies** ï¿½ 5 WET1/WET2 scenarios where C3 or C2a kept a newly infeasible crop: crop,
    constraint crossed, scorer score/rank, component scores explaining the rank. Facts only.
-7. **Terminology rename** — "false-change" -> "movement not explained by hard-constraint changes"
+7. **Terminology rename** ï¿½ "false-change" -> "movement not explained by hard-constraint changes"
    in all text and figure labels, plus a one-line note that soft-score movement is expected.
    Machine-readable keys in frozen JSON outputs are NOT renamed (provenance).
-8. **Methods disclosure paragraph** — Nemotron baseline repair + registered-vs-scored Stale
+8. **Methods disclosure paragraph** ï¿½ Nemotron baseline repair + registered-vs-scored Stale
    convention, ready for the paper methods section.
 
 Outputs: `eval/results/S_FOLLOWUP.md`, `eval/results/s_followup*.json`, figures re-rendered only
 for label/title text changes (data unchanged), `eval/PROGRESS.md` updated, then STOP.
+
+## 8.35 Instrument correction (C3t) â€” INSTRUMENT CORRECTION, NOT TUNING â€” registered 2026-10-19 22:56:19 UTC (2026-10-20 04:26:19 +05:30)
+
+Trigger: the B6 root cause (S_FOLLOWUP Â§1, PROGRESS S-STEP 13): the registered deterministic
+pipeline `run_deterministic_v2.py::score_crops` drops real sowing windows before
+`_season_alignment_score` (lines 201â€“203), so every analysis that used the registered C3 top-5
+as a stand-in for the scorer TOOL scored an instrument that does not reproduce the tool.
+This section registers the correction BEFORE computation. Label: **instrument correction, not
+tuning** â€” no weight, algorithm, prompt, tool, threshold, ground-truth file or model output
+changes; no model/API calls; registered results (`s_scores*.json`, report numbers) are NOT
+edited. The registered C3 remains defined and reported; the corrected instrument is:
+
+- **C3t** = the identical pipeline, same weights {rainfall .20, temperature .15, soil .20,
+  season .30, risk .15}, same time anchor, same crop list, the ONLY difference being that the
+  crop row's real `sowing_start_week`/`sowing_end_week` are passed into
+  `_season_alignment_score` (variant C of S_FOLLOWUP Â§1).
+- Justification (already measured, S_FOLLOWUP Â§1): use_windows=False replica reproduces the
+  registered C3 40/40 on the base set; use_windows=True reproduces the stored MCP `crop_score`
+  tool output 40/40 (17/17 mismatched + 23/23 matched vs det) with component scores 102/102.
+
+Planned analyses (fixed now, before computing); every affected number is reported old (C3)
+vs new (C3t), side by side:
+
+1. **Gates.** (g1) C3t replica == stored bundle `crop_score` top-5, census over all 10,000
+   archive evidence bundles; (g2) C3t over the S-series base bundles; (g3) use_windows=False
+   == registered `score_crops` on the same bundles (instrument identity).
+2. **Season validity + hard violation on the 10,000 scenarios**, same GT v1.2 definitions,
+   strict and lenient, C3 vs C3t, for the db_v1 crop list and the db_v2 crop list; plus the
+   registry-based (`metrics.CROP_SEASON_VALIDITY`) 10k season-validity table old vs new.
+3. **Real-data Precision@5, nDCG@5, Recall@5** vs the same references as the real series
+   (R_prim headline; R_full/R_all/R_prod sensitivity), on the frozen 500-scenario LLM subset
+   (nemotron scope; llama its own 150), pp and ITT, WITH and WITHOUT pilot, levels and the
+   C3-involving contrast C3âˆ’C2b; plus the Â§10 scorer-vs-final proxy table old vs new.
+4. **S-series metrics on all 560 C3 cells** (2 models Ã— 21 sets Ã— 40 sids, plus N0): the C3
+   arm recomputed with C3t on every arm bundle (`eval/runs/s_evidence/<set>/<sid>.json`);
+   Violation@5 and Stale@5 as-scored (0-filled) and |D|>0 conditional, exposure,
+   exposure-conditioned retention, delta-violation, and every C3-involving contrast
+   (C3âˆ’C2b), both modes, pp+ITT, pooled and per-set, old vs new.
+5. **Recheck of every other analysis that used C3 as a stand-in for the scorer tool**, old
+   vs new: the n=500 sv/hv cells and the 361/13/126 C2a-vs-C3 match/beat/lose (strict PP sv),
+   its lenient/hv/ITT companions, fidelity-to-C3 Jaccard/top-1, the clustered-inference Â§6
+   match/beat/lose, the gaps/offline/nemotron-primary C3 rows, the db_v2 study P@5/nDCG@5
+   levels and db_v2âˆ’db_v1 contrast, and the Â§11 10k season-validity recomputation table.
+6. **The 45 strict WET flood-mention candidates** (S_FOLLOWUP Â§6; C3 14 + C2a 31, all
+   Urad/flood-cited): per-case facts â€” D set, constraint crossed, scorer rank/score/components
+   under the C3t instrument for the C3 candidates (and the stored-tool instrument for the C2a
+   candidates as before), advice top-5 position. Facts only.
+
+Outputs (new files only): `eval/scripts/c3t_recompute.py`, `eval/scripts/c3t_correction.py`,
+`eval/results/c3t_*.json` + txt summaries, `eval/reports/CORRECTION_NOTE.md`; ONE-LINE
+cross-refs appended to `REAL_EVAL_REPORT.md` Â§10 and `S_REPORT.md` Â§16.7 without altering any
+existing number; `eval/PROGRESS.md` updated. Registered outputs and frozen files remain
+untouched. Results are reported whatever they are. Then STOP.
