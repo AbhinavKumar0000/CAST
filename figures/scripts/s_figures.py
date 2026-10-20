@@ -56,6 +56,10 @@ _scores = json.loads(SCORES.read_text(encoding="utf-8"))
 _scores_cond = json.loads(SCORES_COND.read_text(encoding="utf-8"))
 _followup = json.loads(S_FOLLOWUP.read_text(encoding="utf-8"))
 _oracle = json.loads(S_ORACLE.read_text(encoding="utf-8"))
+# Sub-dicts for easier access
+_retention = _followup["retention"]
+_delta_viol = _followup["delta_violation"]
+_exposure = _followup["exposure"]
 SETS = _scores["meta"]["run_sets"]
 
 
@@ -247,52 +251,49 @@ def retention_fig() -> None:
     rows: list[dict] = []
     fig, axes = plt.subplots(2, 2, figsize=(11, 6), sharex=True, sharey=True)
     analyses = ["pp", "itt"]
+    conditions = ["C1a", "C2a", "C2b", "C3"]
     for row, analysis in enumerate(analyses):
         for col, model in enumerate(MODELS):
             ax = axes[row, col]
-            x = np.arange(len(CONTRASTS))
-            offsets = np.linspace(-0.25, 0.25, len(CONTRASTS))  # small offset per contrast
-            # We'll plot one bar per condition (C1a, C2a, C2b, C3) at pooled scope
-            conditions = ["C1a", "C2a", "C2b", "C3"]
-            offs = np.linspace(-0.15, 0.15, len(conditions))
-            for off, cond in zip(offs, conditions):
+            x = np.arange(len(conditions))
+            offsets = np.linspace(-0.15, 0.15, len(conditions))
+            for off, cond in zip(offsets, conditions):
                 means, los, his, ns = [], [], [], []
-                for pair in CONTRASTS:
-                    key = f"retention|{model}|{cond}|{MODE}|{analysis}"
-                    if key in _followup:
-                        st = _followup[key]
-                        means.append(st["mean"])
-                        los.append(st["mean"] - st["lo"])
-                        his.append(st["hi"] - st["mean"])
-                        ns.append(st["n_exposed_eligible"])
-                        rows.append({"figure": "retention", "model": model,
-                                     "contrast": pair, "condition": cond,
-                                     "analysis": analysis, "mode": MODE,
-                                     "mean": f"{st['mean']:.6f}", "lo": f"{st['lo']:.6f}",
-                                     "hi": f"{st['hi']:.6f}", "p": st["p"],
-                                     "n_exposed": st["n_exposed_eligible"]})
-                    else:
-                        means.append(np.nan)
-                        los.append(0)
-                        his.append(0)
-                        ns.append(0)
-                # Plot only if we have data
-                if any(not np.isnan(m) for m in means):
-                    x_pos = np.arange(len(CONTRASTS)) + off
-                    ax.bar(x_pos, means, width=0.12, color=COLORS[cond],
+                key = f"retention|{model}|{cond}|{MODE}|{analysis}"
+                if key in _retention:
+                    st = _retention[key]
+                    m = st["mean"]
+                    means.append(m)
+                    los.append(st["mean"] - st["lo"])
+                    his.append(st["hi"] - st["mean"])
+                    ns.append(st["n_exposed_eligible"])
+                    rows.append({"figure": "retention", "model": model,
+                                 "condition": cond, "analysis": analysis, "mode": MODE,
+                                 "mean": f"{st['mean']:.6f}", "lo": f"{st['lo']:.6f}",
+                                 "hi": f"{st['hi']:.6f}", "p": st["p"],
+                                 "n_exposed": st["n_exposed_eligible"]})
+                else:
+                    means.append(np.nan)
+                    los.append(0)
+                    his.append(0)
+                    ns.append(0)
+                # Plot single bar per condition
+                if not np.isnan(means[0]):
+                    ax.bar(off, means[0], width=0.12, color=COLORS[cond],
                            edgecolor="black", linewidth=0.3, label=cond)
-                    ax.errorbar(x_pos, means, yerr=[los, his], fmt="none",
+                    ax.errorbar(off, means[0], yerr=[[los[0]], [his[0]]], fmt="none",
                                 ecolor="black", capsize=2, lw=0.8)
-            _set_axes(ax, f"{model} — {analysis.upper()} retention ({CFG})")
+            _set_axes(ax, f"{model} - {analysis.upper()} retention ({CFG})")
             ax.set_ylabel("Retention (|base∩D∩shift| / |base∩D|)")
             ax.set_ylim(0, 1.05)
+            ax.set_xticks([])
             if row == 0 and col == 0:
                 ax.legend(fontsize=7, ncol=2, loc="upper left")
-    fig.suptitle("S-series: Exposure-conditioned retention by contrast "
+    fig.suptitle("S-series: Exposure-conditioned retention by condition "
                  "(higher = better retention of exposed crops)", fontsize=11)
     fig.tight_layout()
     _save(fig, "retention", rows,
-          ["figure", "model", "contrast", "condition", "analysis", "mode",
+          ["figure", "model", "condition", "analysis", "mode",
            "mean", "lo", "hi", "p", "n_exposed"])
 
 
@@ -302,22 +303,23 @@ def delta_violation_fig() -> None:
     fig, axes = plt.subplots(2, 2, figsize=(11, 6), sharex=True, sharey=True)
     analyses = ["pp", "itt"]
     subsets = ["signal", "all"]
+    conditions = ["C1a", "C2a", "C2b", "C3"]
     for row, analysis in enumerate(analyses):
         for col, subset in enumerate(subsets):
             ax = axes[row, col]
-            x = np.arange(len(CONTRASTS))
+            x = np.arange(len(conditions))
             offsets = np.linspace(-0.2, 0.2, len(MODELS))
             for off, model in zip(offsets, MODELS):
                 means, los, his = [], [], []
-                for pair in CONTRASTS:
-                    key = f"deltaviolation|{model}|{MODE}|{subset}|{analysis}"
-                    if key in _followup:
-                        st = _followup[key]
+                for cond in conditions:
+                    key = f"deltaviolation|{model}|{cond}|{MODE}|{subset}|{analysis}"
+                    if key in _delta_viol:
+                        st = _delta_viol[key]
                         means.append(st["mean"])
                         los.append(st["mean"] - st["lo"])
                         his.append(st["hi"] - st["mean"])
                         rows.append({"figure": "delta_violation", "model": model,
-                                     "contrast": pair, "subset": subset,
+                                     "condition": cond, "subset": subset,
                                      "analysis": analysis, "mode": MODE,
                                      "mean": f"{st['mean']:.6f}", "lo": f"{st['lo']:.6f}",
                                      "hi": f"{st['hi']:.6f}", "p": st["p"]})
@@ -326,7 +328,7 @@ def delta_violation_fig() -> None:
                         los.append(0)
                         his.append(0)
                 if any(not np.isnan(m) for m in means):
-                    x_pos = np.arange(len(CONTRASTS)) + off
+                    x_pos = np.arange(len(conditions)) + off
                     ax.errorbar(x_pos, means, yerr=[los, his], fmt="o", ms=5,
                                 color=COLORS["C2a"] if model == "llama" else COLORS["C2b"],
                                 capsize=3, lw=1.2, label=model)
@@ -334,13 +336,15 @@ def delta_violation_fig() -> None:
             _set_axes(ax, f"{subset.capitalize()} cells — {analysis.upper()} Delta-Violation ({CFG})")
             ax.set_ylabel("Δ Violation@5 (shift − baseline)")
             ax.set_ylim(-0.1, 0.1)
+            ax.set_xticks(np.arange(len(conditions)))
+            ax.set_xticklabels(conditions, fontsize=8)
             if row == 0 and col == 0:
                 ax.legend(fontsize=8, loc="upper left")
-    fig.suptitle("S-series: Delta-violation by contrast and signal subset "
+    fig.suptitle("S-series: Delta-violation by condition and signal subset "
                  "(negative = improvement)", fontsize=11)
     fig.tight_layout()
     _save(fig, "delta_violation", rows,
-          ["figure", "model", "contrast", "subset", "analysis", "mode",
+          ["figure", "model", "condition", "subset", "analysis", "mode",
            "mean", "lo", "hi", "p"])
 
 
