@@ -71,7 +71,7 @@ SEED = 42
 cfg = load_config()
 ensure_dirs(cfg)
 dirs = config_dirs(cfg)
-fig_dir = Path(dirs["figures_dir"])
+fig_dir = ROOT / "figures/out"
 res_dir = Path(dirs["results_dir"])
 
 

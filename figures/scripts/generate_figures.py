@@ -80,7 +80,7 @@ plt.rcParams.update({
     'axes.spines.right': False,
 })
 
-fig_dir = dirs['figures_dir']
+fig_dir = Path(__file__).resolve().parent.parent / "out"
 fig_dir.mkdir(parents=True, exist_ok=True)
 
 def save_fig(fig, name: str):
@@ -90,10 +90,17 @@ def save_fig(fig, name: str):
     plt.close(fig)
 
 # Load deterministic summary
-with open(dirs['results_dir'] / 'c3_deterministic_summary.json') as f:
+with open(Path(__file__).resolve().parent.parent.parent / "eval/results/c3_deterministic_summary.json") as f:
     det_summary = json.load(f)
 
 # Load scenarios and stress set
+ROOT = Path(__file__).resolve().parent.parent.parent
+sys.path.insert(0, str(ROOT))
+from eval.scenarios import generate
+from eval.common import load_config, config_dirs
+
+cfg = load_config()
+dirs = config_dirs(cfg)
 scenarios = generate(cfg)
 by_id = {s['scenario_id']: s for s in scenarios}
 stress_ids = set()

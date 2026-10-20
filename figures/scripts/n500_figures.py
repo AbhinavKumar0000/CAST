@@ -22,8 +22,8 @@ import pandas as pd
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 RES = ROOT / "eval/results"
-OUT = ROOT / "eval/figures/n500"
-DATA = OUT / "data"
+OUT = ROOT / "figures/out"
+DATA = ROOT / "figures/data/n500"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA.mkdir(parents=True, exist_ok=True)
 

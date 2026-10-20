@@ -18,8 +18,8 @@ import numpy as np  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent.parent
 RES = ROOT / "eval/results/real_eval.json"
-OUT = ROOT / "eval/figures/real"
-DATA = OUT / "data"
+OUT = ROOT / "figures/out"
+DATA = ROOT / "figures/data/real"
 OUT.mkdir(parents=True, exist_ok=True)
 DATA.mkdir(parents=True, exist_ok=True)
 

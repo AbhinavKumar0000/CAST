@@ -35,7 +35,10 @@ import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
 SCORES = ROOT / "eval" / "results" / "s_scores.json"
-OUT_DIR = ROOT / "eval" / "results" / "figures"
+OUT_DIR = ROOT / "figures/out"
+DATA_DIR = ROOT / "figures/data/s"
+OUT_DIR.mkdir(parents=True, exist_ok=True)
+DATA_DIR.mkdir(parents=True, exist_ok=True)
 
 MODELS = ["llama", "nemotron"]
 CONDS = ["C0", "C0b", "C1a", "C2a", "C2b", "C3"]
