@@ -173,9 +173,13 @@ season_colors = [COLORS['Kharif'], COLORS['Rabi'], COLORS['Zaid']]
 bars = ax.bar(seasons, season_vals, color=season_colors, edgecolor='white', width=0.6)
 ax.set_ylabel('Season validity rate')
 ax.set_title('Fig E04: Season Validity by Cropping Season — C3 Deterministic')
-ax.set_ylim(0, 1.05)
+ax.set_ylim(0, 1.12)
 for bar, val, n in zip(bars, season_vals, season_n):
-    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.02, f'{val:.1%}\n(n={n})', ha='center', fontsize=9)
+    # Place text inside the bar for tall bars, outside for short ones
+    if val > 0.8:
+        ax.text(bar.get_x() + bar.get_width()/2, val - 0.05, f'{val:.1%}\n(n={n})', ha='center', va='top', fontsize=9, color='white')
+    else:
+        ax.text(bar.get_x() + bar.get_width()/2, val + 0.02, f'{val:.1%}\n(n={n})', ha='center', va='bottom', fontsize=9)
 save_fig(fig, 'Fig_E04_season_validity_by_season')
 
 # --- Figure E05: Crop frequency heatmap (C3 only for now) ---

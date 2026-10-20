@@ -36,12 +36,16 @@ plt.rcParams.update({
 
 PM = json.loads((RES / "n500_primary_metrics.json").read_text())
 CL = json.loads((RES / "n500_clustered_inference.json").read_text())
+DBV2 = json.loads((RES / "db_v2_test.json").read_text())
+C3T_CORR = json.loads((RES / "c3t_correction_analysis.json").read_text())
 
 CONDS = ["C0", "C0b", "C1a", "C2a", "C2b", "C3"]
+# Add C3t as separate condition for comparison
+C3T_CONDS = ["C0", "C0b", "C1a", "C2a", "C2b", "C3", "C3t"]
 COND_TAG = {"C0": "LLM", "C0b": "LLM v2", "C1a": "pasted", "C2a": "MCP+crop",
-            "C2b": "MCP", "C3": "det"}
+            "C2b": "MCP", "C3": "det", "C3t": "det (corrected)"}
 COLOR = {"C0": "#0072B2", "C0b": "#56B4E9", "C1a": "#009E73",
-         "C2a": "#D55E00", "C2b": "#E69F00", "C3": "#000000"}
+         "C2a": "#D55E00", "C2b": "#E69F00", "C3": "#000000", "C3t": "#555555"}
 PAIRS = ["C2a-C0b", "C2a-C1a", "C2b-C0b", "C2b-C1a"]
 PRIMARY_CELLS = "cells_WITH pilot_dev"
 SEASONS = ["Kharif", "Rabi", "Zaid"]
@@ -69,6 +73,10 @@ def _c2a_vs_c3():
 
 def fig_n01():
     cells = PM[PRIMARY_CELLS]
+    # Use reconciled numbers from CORRECTION_NOTE.md for C3 and C3t
+    c3_corr = C3T_CORR["season_validity_hard_violation_10k"]["C3_db_v1"]
+    c3t_corr = C3T_CORR["season_validity_hard_violation_10k"]["C3t_db_v1"]
+    
     fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.5))
     rows = []
     for pi, (mk, lab) in enumerate([("sv", "Season validity"),
@@ -76,21 +84,49 @@ def fig_n01():
         ax = axes[pi]
         xs = np.arange(len(CONDS))
         means = [cells[f"strict_pp_{c}"][mk][0] for c in CONDS]
-        los = [cells[f"strict_pp_{c}"][mk][1] for c in CONDS]
-        his = [cells[f"strict_pp_{c}"][mk][2] for c in CONDS]
+        los = [cells[f"strict_pp_{c}"][mk][1] for c in CONDS]  # lower CI
+        his = [cells[f"strict_pp_{c}"][mk][2] for c in CONDS]  # upper CI
         ns = [cells[f"strict_pp_{c}"][mk][3] for c in CONDS]
-        ax.bar(xs, means, color=[COLOR[c] for c in CONDS], width=0.64,
+        # Override C3 with reconciled numbers
+        c3_idx = CONDS.index("C3")
+        if mk == "sv":
+            means[c3_idx] = c3_corr["season_validity_strict"]
+            los[c3_idx] = c3_corr["season_validity_strict"]  # CI not available, use mean
+            his[c3_idx] = c3_corr["season_validity_strict"]
+            ns[c3_idx] = c3_corr["n_scenarios"]
+            # Add C3t
+            means = means + [c3t_corr["season_validity_strict"]]
+            los = los + [c3t_corr["season_validity_strict"]]
+            his = his + [c3t_corr["season_validity_strict"]]
+            ns = ns + [c3t_corr["n_scenarios"]]
+        else:
+            means[c3_idx] = c3_corr["hard_violation_strict"]
+            los[c3_idx] = c3_corr["hard_violation_strict"]
+            his[c3_idx] = c3_corr["hard_violation_strict"]
+            ns[c3_idx] = c3_corr["n_scenarios"]
+            means = means + [c3t_corr["hard_violation_strict"]]
+            los = los + [c3t_corr["hard_violation_strict"]]
+            his = his + [c3t_corr["hard_violation_strict"]]
+            ns = ns + [c3t_corr["n_scenarios"]]
+        
+        plot_conds = CONDS + ["C3t"]
+        plot_means = means
+        plot_los = [plot_means[i] - los[i] if los[i] < plot_means[i] else 0.01 for i in range(len(plot_means))]
+        plot_his = [his[i] - plot_means[i] if his[i] > plot_means[i] else 0.01 for i in range(len(plot_means))]
+        
+        ax.bar(np.arange(len(plot_conds)), plot_means, color=[COLOR[c] for c in plot_conds], width=0.64,
                edgecolor="black", linewidth=0.4)
-        ax.errorbar(xs, means, yerr=[np.array(means) - los, np.array(his) - means],
+        ax.errorbar(np.arange(len(plot_conds)), plot_means, 
+                    yerr=[plot_los, plot_his],
                     fmt="none", ecolor="black", capsize=2.5, lw=0.8)
-        for x, m, hi, n in zip(xs, means, his, ns):
+        for x, m, hi, n in zip(np.arange(len(plot_conds)), plot_means, his, ns):
             ax.text(x, hi + 0.015, f"{m:.2f}", ha="center", va="bottom", fontsize=6)
-            rows.append(dict(metric=mk, condition=CONDS[x], mean=m, lo=los[x], hi=hi, n=n))
-        ax.set_xticks(xs)
-        ax.set_xticklabels([f"{c}\n{COND_TAG[c]}" for c in CONDS], fontsize=6)
+            rows.append(dict(metric=mk, condition=plot_conds[x], mean=m, lo=los[x], hi=his[x], n=n))
+        ax.set_xticks(np.arange(len(plot_conds)))
+        ax.set_xticklabels([f"{c}\n{COND_TAG[c]}" for c in plot_conds], fontsize=6)
         ax.set_ylim(0, max(his) * 1.2)
         ax.set_ylabel(lab)
-        ax.set_title(f"({'ab'[pi]}) {lab}", fontsize=8)
+        ax.set_title(f"({'ab'[pi]}) {lab} (C3t reconciled)", fontsize=8)
     fig.tight_layout()
     save(fig, "Fig_N01_condition_quality", rows,
          ["metric", "condition", "mean", "lo", "hi", "n"])
@@ -283,6 +319,142 @@ def fig_n07():
          ["metric", "spec", "category", "count", "n", "frac"])
 
 
+# ---------- Figure F19: db_v1 vs db_v2 (Linseed) diagnostic ----------
+def fig_dbv2_diagnostic():
+    fig, axes = plt.subplots(2, 2, figsize=(6.6, 5.0), sharex=False, sharey=False)
+    rows = []
+    
+    # Panel A: P@5 comparison db_v1 vs db_v2
+    ax = axes[0, 0]
+    dbs = ["db_v1", "db_v2"]
+    metrics = ["Precision@5", "nDCG@5"]
+    x = np.arange(len(dbs))
+    for mi, (mk, color) in enumerate(zip(metrics, ["#0072B2", "#D55E00"])):
+        means = [DBV2["primary_R_test_all"]["levels"][mk][db]["mean"] for db in dbs]
+        los = [DBV2["primary_R_test_all"]["levels"][mk][db]["lo"] for db in dbs]
+        his = [DBV2["primary_R_test_all"]["levels"][mk][db]["hi"] for db in dbs]
+        off = -0.15 if mi == 0 else 0.15
+        ax.bar(x + off, means, width=0.25, color=color, alpha=0.8, 
+               edgecolor="black", linewidth=0.4, label=mk)
+        ax.errorbar(x + off, means, yerr=[np.array(means) - los, np.array(his) - means],
+                    fmt="none", ecolor="black", capsize=2, lw=0.8)
+        for xi, m, hi in zip(x + off, means, his):
+            ax.text(xi, hi + 0.005, f"{m:.3f}", ha="center", va="bottom", fontsize=6)
+        for i, db in enumerate(dbs):
+            rows.append(dict(panel="primary_metrics", database=db, metric=mk,
+                           mean=means[i], lo=los[i], hi=his[i]))
+    ax.set_xticks(x)
+    ax.set_xticklabels(["db_v1 (21 crops)", "db_v2 (22 crops, +Linseed)"])
+    ax.set_ylabel("Agreement (R_test_all)")
+    ax.set_title("(a) P@5 & nDCG@5: db_v1 vs db_v2", fontsize=8)
+    ax.legend(frameon=False, fontsize=6)
+    
+    # Panel B: Linseed diagnostic
+    ax = axes[0, 1]
+    ld = DBV2["linseed_diagnostic"]
+    labels = ["Ref cells\nw/ Linseed", "db_v2 top5\nw/ Linseed", "db_v2 TP", 
+              "P@5 w/ Linseed v1", "P@5 w/ Linseed v2", "P@5 w/o Linseed v1", "P@5 w/o Linseed v2"]
+    values = [ld["ref_cells_with_linseed_in_500"], ld["db_v2_top5_with_linseed"],
+              ld["db_v2_linseed_true_positives"], ld["p5_db_v1_with_linseed"],
+              ld["p5_db_v2_with_linseed"], ld["p5_db_v1_without_linseed"],
+              ld["p5_db_v2_without_linseed"]]
+    colors = ["#8c8c8c", "#2ca02c", "#009E73", "#0072B2", "#56B4E9", "#D55E00", "#E69F00"]
+    y_pos = np.arange(len(labels))
+    ax.barh(y_pos, values, color=colors, edgecolor="black", linewidth=0.3, height=0.7)
+    for i, (v, n) in enumerate(zip(values, [ld["n_with_linseed"], ld["db_v2_top5_with_linseed"],
+                                             ld["db_v2_linseed_true_positives"], ld["n_with_linseed"],
+                                             ld["n_with_linseed"], ld["n_without_linseed"],
+                                             ld["n_without_linseed"]])):
+        ax.text(v + 0.01, i, f"{v:.3f} (n={n})", va="center", fontsize=6)
+    ax.set_yticks(y_pos)
+    ax.set_yticklabels(labels, fontsize=6)
+    ax.set_xlabel("Value / P@5")
+    ax.set_title("(b) Linseed diagnostic (test window)", fontsize=8)
+    ax.axvline(0, color="black", lw=0.5)
+    
+    # Panel C: Per-season P@5 db_v1 vs db_v2
+    ax = axes[1, 0]
+    seasons = ["Kharif", "Rabi", "Zaid"]
+    x = np.arange(len(seasons))
+    for mi, (db, color) in enumerate(zip(dbs, ["#0072B2", "#D55E00"])):
+        means = [DBV2["per_season_primary"][db][s]["precision_at_5"] for s in seasons]
+        # No CI available, just plot means
+        off = -0.15 if mi == 0 else 0.15
+        ax.bar(x + off, means, width=0.25, color=color, alpha=0.8,
+               edgecolor="black", linewidth=0.4, label=db)
+        for s, m in zip(seasons, means):
+            ax.text(x[seasons.index(s)] + off, m + 0.01, f"{m:.3f}", ha="center", va="bottom", fontsize=6)
+            rows.append(dict(panel="per_season", database=db, season=s,
+                           mean=m, lo=m, hi=m))
+    ax.set_xticks(x)
+    ax.set_xticklabels(seasons)
+    ax.set_ylabel("P@5 (R_test_all)")
+    ax.set_title("(c) Per-season P@5: db_v1 vs db_v2", fontsize=8)
+    ax.legend(frameon=False, fontsize=6)
+    
+    # Panel D: Season validity db_v1 vs db_v2 (reconciled)
+    ax = axes[1, 1]
+    sv = DBV2["season_validity"]
+    db_labels = ["db_v1\nstrict", "db_v1\nlenient", "db_v2\nstrict", "db_v2\nlenient"]
+    sv_values = [sv["db_v1|strict"]["overall"], sv["db_v1|lenient"]["overall"], 
+                 sv["db_v2|strict"]["overall"], sv["db_v2|lenient"]["overall"]]
+    colors = ["#0072B2", "#56B4E9", "#D55E00", "#E69F00"]
+    x = np.arange(len(db_labels))
+    bars = ax.bar(x, sv_values, color=colors, edgecolor="black", linewidth=0.4, width=0.6)
+    for i, (v, c) in enumerate(zip(sv_values, db_labels)):
+        ax.text(i, v + 0.01, f"{v:.3f}", ha="center", va="bottom", fontsize=7)
+        rows.append(dict(panel="season_validity", database=c, mean=v))
+    ax.set_xticks(x)
+    ax.set_xticklabels(db_labels, fontsize=7)
+    ax.set_ylabel("Season validity (strict/lenient)")
+    ax.set_ylim(0, 1.05)
+    ax.set_title("(d) Season validity: db_v1 vs db_v2 (GT v1.1)", fontsize=8)
+    
+    fig.suptitle("DB v2 study: Linseed addition impact on test-window performance", y=1.02)
+    fig.tight_layout()
+    save(fig, "dbv2_diagnostic", rows,
+         ["panel", "database", "metric", "season", "mean", "lo", "hi"])
+
+
+# ---------- Figure F20: Coverage and usable-run rates ----------
+def fig_coverage_rates():
+    fig, axes = plt.subplots(1, 2, figsize=(6.6, 2.8), sharey=True)
+    rows = []
+    
+    # Get planned counts from primary metrics
+    cells = PM["cells_WITH pilot_dev"]
+    
+    for ax, model in zip(axes, ["nemotron", "llama"]):
+        x = np.arange(len(CONDS))
+        usable = []
+        planned = {"nemotron": 500, "llama": 150}[model]
+        for c in CONDS:
+            key = f"strict_pp_{c}"
+            if key in cells:
+                usable.append(cells[key]["sv"][3])  # n usable
+            else:
+                usable.append(0)
+        
+        ax.bar(x - 0.2, usable, width=0.35, color="#009E73", edgecolor="black", linewidth=0.4, label="Usable (PP)")
+        ax.bar(x + 0.2, [planned]*len(CONDS), width=0.35, color="#D55E00", edgecolor="black", linewidth=0.4, alpha=0.5, label="Planned (ITT)")
+        
+        for xi, u in zip(x, usable):
+            ax.text(xi - 0.2, u + 5, str(u), ha="center", va="bottom", fontsize=6)
+            rows.append(dict(model=model, condition=CONDS[xi], usable=u, planned=planned))
+        
+        ax.set_xticks(x)
+        ax.set_xticklabels(CONDS, fontsize=6)
+        ax.set_ylabel("Number of scenarios")
+        ax.set_title(f"{model} coverage (n={'500' if model=='nemotron' else '150'})", fontsize=8)
+        if model == "nemotron":
+            ax.legend(frameon=False, fontsize=6, loc="upper right")
+    
+    fig.suptitle("Coverage: usable (PP) vs planned (ITT) scenarios per condition", y=1.02)
+    fig.tight_layout()
+    save(fig, "coverage_rates", rows,
+         ["model", "condition", "usable", "planned"])
+
+
 def main():
     fig_n01()
     fig_n02()
@@ -291,6 +463,8 @@ def main():
     fig_n05()
     fig_n06()
     fig_n07()
+    fig_dbv2_diagnostic()
+    fig_coverage_rates()
     print("n=500 figures written to", OUT)
 
 

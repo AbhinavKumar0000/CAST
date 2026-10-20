@@ -1,0 +1,13 @@
+model,condition,usable,planned
+nemotron,C0,451,500
+nemotron,C0b,442,500
+nemotron,C1a,470,500
+nemotron,C2a,500,500
+nemotron,C2b,494,500
+nemotron,C3,500,500
+llama,C0,451,150
+llama,C0b,442,150
+llama,C1a,470,150
+llama,C2a,500,150
+llama,C2b,494,150
+llama,C3,500,150
