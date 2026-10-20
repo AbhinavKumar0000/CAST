@@ -1,0 +1,82 @@
+{
+  "season_validity_hard_violation_old_vs_new": {
+    "C3_db_v1": {
+      "season_validity_strict": 0.9999,
+      "season_validity_lenient": 0.9999,
+      "hard_violation_strict": 0.6893,
+      "hard_violation_lenient": 0.4038,
+      "n": 10000
+    },
+    "C3t_db_v1": {
+      "season_validity_strict": 0.9048,
+      "season_validity_lenient": 0.9048,
+      "hard_violation_strict": 0.8051,
+      "hard_violation_lenient": 0.4885,
+      "n": 10000
+    },
+    "C3_db_v2": {
+      "season_validity_strict": 0.9994,
+      "season_validity_lenient": 0.9994,
+      "hard_violation_strict": 0.6803,
+      "hard_violation_lenient": 0.3964,
+      "n": 10000
+    },
+    "C3t_db_v2": {
+      "season_validity_strict": 0.9043,
+      "season_validity_lenient": 0.9043,
+      "hard_violation_strict": 0.8037,
+      "hard_violation_lenient": 0.4872,
+      "n": 10000
+    }
+  },
+  "real_data_metrics_old_vs_new": {
+    "C3_db_v1_R_prim": {
+      "precision_at_5": 0.503467,
+      "recall_at_5": 0.503467,
+      "ndcg_at_5": 0.51192,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_prim": {
+      "precision_at_5": 0.483267,
+      "recall_at_5": 0.483267,
+      "ndcg_at_5": 0.480081,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_full": {
+      "precision_at_5": 0.4833,
+      "recall_at_5": 0.4833,
+      "ndcg_at_5": 0.493909,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_full": {
+      "precision_at_5": 0.463867,
+      "recall_at_5": 0.463867,
+      "ndcg_at_5": 0.464238,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_all": {
+      "precision_at_5": 0.354267,
+      "recall_at_5": 0.354267,
+      "ndcg_at_5": 0.356964,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_all": {
+      "precision_at_5": 0.350067,
+      "recall_at_5": 0.350067,
+      "ndcg_at_5": 0.343354,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_prod": {
+      "precision_at_5": 0.480267,
+      "recall_at_5": 0.480267,
+      "ndcg_at_5": 0.485341,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_prod": {
+      "precision_at_5": 0.460467,
+      "recall_at_5": 0.460467,
+      "ndcg_at_5": 0.455905,
+      "n_evaluated": 500
+    }
+  }
+}

@@ -1,0 +1,1835 @@
+{
+  "registered": "PROTOCOL 8.35 (instrument correction, not tuning), 2026-10-19 22:56:19 UTC",
+  "generated": "2026-10-20T01:14:49+00:00",
+  "instruments": {
+    "C3": "run_deterministic_v2.py::score_crops full_repo (empty sowing windows; registered, unchanged)",
+    "C3t": "identical pipeline passing real sowing_start_week/sowing_end_week into _season_alignment_score",
+    "db_v2 variants": "same two instruments with crop_log_v2 rows"
+  },
+  "weights": {
+    "rainfall": 0.2,
+    "temperature": 0.15,
+    "soil": 0.2,
+    "season": 0.3,
+    "risk": 0.15
+  },
+  "season_validity_hard_violation_10k": {
+    "C3_db_v1": {
+      "season_validity_strict": 0.9999,
+      "season_validity_lenient": 0.9999,
+      "hard_violation_strict": 0.6893,
+      "hard_violation_lenient": 0.4038,
+      "n": 10000
+    },
+    "C3_db_v2": {
+      "season_validity_strict": 0.9994,
+      "season_validity_lenient": 0.9994,
+      "hard_violation_strict": 0.6803,
+      "hard_violation_lenient": 0.3964,
+      "n": 10000
+    },
+    "C3t_db_v1": {
+      "season_validity_strict": 0.9048,
+      "season_validity_lenient": 0.9048,
+      "hard_violation_strict": 0.8051,
+      "hard_violation_lenient": 0.4885,
+      "n": 10000
+    },
+    "C3t_db_v2": {
+      "season_validity_strict": 0.9043,
+      "season_validity_lenient": 0.9043,
+      "hard_violation_strict": 0.8037,
+      "hard_violation_lenient": 0.4872,
+      "n": 10000
+    }
+  },
+  "real_data_metrics_llm_subset": {
+    "C3_db_v1_R_prim": {
+      "precision_at_5": 0.503467,
+      "recall_at_5": 0.503467,
+      "ndcg_at_5": 0.51192,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_full": {
+      "precision_at_5": 0.4833,
+      "recall_at_5": 0.4833,
+      "ndcg_at_5": 0.493909,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_all": {
+      "precision_at_5": 0.354267,
+      "recall_at_5": 0.354267,
+      "ndcg_at_5": 0.356964,
+      "n_evaluated": 500
+    },
+    "C3_db_v1_R_prod": {
+      "precision_at_5": 0.480267,
+      "recall_at_5": 0.480267,
+      "ndcg_at_5": 0.485341,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_prim": {
+      "precision_at_5": 0.483267,
+      "recall_at_5": 0.483267,
+      "ndcg_at_5": 0.480081,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_full": {
+      "precision_at_5": 0.463867,
+      "recall_at_5": 0.463867,
+      "ndcg_at_5": 0.464238,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_all": {
+      "precision_at_5": 0.350067,
+      "recall_at_5": 0.350067,
+      "ndcg_at_5": 0.343354,
+      "n_evaluated": 500
+    },
+    "C3t_db_v1_R_prod": {
+      "precision_at_5": 0.460467,
+      "recall_at_5": 0.460467,
+      "ndcg_at_5": 0.455905,
+      "n_evaluated": 500
+    }
+  },
+  "c2a_vs_c3_match_beat_lose": {},
+  "s_followup_data": {
+    "meta": {
+      "registered": "EXPLORATORY (PROTOCOL 8.34, registered 2026-10-19 02:44:25 UTC)",
+      "generated": "2026-10-19T03:34:34+00:00",
+      "items": {
+        "2": "exposure-conditioned retention",
+        "3": "delta-violation",
+        "5": "power/MDD"
+      },
+      "retention_conditions": [
+        "C1a",
+        "C2a",
+        "C2b",
+        "C3"
+      ],
+      "exposure_only_conditions": [
+        "C0",
+        "C0b"
+      ],
+      "signal_cells": {
+        "strict": 57,
+        "lenient": 104
+      },
+      "gates": {
+        "cell_reconstruction_matches_registered_csv": true
+      },
+      "worst_case_conventions": {
+        "retention_itt": "unusable shifted response -> 1.0 (all exposed crops retained)",
+        "deltaviolation_itt": "unknown violation component -> 1.0"
+      }
+    },
+    "exposure": {
+      "exposure|llama|C0|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 10,
+        "share_exposed": {
+          "mean": 0.019230769230769232,
+          "lo": 0.0,
+          "hi": 0.04693363039399582,
+          "p": 0.1989,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C0|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 13,
+        "share_exposed": {
+          "mean": 0.025,
+          "lo": 0.0,
+          "hi": 0.055944055944055944,
+          "p": 0.0804,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C0b|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 10,
+        "share_exposed": {
+          "mean": 0.019230769230769232,
+          "lo": 0.0,
+          "hi": 0.04693363039399582,
+          "p": 0.1989,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C0b|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 36,
+        "share_exposed": {
+          "mean": 0.06923076923076923,
+          "lo": 0.03550295857988166,
+          "hi": 0.11172161172161173,
+          "p": 0.0017,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C1a|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 10,
+        "share_exposed": {
+          "mean": 0.019230769230769232,
+          "lo": 0.0,
+          "hi": 0.04693363039399582,
+          "p": 0.1989,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C1a|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 42,
+        "share_exposed": {
+          "mean": 0.08076923076923077,
+          "lo": 0.046511627906976744,
+          "hi": 0.12087912087912088,
+          "p": 0.0005,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C2a|strict": {
+        "n_base_usable": 494,
+        "n_exposed": 30,
+        "share_exposed": {
+          "mean": 0.06072874493927125,
+          "lo": 0.02564102564102564,
+          "hi": 0.10453648915187377,
+          "p": 0.0032,
+          "n": 494,
+          "k": 15
+        },
+        "mean_E_exposed": 1.3333333333333333
+      },
+      "exposure|llama|C2a|lenient": {
+        "n_base_usable": 494,
+        "n_exposed": 65,
+        "share_exposed": {
+          "mean": 0.13157894736842105,
+          "lo": 0.08875291375291375,
+          "hi": 0.17716103341103334,
+          "p": 0.0001,
+          "n": 494,
+          "k": 15
+        },
+        "mean_E_exposed": 2.169230769230769
+      },
+      "exposure|llama|C2b|strict": {
+        "n_base_usable": 468,
+        "n_exposed": 10,
+        "share_exposed": {
+          "mean": 0.021367521367521368,
+          "lo": 0.0,
+          "hi": 0.053418803418803416,
+          "p": 0.1607,
+          "n": 468,
+          "k": 15
+        },
+        "mean_E_exposed": 1.0
+      },
+      "exposure|llama|C2b|lenient": {
+        "n_base_usable": 468,
+        "n_exposed": 27,
+        "share_exposed": {
+          "mean": 0.057692307692307696,
+          "lo": 0.020361990950226245,
+          "hi": 0.10407239819004525,
+          "p": 0.0095,
+          "n": 468,
+          "k": 15
+        },
+        "mean_E_exposed": 1.2222222222222223
+      },
+      "exposure|llama|C3|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 26,
+        "share_exposed": {
+          "mean": 0.05,
+          "lo": 0.016194331983805668,
+          "hi": 0.09265734265734266,
+          "p": 0.0115,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.7692307692307692
+      },
+      "exposure|llama|C3|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 66,
+        "share_exposed": {
+          "mean": 0.12692307692307692,
+          "lo": 0.09229933110367894,
+          "hi": 0.16452991452991453,
+          "p": 0.0001,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 2.3484848484848486
+      },
+      "exposure|nemotron|C0|strict": {
+        "n_base_usable": 507,
+        "n_exposed": 17,
+        "share_exposed": {
+          "mean": 0.03353057199211045,
+          "lo": 0.014652014652014652,
+          "hi": 0.05405759780759776,
+          "p": 0.002,
+          "n": 507,
+          "k": 15
+        },
+        "mean_E_exposed": 1.2941176470588236
+      },
+      "exposure|nemotron|C0|lenient": {
+        "n_base_usable": 507,
+        "n_exposed": 37,
+        "share_exposed": {
+          "mean": 0.07297830374753451,
+          "lo": 0.039627039627039624,
+          "hi": 0.11312531422825536,
+          "p": 0.0007,
+          "n": 507,
+          "k": 15
+        },
+        "mean_E_exposed": 1.5135135135135136
+      },
+      "exposure|nemotron|C0b|strict": {
+        "n_base_usable": 494,
+        "n_exposed": 18,
+        "share_exposed": {
+          "mean": 0.03643724696356275,
+          "lo": 0.012145748987854251,
+          "hi": 0.07013574660633484,
+          "p": 0.0173,
+          "n": 494,
+          "k": 14
+        },
+        "mean_E_exposed": 1.2777777777777777
+      },
+      "exposure|nemotron|C0b|lenient": {
+        "n_base_usable": 494,
+        "n_exposed": 33,
+        "share_exposed": {
+          "mean": 0.06680161943319839,
+          "lo": 0.029914529914529916,
+          "hi": 0.11662744930264393,
+          "p": 0.0062,
+          "n": 494,
+          "k": 14
+        },
+        "mean_E_exposed": 1.4545454545454546
+      },
+      "exposure|nemotron|C1a|strict": {
+        "n_base_usable": 481,
+        "n_exposed": 20,
+        "share_exposed": {
+          "mean": 0.04158004158004158,
+          "lo": 0.011538461538461539,
+          "hi": 0.07692307692307693,
+          "p": 0.0125,
+          "n": 481,
+          "k": 15
+        },
+        "mean_E_exposed": 1.5
+      },
+      "exposure|nemotron|C1a|lenient": {
+        "n_base_usable": 481,
+        "n_exposed": 54,
+        "share_exposed": {
+          "mean": 0.11226611226611227,
+          "lo": 0.05917159763313609,
+          "hi": 0.17362637362637362,
+          "p": 0.0003,
+          "n": 481,
+          "k": 15
+        },
+        "mean_E_exposed": 1.7037037037037037
+      },
+      "exposure|nemotron|C2a|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 30,
+        "share_exposed": {
+          "mean": 0.057692307692307696,
+          "lo": 0.024475524475524476,
+          "hi": 0.09954751131221719,
+          "p": 0.0046,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.3333333333333333
+      },
+      "exposure|nemotron|C2a|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 69,
+        "share_exposed": {
+          "mean": 0.1326923076923077,
+          "lo": 0.09109311740890688,
+          "hi": 0.17647058823529413,
+          "p": 0.0001,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 2.130434782608696
+      },
+      "exposure|nemotron|C2b|strict": {
+        "n_base_usable": 507,
+        "n_exposed": 23,
+        "share_exposed": {
+          "mean": 0.045364891518737675,
+          "lo": 0.02146690518783542,
+          "hi": 0.08097439544807962,
+          "p": 0.0082,
+          "n": 507,
+          "k": 15
+        },
+        "mean_E_exposed": 1.6521739130434783
+      },
+      "exposure|nemotron|C2b|lenient": {
+        "n_base_usable": 507,
+        "n_exposed": 51,
+        "share_exposed": {
+          "mean": 0.10059171597633136,
+          "lo": 0.059612663280116114,
+          "hi": 0.1470636716224951,
+          "p": 0.0001,
+          "n": 507,
+          "k": 15
+        },
+        "mean_E_exposed": 1.8823529411764706
+      },
+      "exposure|nemotron|C3|strict": {
+        "n_base_usable": 520,
+        "n_exposed": 26,
+        "share_exposed": {
+          "mean": 0.05,
+          "lo": 0.016194331983805668,
+          "hi": 0.09265734265734266,
+          "p": 0.0115,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 1.7692307692307692
+      },
+      "exposure|nemotron|C3|lenient": {
+        "n_base_usable": 520,
+        "n_exposed": 66,
+        "share_exposed": {
+          "mean": 0.12692307692307692,
+          "lo": 0.09229933110367894,
+          "hi": 0.16452991452991453,
+          "p": 0.0001,
+          "n": 520,
+          "k": 15
+        },
+        "mean_E_exposed": 2.3484848484848486
+      }
+    },
+    "retention": {
+      "retention|llama|C1a|strict|pp": {
+        "n_exposed_eligible": 10,
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 10,
+        "k": 2
+      },
+      "retention|llama|C1a|strict|itt": {
+        "n_exposed_eligible": 10,
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 10,
+        "k": 2
+      },
+      "retention|llama|C1a|lenient|pp": {
+        "n_exposed_eligible": 42,
+        "mean": 0.8809523809523809,
+        "lo": 0.7,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 42,
+        "k": 11
+      },
+      "retention|llama|C1a|lenient|itt": {
+        "n_exposed_eligible": 42,
+        "mean": 0.8809523809523809,
+        "lo": 0.7,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 42,
+        "k": 11
+      },
+      "retention|llama|C2a|strict|pp": {
+        "n_exposed_eligible": 30,
+        "mean": 0.7166666666666667,
+        "lo": 0.4782608695652174,
+        "hi": 0.9736842105263158,
+        "p": 0.0001,
+        "n": 30,
+        "k": 9
+      },
+      "retention|llama|C2a|strict|itt": {
+        "n_exposed_eligible": 30,
+        "mean": 0.7166666666666667,
+        "lo": 0.4782608695652174,
+        "hi": 0.9736842105263158,
+        "p": 0.0001,
+        "n": 30,
+        "k": 9
+      },
+      "retention|llama|C2a|lenient|pp": {
+        "n_exposed_eligible": 65,
+        "mean": 0.8102564102564103,
+        "lo": 0.6871783625730994,
+        "hi": 0.9197530864197531,
+        "p": 0.0001,
+        "n": 65,
+        "k": 13
+      },
+      "retention|llama|C2a|lenient|itt": {
+        "n_exposed_eligible": 65,
+        "mean": 0.8102564102564103,
+        "lo": 0.6871783625730994,
+        "hi": 0.9197530864197531,
+        "p": 0.0001,
+        "n": 65,
+        "k": 13
+      },
+      "retention|llama|C2b|strict|pp": {
+        "n_exposed_eligible": 10,
+        "mean": 0.8571428571428571,
+        "lo": 0.75,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 7,
+        "k": 2
+      },
+      "retention|llama|C2b|strict|itt": {
+        "n_exposed_eligible": 10,
+        "mean": 0.9,
+        "lo": 0.8,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 10,
+        "k": 2
+      },
+      "retention|llama|C2b|lenient|pp": {
+        "n_exposed_eligible": 27,
+        "mean": 0.6458333333333334,
+        "lo": 0.34782608695652173,
+        "hi": 0.9259259259259259,
+        "p": 0.0001,
+        "n": 24,
+        "k": 7
+      },
+      "retention|llama|C2b|lenient|itt": {
+        "n_exposed_eligible": 27,
+        "mean": 0.6851851851851852,
+        "lo": 0.3620689655172414,
+        "hi": 0.9393939393939394,
+        "p": 0.0001,
+        "n": 27,
+        "k": 7
+      },
+      "retention|llama|C3|strict|pp": {
+        "n_exposed_eligible": 26,
+        "mean": 0.7948717948717948,
+        "lo": 0.6833333333333333,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 26,
+        "k": 7
+      },
+      "retention|llama|C3|strict|itt": {
+        "n_exposed_eligible": 26,
+        "mean": 0.7948717948717948,
+        "lo": 0.6833333333333333,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 26,
+        "k": 7
+      },
+      "retention|llama|C3|lenient|pp": {
+        "n_exposed_eligible": 66,
+        "mean": 0.8131313131313131,
+        "lo": 0.7171700558213716,
+        "hi": 0.9085372911020777,
+        "p": 0.0001,
+        "n": 66,
+        "k": 14
+      },
+      "retention|llama|C3|lenient|itt": {
+        "n_exposed_eligible": 66,
+        "mean": 0.8131313131313131,
+        "lo": 0.7171700558213716,
+        "hi": 0.9085372911020777,
+        "p": 0.0001,
+        "n": 66,
+        "k": 14
+      },
+      "retention|nemotron|C1a|strict|pp": {
+        "n_exposed_eligible": 20,
+        "mean": 0.392156862745098,
+        "lo": 0.16666666666666666,
+        "hi": 0.8,
+        "p": 0.0294,
+        "n": 17,
+        "k": 5
+      },
+      "retention|nemotron|C1a|strict|itt": {
+        "n_exposed_eligible": 20,
+        "mean": 0.4833333333333333,
+        "lo": 0.23611111111111108,
+        "hi": 0.8461538461538461,
+        "p": 0.0119,
+        "n": 20,
+        "k": 5
+      },
+      "retention|nemotron|C1a|lenient|pp": {
+        "n_exposed_eligible": 54,
+        "mean": 0.46527777777777785,
+        "lo": 0.29696969696969694,
+        "hi": 0.6919191919191919,
+        "p": 0.0001,
+        "n": 48,
+        "k": 11
+      },
+      "retention|nemotron|C1a|lenient|itt": {
+        "n_exposed_eligible": 54,
+        "mean": 0.5246913580246914,
+        "lo": 0.32121212121212117,
+        "hi": 0.75,
+        "p": 0.0001,
+        "n": 54,
+        "k": 11
+      },
+      "retention|nemotron|C2a|strict|pp": {
+        "n_exposed_eligible": 30,
+        "mean": 0.7833333333333333,
+        "lo": 0.58,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 30,
+        "k": 9
+      },
+      "retention|nemotron|C2a|strict|itt": {
+        "n_exposed_eligible": 30,
+        "mean": 0.7833333333333333,
+        "lo": 0.58,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 30,
+        "k": 9
+      },
+      "retention|nemotron|C2a|lenient|pp": {
+        "n_exposed_eligible": 69,
+        "mean": 0.855072463768116,
+        "lo": 0.7711442786069652,
+        "hi": 0.9348958333333333,
+        "p": 0.0001,
+        "n": 69,
+        "k": 13
+      },
+      "retention|nemotron|C2a|lenient|itt": {
+        "n_exposed_eligible": 69,
+        "mean": 0.855072463768116,
+        "lo": 0.7711442786069652,
+        "hi": 0.9348958333333333,
+        "p": 0.0001,
+        "n": 69,
+        "k": 13
+      },
+      "retention|nemotron|C2b|strict|pp": {
+        "n_exposed_eligible": 23,
+        "mean": 0.5357142857142857,
+        "lo": 0.3240966509988251,
+        "hi": 0.8666666666666667,
+        "p": 0.0001,
+        "n": 21,
+        "k": 9
+      },
+      "retention|nemotron|C2b|strict|itt": {
+        "n_exposed_eligible": 23,
+        "mean": 0.5760869565217391,
+        "lo": 0.3560606060606061,
+        "hi": 0.8888888888888888,
+        "p": 0.0001,
+        "n": 23,
+        "k": 9
+      },
+      "retention|nemotron|C2b|lenient|pp": {
+        "n_exposed_eligible": 51,
+        "mean": 0.3282312925170068,
+        "lo": 0.19117348158775704,
+        "hi": 0.47840223944875093,
+        "p": 0.0001,
+        "n": 49,
+        "k": 11
+      },
+      "retention|nemotron|C2b|lenient|itt": {
+        "n_exposed_eligible": 51,
+        "mean": 0.35457516339869277,
+        "lo": 0.21825216450216448,
+        "hi": 0.5039706736353078,
+        "p": 0.0001,
+        "n": 51,
+        "k": 11
+      },
+      "retention|nemotron|C3|strict|pp": {
+        "n_exposed_eligible": 26,
+        "mean": 0.7948717948717948,
+        "lo": 0.6833333333333333,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 26,
+        "k": 7
+      },
+      "retention|nemotron|C3|strict|itt": {
+        "n_exposed_eligible": 26,
+        "mean": 0.7948717948717948,
+        "lo": 0.6833333333333333,
+        "hi": 1.0,
+        "p": 0.0001,
+        "n": 26,
+        "k": 7
+      },
+      "retention|nemotron|C3|lenient|pp": {
+        "n_exposed_eligible": 66,
+        "mean": 0.8131313131313131,
+        "lo": 0.7171700558213716,
+        "hi": 0.9085372911020777,
+        "p": 0.0001,
+        "n": 66,
+        "k": 14
+      },
+      "retention|nemotron|C3|lenient|itt": {
+        "n_exposed_eligible": 66,
+        "mean": 0.8131313131313131,
+        "lo": 0.7171700558213716,
+        "hi": 0.9085372911020777,
+        "p": 0.0001,
+        "n": 66,
+        "k": 14
+      }
+    },
+    "delta_violation": {
+      "deltaviolation|llama|C1a|strict|signal|pp": {
+        "n": 57,
+        "mean": -0.03157894736842105,
+        "lo": -0.06428571428571428,
+        "hi": -0.004166666666666666,
+        "p": 0.0377,
+        "k": 14
+      },
+      "deltaviolation|llama|C1a|strict|signal|itt": {
+        "n": 57,
+        "mean": -0.03157894736842105,
+        "lo": -0.06428571428571428,
+        "hi": -0.004166666666666666,
+        "p": 0.0377,
+        "k": 14
+      },
+      "deltaviolation|llama|C1a|strict|all|pp": {
+        "n": 520,
+        "mean": -0.02230769230769231,
+        "lo": -0.03846153846153847,
+        "hi": -0.010119598446666144,
+        "p": 0.0048,
+        "k": 15
+      },
+      "deltaviolation|llama|C1a|strict|all|itt": {
+        "n": 520,
+        "mean": -0.02230769230769231,
+        "lo": -0.03846153846153847,
+        "hi": -0.010119598446666144,
+        "p": 0.0048,
+        "k": 15
+      },
+      "deltaviolation|llama|C1a|lenient|signal|pp": {
+        "n": 104,
+        "mean": -0.011538461538461537,
+        "lo": -0.035555555555555556,
+        "hi": 0.009900990099009901,
+        "p": 0.3447,
+        "k": 15
+      },
+      "deltaviolation|llama|C1a|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.011538461538461537,
+        "lo": -0.035555555555555556,
+        "hi": 0.009900990099009901,
+        "p": 0.3447,
+        "k": 15
+      },
+      "deltaviolation|llama|C1a|lenient|all|pp": {
+        "n": 520,
+        "mean": -0.015769230769230768,
+        "lo": -0.031221719457013575,
+        "hi": -0.003969587071324053,
+        "p": 0.0251,
+        "k": 15
+      },
+      "deltaviolation|llama|C1a|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.015769230769230768,
+        "lo": -0.031221719457013575,
+        "hi": -0.003969587071324053,
+        "p": 0.0251,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|strict|signal|pp": {
+        "n": 57,
+        "mean": -0.04912280701754386,
+        "lo": -0.10357142857142858,
+        "hi": -1.258988704534721e-18,
+        "p": 0.0622,
+        "k": 14
+      },
+      "deltaviolation|llama|C2a|strict|signal|itt": {
+        "n": 57,
+        "mean": -0.04912280701754386,
+        "lo": -0.10357142857142858,
+        "hi": -1.258988704534721e-18,
+        "p": 0.0622,
+        "k": 14
+      },
+      "deltaviolation|llama|C2a|strict|all|pp": {
+        "n": 492,
+        "mean": -0.027642276422764223,
+        "lo": -0.0569818374184447,
+        "hi": -0.0037578288100208776,
+        "p": 0.0413,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|strict|all|itt": {
+        "n": 520,
+        "mean": -0.0723076923076923,
+        "lo": -0.17362637362637362,
+        "hi": -0.0036199095022624445,
+        "p": 0.0876,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|lenient|signal|pp": {
+        "n": 101,
+        "mean": -0.033663366336633666,
+        "lo": -0.08043540729635183,
+        "hi": 0.00577063106796115,
+        "p": 0.1324,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.040384615384615394,
+        "lo": -0.09703114486205902,
+        "hi": 0.013915217391304314,
+        "p": 0.159,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|lenient|all|pp": {
+        "n": 492,
+        "mean": -0.02886178861788618,
+        "lo": -0.05472076036004947,
+        "hi": -0.006556994024819981,
+        "p": 0.0195,
+        "k": 15
+      },
+      "deltaviolation|llama|C2a|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.07307692307692308,
+        "lo": -0.17393244575936884,
+        "hi": -0.006449797252314981,
+        "p": 0.0781,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|strict|signal|pp": {
+        "n": 50,
+        "mean": 0.09733333333333333,
+        "lo": -0.1,
+        "hi": 0.2807738095238095,
+        "p": 0.322,
+        "k": 14
+      },
+      "deltaviolation|llama|C2b|strict|signal|itt": {
+        "n": 57,
+        "mean": 0.12397660818713452,
+        "lo": -0.0643284936479129,
+        "hi": 0.3139480519480518,
+        "p": 0.2076,
+        "k": 14
+      },
+      "deltaviolation|llama|C2b|strict|all|pp": {
+        "n": 419,
+        "mean": 0.05326173428798728,
+        "lo": -0.071990360763317,
+        "hi": 0.1514760313216195,
+        "p": 0.3323,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|strict|all|itt": {
+        "n": 520,
+        "mean": 0.04791666666666666,
+        "lo": -0.06350031708487588,
+        "hi": 0.15239785395763655,
+        "p": 0.3923,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|lenient|signal|pp": {
+        "n": 92,
+        "mean": 0.05851449275362319,
+        "lo": -0.1030987972508591,
+        "hi": 0.21419671596789305,
+        "p": 0.4873,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|lenient|signal|itt": {
+        "n": 104,
+        "mean": 0.08012820512820513,
+        "lo": -0.07115778688524592,
+        "hi": 0.2343590954900478,
+        "p": 0.3204,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|lenient|all|pp": {
+        "n": 419,
+        "mean": 0.05103420843277645,
+        "lo": -0.07355846866685016,
+        "hi": 0.14939140099488452,
+        "p": 0.3626,
+        "k": 15
+      },
+      "deltaviolation|llama|C2b|lenient|all|itt": {
+        "n": 520,
+        "mean": 0.045096153846153855,
+        "lo": -0.06772812971342383,
+        "hi": 0.15177544677544677,
+        "p": 0.4261,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|strict|signal|pp": {
+        "n": 57,
+        "mean": -0.024561403508771923,
+        "lo": -0.065793673012318,
+        "hi": 0.021621621621621616,
+        "p": 0.3029,
+        "k": 14
+      },
+      "deltaviolation|llama|C3|strict|signal|itt": {
+        "n": 57,
+        "mean": -0.024561403508771923,
+        "lo": -0.065793673012318,
+        "hi": 0.021621621621621616,
+        "p": 0.3029,
+        "k": 14
+      },
+      "deltaviolation|llama|C3|strict|all|pp": {
+        "n": 520,
+        "mean": 0.00076923076923077,
+        "lo": -0.00525328330206379,
+        "hi": 0.005494505494505495,
+        "p": 0.7534,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|strict|all|itt": {
+        "n": 520,
+        "mean": 0.00076923076923077,
+        "lo": -0.00525328330206379,
+        "hi": 0.005494505494505495,
+        "p": 0.7534,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|lenient|signal|pp": {
+        "n": 104,
+        "mean": -0.021153846153846155,
+        "lo": -0.04745762711864408,
+        "hi": 0.0053103244837758076,
+        "p": 0.1251,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.021153846153846155,
+        "lo": -0.04745762711864408,
+        "hi": 0.0053103244837758076,
+        "p": 0.1251,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|lenient|all|pp": {
+        "n": 520,
+        "mean": -0.0003846153846153858,
+        "lo": -0.00901885595663707,
+        "hi": 0.008097165991902834,
+        "p": 0.9187,
+        "k": 15
+      },
+      "deltaviolation|llama|C3|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.0003846153846153858,
+        "lo": -0.00901885595663707,
+        "hi": 0.008097165991902834,
+        "p": 0.9187,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|strict|signal|pp": {
+        "n": 53,
+        "mean": 0.007547169811320752,
+        "lo": -0.040816326530612256,
+        "hi": 0.05333333333333333,
+        "p": 0.786,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C1a|strict|signal|itt": {
+        "n": 57,
+        "mean": 0.03859649122807017,
+        "lo": -0.01923076923076924,
+        "hi": 0.09090909090909093,
+        "p": 0.1853,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C1a|strict|all|pp": {
+        "n": 449,
+        "mean": 0.027616926503340748,
+        "lo": -0.017518888462030997,
+        "hi": 0.07539521548480839,
+        "p": 0.2366,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|strict|all|itt": {
+        "n": 520,
+        "mean": 0.01961538461538461,
+        "lo": -0.06690563506261182,
+        "hi": 0.10160471388367726,
+        "p": 0.6549,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|lenient|signal|pp": {
+        "n": 89,
+        "mean": 0.03820224719101124,
+        "lo": -0.05744741990706775,
+        "hi": 0.14258132956152747,
+        "p": 0.4606,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|lenient|signal|itt": {
+        "n": 104,
+        "mean": 0.05384615384615384,
+        "lo": -0.031583866207575015,
+        "hi": 0.1274761904761904,
+        "p": 0.1898,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|lenient|all|pp": {
+        "n": 449,
+        "mean": 0.01692650334075723,
+        "lo": -0.022857439857439866,
+        "hi": 0.061511483121195344,
+        "p": 0.4219,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C1a|lenient|all|itt": {
+        "n": 520,
+        "mean": 0.011153846153846155,
+        "lo": -0.062271978021978036,
+        "hi": 0.0808834092736531,
+        "p": 0.772,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|strict|signal|pp": {
+        "n": 57,
+        "mean": -0.03157894736842105,
+        "lo": -0.07272727272727272,
+        "hi": 0.0036380471380471164,
+        "p": 0.133,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C2a|strict|signal|itt": {
+        "n": 57,
+        "mean": -0.03157894736842105,
+        "lo": -0.07272727272727272,
+        "hi": 0.0036380471380471164,
+        "p": 0.133,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C2a|strict|all|pp": {
+        "n": 520,
+        "mean": -0.004999999999999999,
+        "lo": -0.018145956607495066,
+        "hi": 0.006227106227106227,
+        "p": 0.4345,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|strict|all|itt": {
+        "n": 520,
+        "mean": -0.004999999999999999,
+        "lo": -0.018145956607495066,
+        "hi": 0.006227106227106227,
+        "p": 0.4345,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|lenient|signal|pp": {
+        "n": 104,
+        "mean": -0.005769230769230769,
+        "lo": -0.022000000000000002,
+        "hi": 0.013084112149532713,
+        "p": 0.5321,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.005769230769230769,
+        "lo": -0.022000000000000002,
+        "hi": 0.013084112149532713,
+        "p": 0.5321,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|lenient|all|pp": {
+        "n": 520,
+        "mean": -0.0023076923076923066,
+        "lo": -0.01172161172161172,
+        "hi": 0.007287449392712551,
+        "p": 0.6487,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2a|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.0023076923076923066,
+        "lo": -0.01172161172161172,
+        "hi": 0.007287449392712551,
+        "p": 0.6487,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|strict|signal|pp": {
+        "n": 49,
+        "mean": -0.008163265306122445,
+        "lo": -0.07805068597560975,
+        "hi": 0.07894736842105263,
+        "p": 0.8425,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C2b|strict|signal|itt": {
+        "n": 57,
+        "mean": 7.791038769299344e-18,
+        "lo": -0.06285714285714285,
+        "hi": 0.08627450980392158,
+        "p": 0.9724,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C2b|strict|all|pp": {
+        "n": 495,
+        "mean": -0.0024242424242424264,
+        "lo": -0.04500042955326461,
+        "hi": 0.04909468069679337,
+        "p": 0.9186,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|strict|all|itt": {
+        "n": 520,
+        "mean": 0.003461538461538461,
+        "lo": -0.03902511184875163,
+        "hi": 0.05305280925970579,
+        "p": 0.888,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|lenient|signal|pp": {
+        "n": 96,
+        "mean": -0.07708333333333332,
+        "lo": -0.13164711330657614,
+        "hi": -0.02142857142857144,
+        "p": 0.0067,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.07115384615384615,
+        "lo": -0.11926605504587157,
+        "hi": -0.02195038422986971,
+        "p": 0.0039,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|lenient|all|pp": {
+        "n": 495,
+        "mean": -0.012525252525252533,
+        "lo": -0.04865775026357066,
+        "hi": 0.02995445487380971,
+        "p": 0.5409,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C2b|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.0073076923076923084,
+        "lo": -0.046474529459901805,
+        "hi": 0.03632575757575757,
+        "p": 0.7344,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|strict|signal|pp": {
+        "n": 57,
+        "mean": -0.024561403508771923,
+        "lo": -0.065793673012318,
+        "hi": 0.021621621621621616,
+        "p": 0.3029,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C3|strict|signal|itt": {
+        "n": 57,
+        "mean": -0.024561403508771923,
+        "lo": -0.065793673012318,
+        "hi": 0.021621621621621616,
+        "p": 0.3029,
+        "k": 14
+      },
+      "deltaviolation|nemotron|C3|strict|all|pp": {
+        "n": 520,
+        "mean": 0.00076923076923077,
+        "lo": -0.00525328330206379,
+        "hi": 0.005494505494505495,
+        "p": 0.7534,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|strict|all|itt": {
+        "n": 520,
+        "mean": 0.00076923076923077,
+        "lo": -0.00525328330206379,
+        "hi": 0.005494505494505495,
+        "p": 0.7534,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|lenient|signal|pp": {
+        "n": 104,
+        "mean": -0.021153846153846155,
+        "lo": -0.04745762711864408,
+        "hi": 0.0053103244837758076,
+        "p": 0.1251,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|lenient|signal|itt": {
+        "n": 104,
+        "mean": -0.021153846153846155,
+        "lo": -0.04745762711864408,
+        "hi": 0.0053103244837758076,
+        "p": 0.1251,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|lenient|all|pp": {
+        "n": 520,
+        "mean": -0.0003846153846153858,
+        "lo": -0.00901885595663707,
+        "hi": 0.008097165991902834,
+        "p": 0.9187,
+        "k": 15
+      },
+      "deltaviolation|nemotron|C3|lenient|all|itt": {
+        "n": 520,
+        "mean": -0.0003846153846153858,
+        "lo": -0.00901885595663707,
+        "hi": 0.008097165991902834,
+        "p": 0.9187,
+        "k": 15
+      }
+    },
+    "power": {
+      "mdd|llama|strict|pp|C2a-C0b": {
+        "observed_d": 0.29385964912280704,
+        "se_from_ci": 0.070389618230689,
+        "holm_p": 0.0009,
+        "n": 57,
+        "mdd80_alpha05": 0.19720251394371338,
+        "mdd80_alpha0125_worst_holm": 0.2350539321226279,
+        "abs_d_over_mdd80_alpha05": 1.49014149589737
+      },
+      "mdd|llama|strict|pp|C2b-C0b": {
+        "observed_d": -0.004901960784313725,
+        "se_from_ci": 0.0036100008736197303,
+        "holm_p": 0.3954,
+        "n": 51,
+        "mdd80_alpha05": 0.010113725084907937,
+        "mdd80_alpha0125_worst_holm": 0.012054972333128588,
+        "abs_d_over_mdd80_alpha05": 0.48468400546388263
+      },
+      "mdd|llama|strict|pp|C2a-C1a": {
+        "observed_d": 0.2719298245614035,
+        "se_from_ci": 0.06643404385480754,
+        "holm_p": 0.0009,
+        "n": 57,
+        "mdd80_alpha05": 0.18612063524309747,
+        "mdd80_alpha0125_worst_holm": 0.2218449769638247,
+        "abs_d_over_mdd80_alpha05": 1.4610407073145233
+      },
+      "mdd|llama|strict|pp|C3-C2b": {
+        "observed_d": 0.3137254901960784,
+        "se_from_ci": 0.08353358905569712,
+        "holm_p": 0.0008,
+        "n": 51,
+        "mdd80_alpha05": 0.23402646831436424,
+        "mdd80_alpha0125_worst_holm": 0.2789459449475569,
+        "abs_d_over_mdd80_alpha05": 1.3405555895269747
+      },
+      "mdd|llama|strict|itt|C2a-C0b": {
+        "observed_d": 0.29385964912280704,
+        "se_from_ci": 0.070389618230689,
+        "holm_p": 0.0012,
+        "n": 57,
+        "mdd80_alpha05": 0.19720251394371338,
+        "mdd80_alpha0125_worst_holm": 0.2350539321226279,
+        "abs_d_over_mdd80_alpha05": 1.49014149589737
+      },
+      "mdd|llama|strict|itt|C2b-C0b": {
+        "observed_d": 0.08771929824561403,
+        "se_from_ci": 0.03444475756903218,
+        "holm_p": 0.0142,
+        "n": 57,
+        "mdd80_alpha05": 0.09649992364688532,
+        "mdd80_alpha0125_worst_holm": 0.11502229890034757,
+        "abs_d_over_mdd80_alpha05": 0.9090089912049925
+      },
+      "mdd|llama|strict|itt|C2a-C1a": {
+        "observed_d": 0.2719298245614035,
+        "se_from_ci": 0.06643404385480754,
+        "holm_p": 0.0012,
+        "n": 57,
+        "mdd80_alpha05": 0.18612063524309747,
+        "mdd80_alpha0125_worst_holm": 0.2218449769638247,
+        "abs_d_over_mdd80_alpha05": 1.4610407073145233
+      },
+      "mdd|llama|strict|itt|C3-C2b": {
+        "observed_d": 0.21929824561403508,
+        "se_from_ci": 0.07062542807619267,
+        "holm_p": 0.0072,
+        "n": 57,
+        "mdd80_alpha05": 0.19786315532116197,
+        "mdd80_alpha0125_worst_holm": 0.2358413782377242,
+        "abs_d_over_mdd80_alpha05": 1.1083329044160886
+      },
+      "mdd|llama|lenient|pp|C2a-C0b": {
+        "observed_d": 0.1949837766990291,
+        "se_from_ci": 0.06137269919185627,
+        "holm_p": 0.013499999999999998,
+        "n": 103,
+        "mdd80_alpha05": 0.17194084685159822,
+        "mdd80_alpha0125_worst_holm": 0.20494349355251273,
+        "abs_d_over_mdd80_alpha05": 1.1340166125116227
+      },
+      "mdd|llama|lenient|pp|C2b-C0b": {
+        "observed_d": -0.03771930526315789,
+        "se_from_ci": 0.057644830167032174,
+        "holm_p": 0.5147,
+        "n": 95,
+        "mdd80_alpha05": 0.16149690409658982,
+        "mdd80_alpha0125_worst_holm": 0.19249492095404658,
+        "abs_d_over_mdd80_alpha05": 0.2335605470219932
+      },
+      "mdd|llama|lenient|pp|C2a-C1a": {
+        "observed_d": 0.14320385436893204,
+        "se_from_ci": 0.05195156228840175,
+        "holm_p": 0.022,
+        "n": 103,
+        "mdd80_alpha05": 0.14554672896506143,
+        "mdd80_alpha0125_worst_holm": 0.17348323947122124,
+        "abs_d_over_mdd80_alpha05": 0.9839029388513995
+      },
+      "mdd|llama|lenient|pp|C3-C2b": {
+        "observed_d": 0.2245613894736842,
+        "se_from_ci": 0.04068912251554674,
+        "holm_p": 0.0004,
+        "n": 95,
+        "mdd80_alpha05": 0.11399404417754329,
+        "mdd80_alpha0125_worst_holm": 0.13587427354065074,
+        "abs_d_over_mdd80_alpha05": 1.9699396674087168
+      },
+      "mdd|llama|lenient|itt|C2a-C0b": {
+        "observed_d": 0.19791662499999998,
+        "se_from_ci": 0.05834687272872249,
+        "holm_p": 0.0069,
+        "n": 104,
+        "mdd80_alpha05": 0.16346373615990759,
+        "mdd80_alpha0125_worst_holm": 0.19483927043044147,
+        "abs_d_over_mdd80_alpha05": 1.2107677803619332
+      },
+      "mdd|llama|lenient|itt|C2b-C0b": {
+        "observed_d": 0.042467932692307704,
+        "se_from_ci": 0.06573282733778357,
+        "holm_p": 0.5265,
+        "n": 104,
+        "mdd80_alpha05": 0.18415611741430646,
+        "mdd80_alpha0125_worst_holm": 0.21950338592044616,
+        "abs_d_over_mdd80_alpha05": 0.23060831911852914
+      },
+      "mdd|llama|lenient|itt|C2a-C1a": {
+        "observed_d": 0.14663458653846154,
+        "se_from_ci": 0.048538622730695535,
+        "holm_p": 0.0102,
+        "n": 104,
+        "mdd80_alpha05": 0.1359850879498787,
+        "mdd80_alpha0125_worst_holm": 0.1620863192534334,
+        "abs_d_over_mdd80_alpha05": 1.0783137235790736
+      },
+      "mdd|llama|lenient|itt|C3-C2b": {
+        "observed_d": 0.14903845192307694,
+        "se_from_ci": 0.03829399685678393,
+        "holm_p": 0.0004,
+        "n": 104,
+        "mdd80_alpha05": 0.10728389553643032,
+        "mdd80_alpha0125_worst_holm": 0.12787616645936326,
+        "abs_d_over_mdd80_alpha05": 1.3891968703957813
+      },
+      "mdd|nemotron|strict|pp|C2a-C0b": {
+        "observed_d": 0.02358490566037736,
+        "se_from_ci": 0.1310919414016517,
+        "holm_p": 1.0,
+        "n": 53,
+        "mdd80_alpha05": 0.3672652452445988,
+        "mdd80_alpha0125_worst_holm": 0.43775882112417785,
+        "abs_d_over_mdd80_alpha05": 0.06421763552570786
+      },
+      "mdd|nemotron|strict|pp|C2b-C0b": {
+        "observed_d": 0.036458333333333336,
+        "se_from_ci": 0.09005488665813544,
+        "holm_p": 1.0,
+        "n": 48,
+        "mdd80_alpha05": 0.25229643928027096,
+        "mdd80_alpha0125_worst_holm": 0.30072268820209963,
+        "abs_d_over_mdd80_alpha05": 0.1445059368944661
+      },
+      "mdd|nemotron|strict|pp|C2a-C1a": {
+        "observed_d": -0.018867924528301886,
+        "se_from_ci": 0.10181094602940112,
+        "holm_p": 1.0,
+        "n": 53,
+        "mdd80_alpha05": 0.28523204143806735,
+        "mdd80_alpha0125_worst_holm": 0.33998001124122784,
+        "abs_d_over_mdd80_alpha05": 0.06614938641947311
+      },
+      "mdd|nemotron|strict|pp|C3-C2b": {
+        "observed_d": 0.03365384615384615,
+        "se_from_ci": 0.10839923330825854,
+        "holm_p": 1.0,
+        "n": 52,
+        "mdd80_alpha05": 0.303689689691196,
+        "mdd80_alpha0125_worst_holm": 0.3619804549113962,
+        "abs_d_over_mdd80_alpha05": 0.1108165581388909
+      },
+      "mdd|nemotron|strict|itt|C2a-C0b": {
+        "observed_d": 0.021929824561403508,
+        "se_from_ci": 0.12208732829050757,
+        "holm_p": 1.0,
+        "n": 57,
+        "mdd80_alpha05": 0.34203805425759115,
+        "mdd80_alpha0125_worst_holm": 0.40768947606705974,
+        "abs_d_over_mdd80_alpha05": 0.06411515996079199
+      },
+      "mdd|nemotron|strict|itt|C2b-C0b": {
+        "observed_d": 0.03070175438596491,
+        "se_from_ci": 0.11495005945234837,
+        "holm_p": 1.0,
+        "n": 57,
+        "mdd80_alpha05": 0.322042387382906,
+        "mdd80_alpha0125_worst_holm": 0.3838558036137236,
+        "abs_d_over_mdd80_alpha05": 0.09533451368145757
+      },
+      "mdd|nemotron|strict|itt|C2a-C1a": {
+        "observed_d": -0.07456140350877193,
+        "se_from_ci": 0.10854727454108105,
+        "holm_p": 1.0,
+        "n": 57,
+        "mdd80_alpha05": 0.30410443982074276,
+        "mdd80_alpha0125_worst_holm": 0.36247481295404343,
+        "abs_d_over_mdd80_alpha05": 0.24518354139361745
+      },
+      "mdd|nemotron|strict|itt|C3-C2b": {
+        "observed_d": -0.021929824561403508,
+        "se_from_ci": 0.10299411852901051,
+        "holm_p": 1.0,
+        "n": 57,
+        "mdd80_alpha05": 0.2885468000234508,
+        "mdd80_alpha0125_worst_holm": 0.3439310107693272,
+        "abs_d_over_mdd80_alpha05": 0.07600092795907362
+      },
+      "mdd|nemotron|lenient|pp|C2a-C0b": {
+        "observed_d": 0.20052084375,
+        "se_from_ci": 0.05041544026986359,
+        "holm_p": 0.0004,
+        "n": 96,
+        "mdd80_alpha05": 0.1412431522247071,
+        "mdd80_alpha0125_worst_holm": 0.1683536261879925,
+        "abs_d_over_mdd80_alpha05": 1.4196854190211403
+      },
+      "mdd|nemotron|lenient|pp|C2b-C0b": {
+        "observed_d": -0.008241714285714286,
+        "se_from_ci": 0.032788619240930045,
+        "holm_p": 0.8069,
+        "n": 91,
+        "mdd80_alpha05": 0.09186011098772405,
+        "mdd80_alpha0125_worst_holm": 0.109491911949198,
+        "abs_d_over_mdd80_alpha05": 0.0897202735452354
+      },
+      "mdd|nemotron|lenient|pp|C2a-C1a": {
+        "observed_d": 0.1586021505376344,
+        "se_from_ci": 0.03536540440290674,
+        "holm_p": 0.0004,
+        "n": 93,
+        "mdd80_alpha05": 0.0990791942077708,
+        "mdd80_alpha0125_worst_holm": 0.11809663946132697,
+        "abs_d_over_mdd80_alpha05": 1.6007614091515816
+      },
+      "mdd|nemotron|lenient|pp|C3-C2b": {
+        "observed_d": 0.18181816161616163,
+        "se_from_ci": 0.04249317772256634,
+        "holm_p": 0.0004,
+        "n": 99,
+        "mdd80_alpha05": 0.11904825857818913,
+        "mdd80_alpha0125_worst_holm": 0.14189860327613124,
+        "abs_d_over_mdd80_alpha05": 1.527264353024922
+      },
+      "mdd|nemotron|lenient|itt|C2a-C0b": {
+        "observed_d": 0.13701924038461538,
+        "se_from_ci": 0.07057280483239621,
+        "holm_p": 0.1545,
+        "n": 104,
+        "mdd80_alpha05": 0.19771572681921265,
+        "mdd80_alpha0125_worst_holm": 0.23566565203425385,
+        "abs_d_over_mdd80_alpha05": 0.6930113379898356
+      },
+      "mdd|nemotron|lenient|itt|C2b-C0b": {
+        "observed_d": -0.03846150000000001,
+        "se_from_ci": 0.07544128303415915,
+        "holm_p": 0.6166,
+        "n": 104,
+        "mdd80_alpha05": 0.2113551833839769,
+        "mdd80_alpha0125_worst_holm": 0.251923091320645,
+        "abs_d_over_mdd80_alpha05": 0.1819756647752781
+      },
+      "mdd|nemotron|lenient|itt|C2a-C1a": {
+        "observed_d": 0.0625,
+        "se_from_ci": 0.05064298712197317,
+        "holm_p": 0.4458,
+        "n": 104,
+        "mdd80_alpha05": 0.14188064412200543,
+        "mdd80_alpha0125_worst_holm": 0.16911347946855998,
+        "abs_d_over_mdd80_alpha05": 0.44051110979067204
+      },
+      "mdd|nemotron|lenient|itt|C3-C2b": {
+        "observed_d": 0.1522435769230769,
+        "se_from_ci": 0.03870787940335926,
+        "holm_p": 0.0004,
+        "n": 104,
+        "mdd80_alpha05": 0.10844342276095072,
+        "mdd80_alpha0125_worst_holm": 0.12925825550111122,
+        "abs_d_over_mdd80_alpha05": 1.4038986694350093
+      }
+    }
+  },
+  "wet_cases": {
+    "registered": "EXPLORATORY (PROTOCOL 8.34 item 6)",
+    "generated": "2026-10-19T03:51:37+00:00",
+    "selection_rule": "strict mode; sets WET1/WET2; conditions C3+C2a; usable top-5; crop in top5 \u2229 D; sorted (cond C3-first, set, sid, model, crop); per condition the first candidate from each set with distinct scenario ids (C2a: llama for WET1, nemotron for WET2 when available), then fill in sorted order (3 C3 + 2 C2a)",
+    "n_candidates": 45,
+    "candidates_by_cond": {
+      "C3": 14,
+      "C2a": 31
+    },
+    "n_cases": 5,
+    "cases": [
+      {
+        "set": "WET1",
+        "sid": "S000358",
+        "season": "Kharif",
+        "district": "Alirajpur",
+        "condition": "C3",
+        "model": "model-independent",
+        "mode": "strict",
+        "crop_kept_in_top5": "Urad",
+        "advice_top5_position": 2,
+        "D": [
+          "Urad"
+        ],
+        "constraint_crossed": [
+          {
+            "hazard": "flood",
+            "flag_before": false,
+            "flag_after": true,
+            "constraint_table_status": "cited",
+            "mode": "strict"
+          }
+        ],
+        "scorer": {
+          "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+          "rank_full": 2,
+          "total_score": 0.898,
+          "components": {
+            "rainfall_match": 1.0,
+            "temperature_match": 0.99,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.75,
+            "risk_penalty": 0.83
+          },
+          "weighted_contributions": {
+            "season": 0.225,
+            "rainfall": 0.2,
+            "soil": 0.2,
+            "temperature": 0.1485,
+            "risk": 0.1245
+          },
+          "stored_bundle_crop_score_if_available": {
+            "total_score": 0.778,
+            "scores": {
+              "rainfall_match": 1.0,
+              "temperature_match": 0.99,
+              "soil_type_match": 1.0,
+              "season_alignment": 0.35,
+              "risk_penalty": 0.83
+            },
+            "plantable_now": false
+          },
+          "stored_tool_top6_matches_recompute": null,
+          "stored_tool_current_week": 31,
+          "as_of_week": 31
+        },
+        "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+      },
+      {
+        "set": "WET2",
+        "sid": "S001353",
+        "season": "Zaid",
+        "district": "Betul",
+        "condition": "C3",
+        "model": "model-independent",
+        "mode": "strict",
+        "crop_kept_in_top5": "Urad",
+        "advice_top5_position": 5,
+        "D": [
+          "Urad"
+        ],
+        "constraint_crossed": [
+          {
+            "hazard": "flood",
+            "flag_before": false,
+            "flag_after": true,
+            "constraint_table_status": "cited",
+            "mode": "strict"
+          }
+        ],
+        "scorer": {
+          "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+          "rank_full": 5,
+          "total_score": 0.481,
+          "components": {
+            "rainfall_match": 0.0,
+            "temperature_match": 1.0,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.0,
+            "risk_penalty": 0.875
+          },
+          "weighted_contributions": {
+            "soil": 0.2,
+            "temperature": 0.15,
+            "risk": 0.1313,
+            "rainfall": 0.0,
+            "season": 0.0
+          },
+          "stored_bundle_crop_score_if_available": {
+            "total_score": 0.481,
+            "scores": {
+              "rainfall_match": 0.0,
+              "temperature_match": 1.0,
+              "soil_type_match": 1.0,
+              "season_alignment": 0.0,
+              "risk_penalty": 0.875
+            },
+            "plantable_now": false
+          },
+          "stored_tool_top6_matches_recompute": null,
+          "stored_tool_current_week": 21,
+          "as_of_week": 21
+        },
+        "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+      },
+      {
+        "set": "WET1",
+        "sid": "S001538",
+        "season": "Kharif",
+        "district": "Bhind",
+        "condition": "C3",
+        "model": "model-independent",
+        "mode": "strict",
+        "crop_kept_in_top5": "Urad",
+        "advice_top5_position": 4,
+        "D": [
+          "Urad"
+        ],
+        "constraint_crossed": [
+          {
+            "hazard": "flood",
+            "flag_before": false,
+            "flag_after": true,
+            "constraint_table_status": "cited",
+            "mode": "strict"
+          }
+        ],
+        "scorer": {
+          "instrument": "registered pipeline (run_deterministic_v2::score_crops full_repo)",
+          "rank_full": 4,
+          "total_score": 0.632,
+          "components": {
+            "rainfall_match": 0.754,
+            "temperature_match": 0.75,
+            "soil_type_match": 0.1,
+            "season_alignment": 0.75,
+            "risk_penalty": 0.828
+          },
+          "weighted_contributions": {
+            "season": 0.225,
+            "rainfall": 0.1508,
+            "risk": 0.1242,
+            "temperature": 0.1125,
+            "soil": 0.02
+          },
+          "stored_bundle_crop_score_if_available": {
+            "total_score": 0.707,
+            "scores": {
+              "rainfall_match": 0.754,
+              "temperature_match": 0.75,
+              "soil_type_match": 0.1,
+              "season_alignment": 1.0,
+              "risk_penalty": 0.828
+            },
+            "plantable_now": true
+          },
+          "stored_tool_top6_matches_recompute": null,
+          "stored_tool_current_week": 24,
+          "as_of_week": 24
+        },
+        "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+      },
+      {
+        "set": "WET1",
+        "sid": "S000358",
+        "season": "Kharif",
+        "district": "Alirajpur",
+        "condition": "C2a",
+        "model": "llama",
+        "mode": "strict",
+        "crop_kept_in_top5": "Urad",
+        "advice_top5_position": 2,
+        "D": [
+          "Urad"
+        ],
+        "constraint_crossed": [
+          {
+            "hazard": "flood",
+            "flag_before": false,
+            "flag_after": true,
+            "constraint_table_status": "cited",
+            "mode": "strict"
+          }
+        ],
+        "scorer": {
+          "instrument": "MCP crop_score tool (mcp_server/crop_score_tool.py)",
+          "rank_full": 2,
+          "total_score": 0.778,
+          "components": {
+            "rainfall_match": 1.0,
+            "temperature_match": 0.99,
+            "soil_type_match": 1.0,
+            "season_alignment": 0.35,
+            "risk_penalty": 0.83
+          },
+          "weighted_contributions": {
+            "rainfall": 0.2,
+            "soil": 0.2,
+            "temperature": 0.1485,
+            "risk": 0.1245,
+            "season": 0.105
+          },
+          "stored_bundle_crop_score_if_available": {
+            "total_score": 0.778,
+            "scores": {
+              "rainfall_match": 1.0,
+              "temperature_match": 0.99,
+              "soil_type_match": 1.0,
+              "season_alignment": 0.35,
+              "risk_penalty": 0.83
+            },
+            "plantable_now": false
+          },
+          "stored_tool_top6_matches_recompute": true,
+          "stored_tool_current_week": 31,
+          "as_of_week": 31
+        },
+        "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+      },
+      {
+        "set": "WET2",
+        "sid": "S000480",
+        "season": "Kharif",
+        "district": "Anuppur",
+        "condition": "C2a",
+        "model": "nemotron",
+        "mode": "strict",
+        "crop_kept_in_top5": "Urad",
+        "advice_top5_position": 5,
+        "D": [
+          "Urad"
+        ],
+        "constraint_crossed": [
+          {
+            "hazard": "flood",
+            "flag_before": false,
+            "flag_after": true,
+            "constraint_table_status": "cited",
+            "mode": "strict"
+          }
+        ],
+        "scorer": {
+          "instrument": "MCP crop_score tool (mcp_server/crop_score_tool.py)",
+          "rank_full": 5,
+          "total_score": 0.852,
+          "components": {
+            "rainfall_match": 0.336,
+            "temperature_match": 1.0,
+            "soil_type_match": 1.0,
+            "season_alignment": 1.0,
+            "risk_penalty": 0.901
+          },
+          "weighted_contributions": {
+            "season": 0.3,
+            "soil": 0.2,
+            "temperature": 0.15,
+            "risk": 0.1351,
+            "rainfall": 0.0672
+          },
+          "stored_bundle_crop_score_if_available": {
+            "total_score": 0.852,
+            "scores": {
+              "rainfall_match": 0.336,
+              "temperature_match": 1.0,
+              "soil_type_match": 1.0,
+              "season_alignment": 1.0,
+              "risk_penalty": 0.901
+            },
+            "plantable_now": true
+          },
+          "stored_tool_top6_matches_recompute": true,
+          "stored_tool_current_week": 28,
+          "as_of_week": 28
+        },
+        "facts_note": "The scorer's formula contains no hard-constraint table; hazard probability enters only via the risk penalty component."
+      }
+    ]
+  }
+}

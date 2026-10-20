@@ -186,6 +186,8 @@ Scorer alone over all 500 scenarios: Precision@5 = 0.5035. (n is slightly below 
 Report only; no interpretation. Full output:
 `eval/results/real_eval_scorer_vs_final.{json,txt}`.
 
+**Cross-reference (PROTOCOL 8.35 instrument correction):** The registered C3 scorer proxy used in this section differs from the actual MCP `crop_score` tool on 17/40 base scenarios. The corrected instrument C3t (identical pipeline with real sowing windows) reproduces the tool 10,000/10,000. C3t real-data Precision@5 on R_prim = 0.4833 (vs C3 0.5035). See `eval/reports/CORRECTION_NOTE.md`.
+
 ## 11. Ground-truth v1.2 and season-validity recomputation (old vs new)
 
 `eval/data/ground_truth/crop_season_table_v1.2.csv` (v1.1 untouched) retracts the two

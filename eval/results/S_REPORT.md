@@ -447,6 +447,9 @@ the tool's presence, not generic tool access, drives the echo.
     different verdict (nemotron C3−C2b holds the both-rule under lenient; strict primary
     unchanged) are disclosed in `S_FOLLOWUP.md` §4.5.
 
+
+**Cross-reference (PROTOCOL 8.35 instrument correction):** The registered C3 arm used in S-series Stale@5/Violation@5 tables differs from the actual MCP crop_score tool. The corrected instrument C3t (identical pipeline with real sowing windows) reproduces the tool 10,000/10,000. The 45 strict WET candidates (14 C3 + 31 C2a, all Urad/flood-cited) are re-evaluated under C3t. See eval/reports/CORRECTION_NOTE.md.
+
 ## 17. Bug log (S series; date found → date fixed)
 
 | # | Found | Fixed | Bug | Impact |

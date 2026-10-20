@@ -125,7 +125,7 @@ def main() -> None:
     c3t_v2 = make_score(ns, rows_v2, use_windows=True)
 
     scen = ROOT / "eval" / "data" / "scenarios.jsonl"
-    sids_all = sorted(json.loads(line)["id"]
+    sids_all = sorted(json.loads(line)["scenario_id"]
                       for line in scen.read_text(encoding="utf-8").splitlines()
                       if line.strip())
     missing_det = [s for s in sids_all
@@ -154,14 +154,14 @@ def main() -> None:
         det2 = json.loads((DET_V2 / f"{sid}.json").read_text(encoding="utf-8"))
         old1 = det1["ablations"]["full_repo"]["top5"]
         old2 = det2["ablations"]["full_repo"]["top5"]
-        nd1 = [c["crop"] for c in det_v1(ev, week)]
-        nd2 = [c["crop"] for c in det_v2(ev, week)]
+        nd1 = [c["crop"] for c in det_v1(ev, week)][:5]
+        nd2 = [c["crop"] for c in det_v2(ev, week)][:5]
         if nd1 != old1:
             gates["g_det_v1_bad"].append(sid)
         if nd2 != old2:
             gates["g_det_v2_bad"].append(sid)
-        t1 = [c["crop"] for c in c3t_v1(ev, week)]
-        t2 = [c["crop"] for c in c3t_v2(ev, week)]
+        t1 = [c["crop"] for c in c3t_v1(ev, week)][:5]
+        t2 = [c["crop"] for c in c3t_v2(ev, week)][:5]
         stored = [c["crop"] for c in
                   ((ev.get("crop_score") or {}).get("ranked_crops") or [])[:5]]
         if t1 == stored:
@@ -221,7 +221,7 @@ def main() -> None:
     # g_s_base: N0 bundles == archive base bundles under C3t (identity control)
     for sid in select_base(40):
         ev = json.loads((ARCH / f"{sid}.json").read_text(encoding="utf-8"))
-        base_t5 = [c["crop"] for c in c3t_v1(ev, week_of(ev))]
+        base_t5 = [c["crop"] for c in c3t_v1(ev, week_of(ev))][:5]
         n0_t5 = ((out_sets.get("N0") or {}).get(sid) or {}).get("top5") or []
         n0_identity["n"] += 1
         n0_identity["match"] += int(base_t5 == n0_t5)

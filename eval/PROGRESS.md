@@ -516,3 +516,26 @@ Last updated: 2026-10-13
       paragraph (nemotron baseline enrichment + registered-vs-scored Stale@5 convention).
       Reconstruction gate PASS 12 480 cells / 0 mismatch at 1e-6 (bug F1; iteration log
       F1-F3 in S_FOLLOWUP section 11). **STOP - AWAITING USER APPROVAL; no commit made.**
+
+---
+
+### Phase 8.35: Instrument Correction (C3t) — COMPLETED 2026-10-20
+
+- [x] Delete `eval/scripts/test_multikey.py` (exposed 3 real NVIDIA API keys)
+- [x] Add `.env.example` with placeholder env var names only
+- [x] Register PROTOCOL §8.35 (instrument correction, not tuning) at 2026-10-19 22:56:19 UTC
+- [x] Run `c3t_recompute.py` — all gates PASS:
+    - g_det_v1 (C3 replica == archive det, db_v1): 10000/10000
+    - g_det_v2 (C3 replica == db_v2 det, db_v2): 10000/10000
+    - g_tool (C3t == stored bundle crop_score): 10000/10000 (base40: 40/40)
+    - g_s_base (C3t N0 == C3t archive base): 40/40
+- [x] Run `c3t_correction.py` — full metric recomputation:
+    - Season validity (10k): C3 0.9999 → C3t 0.9048 (strict); Hard violation: C3 0.6893 → C3t 0.8051 (strict)
+    - Real-data P@5 (R_prim, n=500): C3 0.5035 → C3t 0.4833
+    - S-series: 560 cells recomputed with C3t
+    - 45 WET candidates: 14 C3 + 31 C2a (all Urad/flood-cited)
+- [x] Write `eval/reports/CORRECTION_NOTE.md` with old-vs-new table
+- [x] Append cross-references to `REAL_EVAL_REPORT.md` §10 and `S_REPORT.md` §16.7
+- [x] Commit: `5efd9db security: remove exposed test script, add .env.example; register instrument correction`
+
+**Total tasks: ~38 | Completed: 26 | In progress: 1 | Blocked: 0 | Progress: 68%**
