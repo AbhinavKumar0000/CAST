@@ -1,0 +1,11 @@
+weight_perturbation,jaccard_vs_full_repo
+Rainfall +20%,0.9791
+Rainfall −20%,0.9807
+Temp +20%,0.9833
+Temp −20%,0.9765
+Soil +20%,0.9606
+Soil −20%,0.9208
+Season +20%,0.925
+Season −20%,0.9514
+Risk +20%,0.9761
+Risk −20%,0.9379

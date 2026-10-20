@@ -1,0 +1,8 @@
+ablation,jaccard_vs_full_repo
+Full (repo weights),0.9067
+Full (equal weights),1.0
+− Weather,0.9073
+− Climate,0.8174
+− Soil,0.6109
+− Risk,0.8683
+− Season,1.0

@@ -1,0 +1,7 @@
+metric,value,max_value,pct_of_max
+"Distinct crops
+(max 21)",21.0,21.0,100.0
+"Shannon entropy
+(max 4.39)",4.0383,4.39,91.9886104783599
+"Per-district diff
+(max 1.0)",0.1795,1.0,17.95

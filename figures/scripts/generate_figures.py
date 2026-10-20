@@ -81,13 +81,18 @@ plt.rcParams.update({
 })
 
 fig_dir = Path(__file__).resolve().parent.parent / "out"
+data_dir = Path(__file__).resolve().parent.parent / "data" / "archive_v1"
 fig_dir.mkdir(parents=True, exist_ok=True)
+data_dir.mkdir(parents=True, exist_ok=True)
 
-def save_fig(fig, name: str):
-    """Save figure as PNG and PDF."""
+def save_fig(fig, name: str, rows=None, cols=None):
+    """Save figure as PNG and PDF, and optionally write CSV data."""
     fig.savefig(fig_dir / f"{name}.png", dpi=300)
     fig.savefig(fig_dir / f"{name}.pdf")
     plt.close(fig)
+    if rows is not None and cols is not None:
+        import pandas as pd
+        pd.DataFrame(rows, columns=cols).to_csv(data_dir / f"{name}.csv", index=False)
 
 # Load deterministic summary
 with open(Path(__file__).resolve().parent.parent.parent / "eval/results/c3_deterministic_summary.json") as f:
@@ -128,7 +133,9 @@ ax.set_xlim(0.5, 1.05)
 ax.invert_yaxis()
 for bar, val in zip(bars, jaccards):
     ax.text(val + 0.01, bar.get_y() + bar.get_height()/2, f'{val:.3f}', va='center', fontsize=9)
-save_fig(fig, 'Fig_E01_tool_ablation')
+save_fig(fig, 'Fig_E01_tool_ablation',
+         rows=[{'ablation': l, 'jaccard_vs_full_repo': j} for l, j in zip(labels, jaccards)],
+         cols=['ablation', 'jaccard_vs_full_repo'])
 
 # --- Figure E02: Weight sensitivity ---
 fig, ax = plt.subplots(figsize=(8, 5))
@@ -147,7 +154,9 @@ ax.set_xlim(0.9, 1.0)
 ax.invert_yaxis()
 for bar, val in zip(bars, sens_jaccards):
     ax.text(val + 0.001, bar.get_y() + bar.get_height()/2, f'{val:.3f}', va='center', fontsize=8)
-save_fig(fig, 'Fig_E02_weight_sensitivity')
+save_fig(fig, 'Fig_E02_weight_sensitivity',
+         rows=[{'weight_perturbation': l, 'jaccard_vs_full_repo': j} for l, j in zip(sens_labels, sens_jaccards)],
+         cols=['weight_perturbation', 'jaccard_vs_full_repo'])
 
 # --- Figure E03: Season validity (overall and stress) ---
 fig, ax = plt.subplots(figsize=(8, 5))
@@ -161,7 +170,9 @@ ax.set_title('Fig E03: Season Validity Rate — C3 Deterministic')
 ax.set_ylim(0, 1.05)
 for bar, val in zip(bars, values):
     ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.02, f'{val:.1%}', ha='center', fontsize=10)
-save_fig(fig, 'Fig_E03_season_validity')
+save_fig(fig, 'Fig_E03_season_validity',
+         rows=[{'category': c, 'season_validity_rate': v} for c, v in zip(categories, values)],
+         cols=['category', 'season_validity_rate'])
 
 # --- Figure E04: Season validity by season ---
 fig, ax = plt.subplots(figsize=(8, 5))
@@ -180,7 +191,9 @@ for bar, val, n in zip(bars, season_vals, season_n):
         ax.text(bar.get_x() + bar.get_width()/2, val - 0.05, f'{val:.1%}\n(n={n})', ha='center', va='top', fontsize=9, color='white')
     else:
         ax.text(bar.get_x() + bar.get_width()/2, val + 0.02, f'{val:.1%}\n(n={n})', ha='center', va='bottom', fontsize=9)
-save_fig(fig, 'Fig_E04_season_validity_by_season')
+save_fig(fig, 'Fig_E04_season_validity_by_season',
+         rows=[{'season': s, 'season_validity_rate': v, 'n': n} for s, v, n in zip(seasons, season_vals, season_n)],
+         cols=['season', 'season_validity_rate', 'n'])
 
 # --- Figure E05: Crop frequency heatmap (C3 only for now) ---
 # Load crop frequencies
@@ -210,7 +223,9 @@ ax.set_title('Fig E05: Crop Recommendation Frequency — C3 Deterministic')
 ax.invert_yaxis()
 for bar, val in zip(bars, crop_freqs):
     ax.text(val + 50, bar.get_y() + bar.get_height()/2, f'{val}', va='center', fontsize=8)
-save_fig(fig, 'Fig_E05_crop_frequency')
+save_fig(fig, 'Fig_E05_crop_frequency',
+         rows=[{'crop': c, 'top5_frequency': f} for c, f in zip(crop_names, crop_freqs)],
+         cols=['crop', 'top5_frequency'])
 
 # --- Figure E06: Diversity metrics ---
 fig, ax = plt.subplots(figsize=(8, 5))
@@ -225,7 +240,9 @@ ax.set_title('Fig E06: Specificity/Diversity Metrics — C3 Deterministic')
 ax.set_ylim(0, 110)
 for bar, val, p in zip(bars, values, pct):
     ax.text(bar.get_x() + bar.get_width()/2, p + 2, f'{val:.3f}\n({p:.0f}%)', ha='center', fontsize=9)
-save_fig(fig, 'Fig_E06_diversity_metrics')
+save_fig(fig, 'Fig_E06_diversity_metrics',
+         rows=[{'metric': m, 'value': v, 'max_value': mv, 'pct_of_max': p} for m, v, mv, p in zip(metrics, values, max_vals, pct)],
+         cols=['metric', 'value', 'max_value', 'pct_of_max'])
 
 print("Figures E01-E06 saved to", fig_dir)
 
